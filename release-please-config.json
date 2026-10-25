@@ -25,7 +25,6 @@
     ".": {
       "package-name": "nyema-design-system",
       "changelog-path": "CHANGELOG.md",
-      "release-as": "0.0.1",
       "extra-files": [
         { "type": "json", "path": "packages/tokens/package.json", "jsonpath": "$.version" },
         { "type": "json", "path": "packages/react/package.json", "jsonpath": "$.version" },
