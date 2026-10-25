@@ -1,5 +1,38 @@
 # Changelog
 
+## [0.1.0](https://github.com/Nyema-R-D/DesSys/compare/v0.0.1...v0.1.0) (2026-10-25)
+
+
+### Nouveautés · Fɛn kuraw
+
+* **react:** ajoute l'en-tête de site SiteHeader ([bb0fb26](https://github.com/Nyema-R-D/DesSys/commit/bb0fb26a2a96443a7f26ec8476b2b8bf65b4ec7a)), closes [#7](https://github.com/Nyema-R-D/DesSys/issues/7)
+* **react:** ajoute le bloc d'ouverture Hero ([68ffaef](https://github.com/Nyema-R-D/DesSys/commit/68ffaef3f5f531d27dca3fceae759473e6f2cd19)), closes [#8](https://github.com/Nyema-R-D/DesSys/issues/8)
+* **react:** ajoute Select, RadioGroup et Checkbox, taille sm et pleine largeur pour Button ([5326eca](https://github.com/Nyema-R-D/DesSys/commit/5326eca318190582133378f162b5453aa5a7be0a)), closes [#10](https://github.com/Nyema-R-D/DesSys/issues/10)
+* **react:** ajoute ServiceCard, Tag et le badge de statut sans cadre ([495fdbb](https://github.com/Nyema-R-D/DesSys/commit/495fdbbfc2f3980a2f116278ad5a6c4522fa0813)), closes [#31](https://github.com/Nyema-R-D/DesSys/issues/31)
+* **react:** ajoute SiteFooter et le sélecteur de langue FR/BM ([4407bc2](https://github.com/Nyema-R-D/DesSys/commit/4407bc25aa786853ad3e920495054d07c1ac11f1)), closes [#9](https://github.com/Nyema-R-D/DesSys/issues/9)
+* **tokens:** embarque les polices Archivo et JetBrains Mono ([d8ea516](https://github.com/Nyema-R-D/DesSys/commit/d8ea516e1a7a4f1f8e06c7c0bb97d599a42a46de)), closes [#12](https://github.com/Nyema-R-D/DesSys/issues/12)
+
+
+### Corrections · Latilenniw
+
+* **react:** charge les fondations avec Theme et supprime le débordement des stories ([af733a9](https://github.com/Nyema-R-D/DesSys/commit/af733a93a37a9b8c48d3c9f177fed9803f6b53b2))
+* **react:** déplace l'action de SiteHeader dans le menu sous 600 px ([80ef082](https://github.com/Nyema-R-D/DesSys/commit/80ef082681ed18c805cd8dab81124935c0c13d16))
+
+
+### Documentation · Sɛbɛnw
+
+* **wiki:** précise l'usage de Release-As pour aligner version et jalon ([c740e0d](https://github.com/Nyema-R-D/DesSys/commit/c740e0d505c70febacd645f8027ef33c254f71ac))
+
+
+### CI/CD
+
+* ajoute la régression visuelle des stories avec Playwright ([d4682cb](https://github.com/Nyema-R-D/DesSys/commit/d4682cb6e8d3e2e6492f903351360b4faa4de96b)), closes [#14](https://github.com/Nyema-R-D/DesSys/issues/14)
+* audite l'accessibilité de chaque story avec axe-core ([64a33b7](https://github.com/Nyema-R-D/DesSys/commit/64a33b7d763b985d96e0f54759d217990a902dee)), closes [#13](https://github.com/Nyema-R-D/DesSys/issues/13)
+* régénère les captures visuelles via le label visual:update ([c9f1666](https://github.com/Nyema-R-D/DesSys/commit/c9f1666d1f24fd1ce2766a605a3c1b43f6ef9dc6))
+* retire le forçage de version 0.0.1 de release-please ([#29](https://github.com/Nyema-R-D/DesSys/issues/29)) ([2de4a90](https://github.com/Nyema-R-D/DesSys/commit/2de4a906a01db5f6aaf13252da84a3fc6e5df56f))
+* retire le label visual:update avec github-script ([160c37f](https://github.com/Nyema-R-D/DesSys/commit/160c37f9549ade5cd6b095c06f9b32c5b2c0caf6))
+* sert Storybook sur 127.0.0.1 pour la régression visuelle ([d8b687c](https://github.com/Nyema-R-D/DesSys/commit/d8b687c618c613e2d30652af7a03abc5930ff140))
+
 ## 0.0.1 (2026-10-25)
 
 
