@@ -12,7 +12,7 @@
 .ny-field__input {
   height: var(--control-field);
   padding: 0 14px;
-  border: 1px solid var(--line-subtle);
+  border: 1px solid var(--line-control);
   border-radius: var(--radius-0);
   background: var(--surface-raised);
   color: var(--text-primary);

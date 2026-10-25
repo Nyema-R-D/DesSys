@@ -43,7 +43,7 @@
   display: none;
   height: var(--control-nav);
   padding: 0 var(--space-3);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line-control);
   background: transparent;
   color: var(--text-primary);
   cursor: pointer;
