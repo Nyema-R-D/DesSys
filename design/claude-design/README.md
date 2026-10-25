@@ -17,11 +17,11 @@ Projet : « Système de design NYEMA complet » (`e0b39f0c-e6c4-4764-bf01-85e271
 
 ## Écarts assumés
 
-À valider par les fondateurs (issues `type:design`) :
+Marque validée par les fondateurs le 25/10/2026 (#20), écarts compris :
 
 - `ink-600` (#5A5F5B) et `ink-650` (#3C403D), utilisés par la page de référence ;
 - `ink-400` (#7C827D) et `laterite-600` assombri à #BC481B, pour le contraste AA (#22) ;
 - thème papier sémantique dérivé, couleurs de statut assombries sur papier ;
 - survol primaire en latérite 400 dans les deux thèmes ;
-- échelle typographique : écart entre la page et `typography.css` (#21) ;
-- contraste des filets de composants interactifs (#41).
+- échelle typographique : celle de la page de référence fait foi (#21) ;
+- bordures des contrôles interactifs sur un token dédié `--line-control` à 3:1 (#41).

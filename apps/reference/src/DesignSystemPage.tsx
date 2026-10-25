@@ -55,7 +55,7 @@ export function DesignSystemPage() {
           <p>
             Identité sobre, technologique et géométrique. Un seul accent, une grille de modules, un
             symbole construit sur le carré-nœud. Tout ce qui suit est dérivé du dossier de cadrage
-            et reste à valider par les fondateurs.
+            et validé par les fondateurs.
           </p>
         </section>
 
