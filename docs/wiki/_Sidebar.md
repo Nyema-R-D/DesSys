@@ -1,0 +1,19 @@
+**🇫🇷 Français**
+
+- [Accueil](Home)
+- [Démarrage](Demarrage)
+- [Tokens](Tokens)
+- [Composants](Composants)
+- [Versionnage et publication](Versionnage-et-publication)
+- [Automatisation CI/CD](Automatisation-CI-CD)
+- [Réutiliser ce dépôt](Reutiliser-ce-depot)
+- [Backlog](Backlog) · [Feuille de route](Feuille-de-route)
+
+**🇲🇱 Bamanankan**
+
+- [Daminɛ](BM-Daminen)
+- [Tokens](BM-Tokens)
+- [Komponanw](BM-Komponanw)
+- [Version ni bɔli](BM-Version-ni-boli)
+- [Otomatiki](BM-Otomatiki)
+- [Baara tɔw](BM-Baara-tow) · [Sira jiraminɛn](BM-Sira-jiraminen)
