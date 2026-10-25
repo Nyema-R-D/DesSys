@@ -14,6 +14,10 @@
 | `stale.yml`            | Hebdo                           | Relance puis fermeture des issues inactives (hors jalons)                                                        |
 | Dependabot             | Hebdo (lundi, Bamako)           | Mises à jour npm et Actions, groupées                                                                            |
 
+## Accessibilité
+
+`packages/react/src/test/a11y.test.tsx` rend **chaque story** dans les thèmes anthracite et papier et l'audite avec axe-core ; toute violation fait échouer `pnpm test`, donc la CI. Le contraste des couleurs n'est pas mesurable dans jsdom : il relève de l'audit dédié (issue #22). Une nouvelle story est couverte automatiquement.
+
 ## En local
 
 `lefthook` exécute Prettier et ESLint sur les fichiers indexés, et commitlint sur le message. `pnpm check` reproduit la CI.
