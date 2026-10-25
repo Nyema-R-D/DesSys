@@ -67,6 +67,11 @@ jobs:
           git push
       - name: Retirer le label
         if: env.UPDATE == 'true' && github.event_name == 'pull_request'
-        run: gh pr edit ${{ github.event.pull_request.number }} --remove-label visual:update -R ${{ github.repository }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: actions/github-script@v9
+        with:
+          script: |
+            await github.rest.issues.removeLabel({
+              ...context.repo,
+              issue_number: context.payload.pull_request.number,
+              name: 'visual:update',
+            });
