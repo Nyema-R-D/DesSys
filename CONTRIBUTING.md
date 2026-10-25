@@ -24,7 +24,7 @@ Après 1.0 : `feat` → mineure, `fix` → patch, cassant → majeure.
 - Toujours passer par les tokens (`var(--accent)`, `var(--space-4)`) ; aucune couleur codée en dur dans un composant.
 - Un composant = `Composant.tsx` + `Composant.css` + `Composant.test.tsx` + `Composant.stories.tsx`, exporté depuis `src/index.ts`.
 - Classes CSS préfixées `ny-`, BEM léger (`ny-lab-row__title`).
-- Accessibilité : contraste AA, focus visible, clavier ; l'addon a11y de Storybook est en mode erreur.
+- Accessibilité : contraste AA, focus visible, clavier. Chaque story est auditée par axe-core dans les deux thèmes (`pnpm test`) ; l'addon a11y de Storybook est en mode erreur.
 - Ton : français, vouvoiement, phrases déclaratives, aucun produit annoncé « disponible » sans l'être.
 
 ## Langues

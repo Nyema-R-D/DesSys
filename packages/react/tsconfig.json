@@ -1,7 +1,14 @@
 {
   "extends": "@nyema-r-d/config/tsconfig/react-library.json",
   "compilerOptions": {
-    "types": ["vitest/globals", "@testing-library/jest-dom", "node"]
+    "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom", "node"]
   },
-  "include": ["src", ".storybook", "vite.config.ts", "vitest.config.ts"]
+  "include": [
+    "src",
+    ".storybook",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "visual",
+    "playwright.config.ts"
+  ]
 }
