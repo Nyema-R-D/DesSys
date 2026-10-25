@@ -1,0 +1,15 @@
+.ny-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+}
+.ny-pagination__status {
+  color: var(--text-secondary);
+}
+.ny-pagination__actions {
+  display: flex;
+  gap: var(--space-2);
+}
