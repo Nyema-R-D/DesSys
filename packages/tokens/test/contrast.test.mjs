@@ -1,10 +1,8 @@
 // Audit WCAG 2.2 des paires de tokens (issue #22). 1.4.3 : texte ≥ 4,5:1 ; 1.4.11 : éléments graphiques ≥ 3:1.
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
-execFileSync('node', ['scripts/build.mjs']);
 const tokens = JSON.parse(readFileSync('dist/tokens.json', 'utf8'));
 
 const parse = (color, background) => {

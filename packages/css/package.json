@@ -27,7 +27,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "typecheck": "echo 'css : rien à typer'",
-    "test": "node --test \"test/*.test.mjs\""
+    "test": "node scripts/build.mjs && node --test \"test/*.test.mjs\""
   },
   "peerDependencies": {
     "@nyema-r-d/tokens": "workspace:^"

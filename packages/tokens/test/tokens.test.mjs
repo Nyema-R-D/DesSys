@@ -1,9 +1,7 @@
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
-execFileSync('node', ['scripts/build.mjs']);
 const css = readFileSync('dist/tokens.css', 'utf8');
 const json = JSON.parse(readFileSync('dist/tokens.json', 'utf8'));
 
