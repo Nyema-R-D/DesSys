@@ -20,7 +20,9 @@ Source : `packages/tokens/src/tokens.json`. Le build génère `tokens.css`, `ind
 
 ## Tokens sémantiques (par thème)
 
-`--surface-page`, `--surface-raised`, `--surface-inverse`, `--surface-disabled`, `--text-primary`, `--text-secondary`, `--text-tertiary`, `--text-inverse`, `--text-on-accent`, `--line-hairline`, `--line-subtle`, `--line-strong`, `--line-contrast`, `--accent`, `--accent-hover`, `--accent-text`, `--danger`.
+`--surface-page`, `--surface-raised`, `--surface-inverse`, `--surface-disabled`, `--text-primary`, `--text-secondary`, `--text-tertiary`, `--text-inverse`, `--text-on-accent`, `--line-hairline`, `--line-subtle`, `--line-strong`, `--line-contrast`, `--accent`, `--accent-hover`, `--accent-text`, `--danger`, `--status-research`, `--status-prototype`, `--status-pilot`, `--status-available`.
+
+Les couleurs de statut sont assombries en thème papier (#3D6FB8, #A07A16, #C24A1C, #2E9E62) pour rester visibles sur fond clair (contraste ≥ 3:1).
 
 Utilisez toujours les tokens sémantiques dans les composants : ils changent avec `data-ny-theme`.
 

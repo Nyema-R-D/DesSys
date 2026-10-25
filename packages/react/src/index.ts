@@ -49,3 +49,9 @@ export {
   type LanguageOption,
   type LanguageSwitchProps,
 } from './components/LanguageSwitch/LanguageSwitch';
+export {
+  ServiceCard,
+  ServiceGrid,
+  type ServiceCardProps,
+} from './components/ServiceCard/ServiceCard';
+export { Tag, TagList } from './components/Tag/Tag';

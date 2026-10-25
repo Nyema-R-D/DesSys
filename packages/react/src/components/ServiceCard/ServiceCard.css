@@ -1,0 +1,44 @@
+.ny-service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1px;
+  background: var(--line-contrast);
+  border: 1px solid var(--line-contrast);
+}
+.ny-service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-7);
+  min-height: 260px;
+  padding: 28px;
+  background: var(--surface-page);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+a.ny-service-card:hover {
+  background: color-mix(in srgb, var(--text-primary) 7%, var(--surface-page));
+  color: var(--text-primary);
+}
+.ny-service-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.ny-service-card__code {
+  font: 500 12px/1.2 var(--font-mono);
+  color: var(--text-tertiary);
+}
+.ny-service-card__title {
+  margin: 0 0 10px;
+  font: 600 26px/1.1 var(--font-sans);
+  font-stretch: var(--stretch-title);
+}
+.ny-service-card__description {
+  margin: 0;
+  font: 400 15px/1.5 var(--font-sans);
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}

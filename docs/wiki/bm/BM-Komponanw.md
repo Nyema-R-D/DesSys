@@ -16,6 +16,7 @@ Package `@nyema-r-d/react`.
 | `SectionLabel`                     | Label                                                      |
 | `LabRow`                           | Laboratoire ka sira                                        |
 | `PillarCard`                       | Kartu                                                      |
+| `ServiceCard`, `Tag`               | Baara kartu, taamasiyɛn                                    |
 | `SignalGrid`                       | Taamasiyɛn kare                                            |
 | `Container`, `Section`             | Ɲɛ labɛncogo                                               |
 | `SiteHeader`, `Hero`, `SiteFooter` | Site ka kɔrɔ, a daminɛ, a laban                            |
