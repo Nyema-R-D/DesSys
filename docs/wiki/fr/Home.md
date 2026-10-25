@@ -24,3 +24,5 @@ Source unique de la marque NYEMA : tokens, composants React, configuration et au
 - **Deux thèmes** : anthracite (site, apps), papier (documents).
 - **Géométrie** : angles vifs, filets 1 px, aucune ombre, grille de modules carrés.
 - **Honnêteté** : chaque produit porte un statut (Recherche, Prototype, Pilote, Disponible) ; rien n'est annoncé disponible sans l'être.
+- **Accessibilité vérifiée** : contrastes WCAG AA audités sur les tokens, audit axe-core de chaque story et de chaque composant Vue, captures visuelles à chaque PR.
+- **Stabilité** : aucune API retirée hors version majeure ([politique de dépréciation](Politique-de-depreciation)).
