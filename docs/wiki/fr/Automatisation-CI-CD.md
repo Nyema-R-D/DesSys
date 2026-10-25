@@ -25,3 +25,7 @@
 | `RELEASE_TOKEN`         | secret (optionnel) | PAT ou token d'App : la CI tourne aussi sur la PR de release |
 | `PAGES_ENABLED`         | variable           | `true` pour déployer sur GitHub Pages                        |
 | `CODE_SCANNING_ENABLED` | variable           | `true` pour CodeQL sur dépôt privé avec GHAS                 |
+
+## Politique d'actions
+
+Les workflows n'utilisent que des actions publiées par GitHub ou par des créateurs vérifiés (`actions/*`, `github/*`, `googleapis/release-please-action`). pnpm est installé par corepack (inclus dans Node), à la version du champ `packageManager`. Le dépôt fonctionne donc avec le réglage « Allow GitHub-owned and verified creators actions ».

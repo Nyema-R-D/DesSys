@@ -15,24 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # En squash-merge, le titre de la PR devient le commit : il pilote version et changelog.
-      - uses: amannn/action-semantic-pull-request@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/github-script@v9
         with:
-          types: |
-            feat
-            fix
-            perf
-            revert
-            refactor
-            docs
-            build
-            ci
-            deps
-            test
-            style
-            chore
-          requireScope: false
+          script: |
+            const types = ['feat', 'fix', 'perf', 'revert', 'refactor', 'docs', 'build', 'ci', 'deps', 'test', 'style', 'chore'];
+            const title = context.payload.pull_request.title;
+            const pattern = new RegExp(`^(${types.join('|')})(\\([a-z0-9-]+\\))?!?: \\S`);
+            if (!pattern.test(title)) {
+              core.setFailed(
+                `Titre non conventionnel : « ${title} ». Attendu : type(portée): description — types : ${types.join(', ')}.\n` +
+                  `Ni PR tɔgɔ tɛ Conventional Commits cogo la.`,
+              );
+            }
 
   labels:
     name: Labels et jalon
