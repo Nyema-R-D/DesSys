@@ -11,11 +11,9 @@
 .ny-hero__title {
   max-width: 13ch;
   margin: 0;
-  font-weight: 600;
-  font-stretch: 112%;
-  font-size: clamp(48px, 8.2vw, 124px);
-  line-height: 0.92;
-  letter-spacing: -0.025em;
+  font: var(--type-display);
+  font-stretch: var(--stretch-headline);
+  letter-spacing: var(--tracking-headline);
   text-wrap: balance;
 }
 .ny-hero__bottom {

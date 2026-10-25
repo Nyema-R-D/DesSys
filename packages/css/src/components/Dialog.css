@@ -19,7 +19,7 @@
 }
 .ny-dialog__title {
   margin: 0;
-  font: 600 24px/1.2 var(--font-sans);
+  font: var(--type-h3);
   font-stretch: var(--stretch-title);
 }
 .ny-dialog__close {

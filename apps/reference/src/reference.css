@@ -271,24 +271,21 @@ code {
   flex: 1 1 400px;
 }
 .ref-type-display {
+  /* Échantillon réduit dans la ligne de spécimen ; le token --type-display monte à 124 px. */
   font-weight: 600;
-  font-stretch: 112%;
+  font-stretch: var(--stretch-headline);
   font-size: clamp(44px, 6vw, 96px);
   line-height: 0.92;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--tracking-headline);
 }
 .ref-type-h2 {
-  font-weight: 600;
+  font: var(--type-h2);
   font-stretch: var(--stretch-heading);
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: 1;
   letter-spacing: var(--tracking-heading);
 }
 .ref-type-h3 {
-  font-weight: 600;
+  font: var(--type-h3);
   font-stretch: var(--stretch-title);
-  font-size: 26px;
-  line-height: 1.1;
 }
 .ref-type-body-lg {
   font: var(--type-body-lg);
