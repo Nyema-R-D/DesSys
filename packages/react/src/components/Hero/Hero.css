@@ -1,0 +1,54 @@
+.ny-hero {
+  padding-block: clamp(48px, 7vw, 104px) var(--space-8);
+}
+.ny-hero__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-bottom: 40px;
+}
+.ny-hero__title {
+  max-width: 13ch;
+  margin: 0;
+  font-weight: 600;
+  font-stretch: 112%;
+  font-size: clamp(48px, 8.2vw, 124px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.ny-hero__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-7);
+  margin-top: 56px;
+}
+.ny-hero__body {
+  flex: 1 1 380px;
+  max-width: 520px;
+}
+.ny-hero__lead {
+  margin: 0 0 var(--space-6);
+  font: var(--type-body-lg);
+  color: color-mix(in srgb, var(--text-primary) 80%, var(--surface-page));
+  text-wrap: pretty;
+}
+.ny-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.ny-hero__media {
+  flex: 1 1 420px;
+  max-width: 600px;
+}
+.ny-hero__legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-3);
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
