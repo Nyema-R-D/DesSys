@@ -30,7 +30,7 @@ Après 1.0 : `feat` → mineure, `fix` → patch, cassant → majeure.
 
 ## Langues
 
-Le français fait foi. Toute page de `docs/wiki/fr` a son équivalent dans `docs/wiki/bm` (préfixe `BM-`). Si vous ne pouvez pas traduire, ouvrez une issue `i18n:bm`.
+Le français fait foi. Toute page de `docs/wiki/fr` a son équivalent dans `docs/wiki/bm` (préfixe `BM-`). Si vous ne pouvez pas traduire, ouvrez une issue `i18n:bm`. Après tout ajout de texte en bamanankan, lancez `pnpm i18n:bm` : l'inventaire `docs/i18n/relecture-bm.md` (relu par un locuteur natif) doit rester à jour, la CI le vérifie.
 
 ---
 
