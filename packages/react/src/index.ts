@@ -56,3 +56,12 @@ export {
 } from './components/ServiceCard/ServiceCard';
 export { Tag, TagList } from './components/Tag/Tag';
 export { Icon, type IconComponent, type IconProps, type IconSize } from './components/Icon/Icon';
+export {
+  ConnectionStatus,
+  OfflineBanner,
+  connectionLabels,
+  type ConnectionState,
+  type ConnectionStatusProps,
+  type OfflineBannerProps,
+} from './components/ConnectionStatus/ConnectionStatus';
+export { useOnlineStatus } from './hooks/useOnlineStatus';
