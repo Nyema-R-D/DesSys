@@ -1,0 +1,61 @@
+# Publie docs/wiki (FR + BM) dans le wiki GitHub, régénère backlog et feuille de route depuis
+# les issues et jalons, et met à jour l'issue épinglée « Tableau de bord ».
+name: Wiki
+
+on:
+  push:
+    branches: [main]
+    paths: [docs/wiki/**, scripts/github/backlog.mjs]
+  issues:
+    types: [opened, edited, closed, reopened, labeled, unlabeled, milestoned, demilestoned]
+  milestone:
+    types: [created, edited, closed, opened, deleted]
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_call:
+  workflow_dispatch:
+
+concurrency:
+  group: wiki
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    # Le tableau de bord est lui-même une issue : on ignore ses propres modifications.
+    if: ${{ !(github.event_name == 'issues' && startsWith(github.event.issue.body, '<!-- nyema:dashboard -->')) }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Pages statiques
+        run: |
+          mkdir -p build/wiki
+          cp docs/wiki/fr/*.md docs/wiki/bm/*.md docs/wiki/*.md build/wiki/
+      - name: Backlog, feuille de route, tableau de bord
+        run: node scripts/github/backlog.mjs build/wiki --dashboard
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Pousser vers le wiki
+        run: |
+          if ! git clone --depth 1 "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git" wiki 2>/dev/null; then
+            echo "::warning::Wiki indisponible (dépôt privé en offre Free, ou wiki non initialisé). Le tableau de bord issue reste à jour."
+            exit 0
+          fi
+          rsync -a --delete --exclude .git build/wiki/ wiki/
+          cd wiki
+          git config user.name "nyema-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo "Wiki déjà à jour."; exit 0; }
+          git commit -m "docs(wiki): synchronisation ${GITHUB_SHA::7}"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v7
+        with:
+          name: wiki
+          path: build/wiki
+          retention-days: 7

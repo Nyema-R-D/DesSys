@@ -1,0 +1,36 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Africa/Bamako
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: deps
+      prefix-development: chore
+      include: scope
+    labels: ['type:deps']
+    groups:
+      storybook:
+        patterns: ['storybook', '@storybook/*', 'eslint-plugin-storybook']
+      lint:
+        patterns:
+          ['eslint', '@eslint/*', 'typescript-eslint', 'eslint-plugin-*', 'prettier', 'globals']
+      test:
+        patterns: ['vitest', '@testing-library/*', 'jsdom']
+      react:
+        patterns: ['react', 'react-dom', '@types/react', '@types/react-dom']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Africa/Bamako
+    commit-message:
+      prefix: ci
+    labels: ['type:ci']
+    groups:
+      actions:
+        patterns: ['*']

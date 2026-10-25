@@ -1,0 +1,28 @@
+name: Issues
+
+on:
+  issues:
+    types: [opened, reopened, closed, milestoned]
+
+permissions:
+  issues: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v9
+        with:
+          script: |
+            const { action, issue } = context.payload;
+            const labels = issue.labels.map((l) => l.name);
+            const set = async (add, remove = []) => {
+              for (const name of remove.filter((n) => labels.includes(n))) {
+                await github.rest.issues.removeLabel({ ...context.repo, issue_number: issue.number, name });
+              }
+              if (add.length) await github.rest.issues.addLabels({ ...context.repo, issue_number: issue.number, labels: add });
+            };
+            const statuses = labels.filter((n) => n.startsWith('status:'));
+            if ((action === 'opened' || action === 'reopened') && !statuses.length) await set(['status:triage']);
+            if (action === 'milestoned') await set(['status:ready'], ['status:triage']);
+            if (action === 'closed') await set([], statuses);

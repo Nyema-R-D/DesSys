@@ -1,0 +1,48 @@
+name: Anomalie · Fili
+description: Un composant, un token ou l'automatisation ne se comporte pas comme prévu.
+title: 'fix: '
+labels: ['type:fix', 'status:triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci ! Décrivez le problème de façon factuelle. · *I ni ce ! Fili in ɲɛfɔ ka jɛya.*
+  - type: dropdown
+    id: area
+    attributes:
+      label: Zone · Yɔrɔ
+      options:
+        [
+          '@nyema-r-d/tokens',
+          '@nyema-r-d/react',
+          '@nyema-r-d/config',
+          'Page de référence',
+          'CI/CD · automatisation',
+          'Documentation · wiki',
+        ]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: '0.0.1'
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes pour reproduire · A kɛcogo
+      placeholder: "1. …\n2. …"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Résultat attendu / obtenu · Min makɔnɔna / min sɔrɔla
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte (navigateur, appareil, réseau) · Kunnafoni wɛrɛw

@@ -1,0 +1,57 @@
+name: Pull request
+
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  titre:
+    name: Titre conventionnel
+    runs-on: ubuntu-latest
+    steps:
+      # En squash-merge, le titre de la PR devient le commit : il pilote version et changelog.
+      - uses: amannn/action-semantic-pull-request@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            perf
+            revert
+            refactor
+            docs
+            build
+            ci
+            deps
+            test
+            style
+            chore
+          requireScope: false
+
+  labels:
+    name: Labels et jalon
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v7
+        with:
+          sync-labels: false
+      - name: Rattacher au prochain jalon ouvert
+        if: github.event.pull_request.milestone == null
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { data: milestones } = await github.rest.issues.listMilestones({
+              ...context.repo, state: 'open', sort: 'due_on', direction: 'asc',
+            });
+            const next = milestones.find((m) => /^v\d+\.\d+\.\d+$/.test(m.title));
+            if (!next) return core.info('Aucun jalon ouvert.');
+            await github.rest.issues.update({
+              ...context.repo, issue_number: context.payload.pull_request.number, milestone: next.number,
+            });
+            core.info(`PR rattachée au jalon ${next.title}`);

@@ -1,0 +1,15 @@
+'area:tokens':
+  - changed-files: [{ any-glob-to-any-file: 'packages/tokens/**' }]
+'area:react':
+  - changed-files: [{ any-glob-to-any-file: 'packages/react/**' }]
+'area:config':
+  - changed-files: [{ any-glob-to-any-file: 'packages/config/**' }]
+'area:reference':
+  - changed-files: [{ any-glob-to-any-file: 'apps/reference/**' }]
+'area:repo':
+  - changed-files:
+      [{ any-glob-to-any-file: ['.github/**', 'scripts/**', '*.json', '*.yml', '*.yaml'] }]
+'type:docs':
+  - changed-files: [{ any-glob-to-any-file: ['docs/**', '**/*.md', '**/*.mdx'] }]
+'i18n:bm':
+  - changed-files: [{ any-glob-to-any-file: ['docs/wiki/bm/**', 'README.bm.md'] }]

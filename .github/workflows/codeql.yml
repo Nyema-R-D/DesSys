@@ -1,0 +1,24 @@
+name: CodeQL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 4 * * 1'
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  analyse:
+    # CodeQL est gratuit sur les dépôts publics ; sur un dépôt privé il requiert GitHub Advanced Security.
+    if: ${{ !github.event.repository.private || vars.CODE_SCANNING_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: github/codeql-action/init@v4
+        with:
+          languages: javascript-typescript, actions
+      - uses: github/codeql-action/analyze@v4

@@ -1,0 +1,17 @@
+name: Décision de design · Desizɔn
+description: Une règle de marque ou un token à valider par les fondateurs.
+title: 'design: '
+labels: ['type:design', 'status:needs-founders']
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question · Ɲininkali
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options et recommandation · Sugandiliw
+    validations:
+      required: true

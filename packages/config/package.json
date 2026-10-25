@@ -1,0 +1,44 @@
+{
+  "name": "@nyema-r-d/config",
+  "version": "0.0.0",
+  "description": "Configuration partagée NYEMA : TypeScript, ESLint, Prettier, Commitlint.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nyema-R-D/DesSys.git",
+    "directory": "packages/config"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "eslint.js",
+    "prettier.json",
+    "commitlint.js",
+    "tsconfig"
+  ],
+  "exports": {
+    "./eslint": "./eslint.js",
+    "./prettier": "./prettier.json",
+    "./commitlint": "./commitlint.js",
+    "./tsconfig/*.json": "./tsconfig/*.json"
+  },
+  "scripts": {
+    "typecheck": "echo 'rien à vérifier'",
+    "test": "echo 'rien à tester'",
+    "build": "echo 'rien à construire'"
+  },
+  "peerDependencies": {
+    "@eslint/js": ">=10",
+    "eslint": ">=10",
+    "eslint-plugin-react-hooks": ">=7",
+    "globals": ">=17",
+    "typescript-eslint": ">=8"
+  },
+  "peerDependenciesMeta": {
+    "eslint-plugin-react-hooks": {
+      "optional": true
+    }
+  }
+}

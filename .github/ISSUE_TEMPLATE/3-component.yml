@@ -1,0 +1,33 @@
+name: Nouveau composant · Komponan kura
+description: Spécifier un composant à ajouter à @nyema-r-d/react.
+title: 'feat(react): '
+labels: ['type:feat', 'area:react', 'status:triage']
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Nom du composant · Tɔgɔ
+      placeholder: Tabs, Dialog, Table…
+    validations:
+      required: true
+  - type: textarea
+    id: usage
+    attributes:
+      label: Usages · Baarakɛcogo
+      description: Où et comment sera-t-il utilisé ? Lien Claude Design si disponible.
+    validations:
+      required: true
+  - type: textarea
+    id: anatomy
+    attributes:
+      label: Anatomie, variantes, états
+      placeholder: "Variantes : …\nÉtats : repos, hover, focus, désactivé, erreur"
+  - type: checkboxes
+    id: dod
+    attributes:
+      label: Définition de terminé · Banni taamasiyɛnw
+      options:
+        - label: Composant + CSS basé sur les tokens
+        - label: Tests (Vitest + Testing Library)
+        - label: Story Storybook (anthracite et papier) sans violation a11y
+        - label: Exporté depuis src/index.ts et documenté dans le wiki

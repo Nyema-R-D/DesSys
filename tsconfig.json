@@ -1,0 +1,5 @@
+{
+  "extends": "@nyema-r-d/config/tsconfig/react-library.json",
+  "include": [],
+  "files": []
+}

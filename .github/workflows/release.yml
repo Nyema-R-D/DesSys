@@ -1,0 +1,92 @@
+# Chaîne de publication : chaque push sur main met à jour la PR de release (version + CHANGELOG bilingue).
+# La fusion de cette PR crée le tag et la release, puis publie packages, documentation et wiki.
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      created: ${{ steps.rp.outputs.release_created }}
+      tag: ${{ steps.rp.outputs.tag_name }}
+      version: ${{ steps.rp.outputs.version }}
+    steps:
+      - id: rp
+        uses: googleapis/release-please-action@v5
+        with:
+          # Un PAT ou un token d'App (secret RELEASE_TOKEN) permet à la CI de tourner sur la PR de release.
+          token: ${{ secrets.RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  packages:
+    name: Publication des packages
+    needs: release-please
+    if: needs.release-please.outputs.created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+        with:
+          registry-url: https://npm.pkg.github.com
+      - run: pnpm build:packages
+      - run: pnpm test
+      - name: Publier sur GitHub Packages
+        run: pnpm -r --filter "./packages/**" publish --no-git-checks --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Joindre les archives à la release
+        run: |
+          mkdir -p tarballs
+          pnpm -r --filter "./packages/**" exec pnpm pack --pack-destination "$GITHUB_WORKSPACE/tarballs"
+          gh release upload "${{ needs.release-please.outputs.tag }}" tarballs/*.tgz --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  documentation:
+    name: Documentation (référence + Storybook)
+    needs: release-please
+    if: needs.release-please.outputs.created == 'true'
+    uses: ./.github/workflows/docs.yml
+    with:
+      tag: ${{ needs.release-please.outputs.tag }}
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+  notes:
+    name: Notes, jalons et issues
+    needs: [release-please, packages]
+    if: needs.release-please.outputs.created == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: node scripts/github/release-notes.mjs "${{ needs.release-please.outputs.tag }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  wiki:
+    name: Wiki et tableau de bord
+    needs: [release-please, notes]
+    if: always() && needs.release-please.result == 'success'
+    uses: ./.github/workflows/wiki.yml
+    permissions:
+      contents: write
+      issues: write

@@ -1,0 +1,54 @@
+# Construit la page de référence (racine) et Storybook (/storybook/).
+# Toujours joint à la release ; déployé sur GitHub Pages si la variable de dépôt PAGES_ENABLED vaut « true ».
+name: Documentation
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        type: string
+        default: ''
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: pnpm build:packages
+      - run: pnpm --filter @nyema-r-d/reference build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+      - run: pnpm build:storybook
+      - name: Assembler le site
+        run: |
+          mkdir -p _site
+          cp -r apps/reference/dist/. _site/
+          cp -r packages/react/storybook-static _site/storybook
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+      - name: Joindre le site à la release
+        if: inputs.tag != ''
+        run: |
+          (cd _site && zip -qr "../documentation-${{ inputs.tag }}.zip" .)
+          gh release upload "${{ inputs.tag }}" "documentation-${{ inputs.tag }}.zip" --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    needs: build
+    if: vars.PAGES_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

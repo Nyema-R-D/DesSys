@@ -1,0 +1,14 @@
+# Crochets Git locaux — mêmes contrôles que la CI, en plus rapide.
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: '*.{js,ts,tsx,json,md,yml,yaml,css}'
+      run: pnpm prettier --check {staged_files}
+    lint:
+      glob: '*.{js,ts,tsx}'
+      run: pnpm eslint --max-warnings=0 {staged_files}
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm commitlint --edit {1}

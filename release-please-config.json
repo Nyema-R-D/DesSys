@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "node",
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": true,
+  "include-component-in-tag": false,
+  "include-v-in-tag": true,
+  "pull-request-title-pattern": "chore(release): v${version}",
+  "pull-request-header": "Publication automatique · *Bɔli otomatiki*\n\nFusionner cette PR crée le tag, la release GitHub, publie les packages et déploie la documentation.\n*Ni nin PR in fara ɲɔgɔn kan, tag, release, packages ani sɛbɛnw bɛ bɔ otomatiki la.*",
+  "changelog-sections": [
+    { "type": "feat", "section": "Nouveautés · Fɛn kuraw" },
+    { "type": "fix", "section": "Corrections · Latilenniw" },
+    { "type": "perf", "section": "Performances · Teliya" },
+    { "type": "revert", "section": "Retours arrière · Segin kɔ" },
+    { "type": "refactor", "section": "Refonte · Labɛn kura" },
+    { "type": "docs", "section": "Documentation · Sɛbɛnw" },
+    { "type": "build", "section": "Construction · Jɔli" },
+    { "type": "ci", "section": "CI/CD" },
+    { "type": "deps", "section": "Dépendances" },
+    { "type": "test", "section": "Tests · Kɔrɔbɔliw", "hidden": true },
+    { "type": "style", "section": "Style", "hidden": true },
+    { "type": "chore", "section": "Maintenance", "hidden": true }
+  ],
+  "packages": {
+    ".": {
+      "package-name": "nyema-design-system",
+      "changelog-path": "CHANGELOG.md",
+      "release-as": "0.0.1",
+      "extra-files": [
+        { "type": "json", "path": "packages/tokens/package.json", "jsonpath": "$.version" },
+        { "type": "json", "path": "packages/react/package.json", "jsonpath": "$.version" },
+        { "type": "json", "path": "packages/config/package.json", "jsonpath": "$.version" },
+        { "type": "json", "path": "apps/reference/package.json", "jsonpath": "$.version" }
+      ]
+    }
+  }
+}

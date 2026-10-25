@@ -1,0 +1,19 @@
+name: Installer l'environnement NYEMA
+description: Node (version .nvmrc), pnpm (version packageManager) et dépendances avec cache.
+inputs:
+  registry-url:
+    description: Registre npm à configurer (publication)
+    required: false
+    default: ''
+runs:
+  using: composite
+  steps:
+    - uses: pnpm/action-setup@v6
+    - uses: actions/setup-node@v7
+      with:
+        node-version-file: .nvmrc
+        cache: pnpm
+        registry-url: ${{ inputs.registry-url }}
+        scope: ${{ inputs.registry-url != '' && '@nyema-r-d' || '' }}
+    - run: pnpm install --frozen-lockfile
+      shell: bash

@@ -1,0 +1,39 @@
+name: Évolution · Fɛn kura
+description: Proposer un nouveau composant, token ou une amélioration.
+title: 'feat: '
+labels: ['type:feat', 'status:triage']
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Zone · Yɔrɔ
+      options:
+        [
+          '@nyema-r-d/tokens',
+          '@nyema-r-d/react',
+          '@nyema-r-d/config',
+          'Page de référence',
+          'CI/CD · automatisation',
+          'Documentation · wiki',
+        ]
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: Besoin · Mago
+      description: Quel produit NYEMA en a besoin, dans quelle situation réelle ?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposition · Hakilina
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Règles du système · Sariyaw
+      options:
+        - label: Respecte l'accent unique latérite et réserve les couleurs de statut aux badges.
+        - label: Angles vifs, filets 1 px, aucune ombre portée.
+        - label: Accessible (contraste AA, focus visible, clavier).
