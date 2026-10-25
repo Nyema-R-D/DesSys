@@ -1,0 +1,38 @@
+{
+  "name": "@nyema-r-d/tokens",
+  "version": "0.0.0",
+  "description": "Tokens de design NYEMA : couleurs, typographie, espacement, mouvement, thèmes anthracite et papier.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nyema-R-D/DesSys.git",
+    "directory": "packages/tokens"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./fonts.css": "./dist/fonts.css",
+    "./tokens.json": "./dist/tokens.json",
+    "./assets/*": "./dist/assets/*"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "echo 'tokens : types générés au build'",
+    "test": "node --test \"test/*.test.mjs\""
+  }
+}
