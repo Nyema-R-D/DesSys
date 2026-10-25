@@ -33,7 +33,7 @@ a.ny-service-card:hover {
 }
 .ny-service-card__title {
   margin: 0 0 10px;
-  font: 600 26px/1.1 var(--font-sans);
+  font: var(--type-h3);
   font-stretch: var(--stretch-title);
 }
 .ny-service-card__description {

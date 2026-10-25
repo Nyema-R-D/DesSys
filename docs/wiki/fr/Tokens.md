@@ -29,18 +29,20 @@ Utilisez toujours les tokens sémantiques dans les composants : ils changent ave
 
 ## Typographie
 
-| Token            | Valeur                                                  |
-| ---------------- | ------------------------------------------------------- |
-| `--type-display` | 600 clamp(48px, 8.4vw, 128px)/0.92                      |
-| `--type-h1`      | 600 clamp(40px, 5vw, 72px)/1                            |
-| `--type-h2`      | 600 clamp(30px, 3.4vw, 48px)/1.05                       |
-| `--type-h3`      | 600 24px/1.2                                            |
-| `--type-body-lg` | 400 20px/1.5                                            |
-| `--type-body`    | 400 17px/1.55                                           |
-| `--type-small`   | 400 14px/1.5                                            |
-| `--type-label`   | 500 12px/1.3 mono, `--tracking-label` .08em, majuscules |
+Échelle de la page de référence, validée par les fondateurs (#21).
 
-Chasse (`font-stretch`) : `--stretch-display` 118 %, `--stretch-heading` 110 %, `--stretch-title` 108 %, `--stretch-body` 100 %.
+| Token            | Valeur                             | Usage                                                                                      |
+| ---------------- | ---------------------------------- | ------------------------------------------------------------------------------------------ |
+| `--type-display` | 600 clamp(48px, 8.2vw, 124px)/0.92 | Titre d'ouverture (Hero) — avec `--stretch-headline` 112 %, `--tracking-headline` −0,025em |
+| `--type-h1`      | 600 clamp(40px, 5.6vw, 84px)/0.95  | Titre de page, titre de contact — 112 %, −0,025em                                          |
+| `--type-h2`      | 600 clamp(32px, 4vw, 56px)/1       | Titre de section — `--stretch-heading` 110 %, `--tracking-heading` −0,02em                 |
+| `--type-h3`      | 600 26px/1.1                       | Titre de carte, de modale — `--stretch-title` 108 %                                        |
+| `--type-body-lg` | 400 20px/1.5                       | Accroche                                                                                   |
+| `--type-body`    | 400 17px/1.55                      | Texte courant                                                                              |
+| `--type-small`   | 400 14px/1.5                       | Texte secondaire                                                                           |
+| `--type-label`   | 500 12px/1.3 mono                  | Labels, majuscules, `--tracking-label` .08em                                               |
+
+Chasse : `--stretch-display` 118 % (logotype), `--stretch-headline` 112 %, `--stretch-heading` 110 %, `--stretch-title` 108 %, `--stretch-body` 100 %.
 
 ## Espacement, formes, mouvement
 
