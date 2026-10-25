@@ -1,6 +1,6 @@
 {
   "name": "@nyema-r-d/tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tokens de design NYEMA : couleurs, typographie, espacement, mouvement, thèmes anthracite et papier.",
   "type": "module",
   "license": "UNLICENSED",
