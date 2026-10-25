@@ -1,5 +1,6 @@
 import {
   Button,
+  Checkbox,
   Chip,
   ChipGroup,
   Container,
@@ -7,7 +8,9 @@ import {
   Logo,
   Mark,
   PillarCard,
+  RadioGroup,
   SectionLabel,
+  Select,
   SignalGrid,
   StatusBadge,
   TextField,
@@ -316,6 +319,33 @@ function ComponentsSection() {
               defaultValue="awa@"
               error="Adresse e-mail invalide."
             />
+          </div>
+        </div>
+
+        <div>
+          <div className="ny-mono-label ref-showcase__label">
+            Sélection — liste · choix unique · consentement
+          </div>
+          <div className="ref-fields">
+            <Select
+              label="Région"
+              placeholder="Choisir…"
+              options={[
+                { value: 'bamako', label: 'Bamako' },
+                { value: 'segou', label: 'Ségou' },
+                { value: 'sikasso', label: 'Sikasso' },
+              ]}
+            />
+            <RadioGroup
+              legend="Taille de l’organisation"
+              defaultValue="pme"
+              options={[
+                { value: 'pme', label: 'PME' },
+                { value: 'grande', label: 'Grande organisation' },
+                { value: 'public', label: 'Administration' },
+              ]}
+            />
+            <Checkbox label="J’accepte que mes informations soient utilisées pour répondre à ma demande." />
           </div>
         </div>
 

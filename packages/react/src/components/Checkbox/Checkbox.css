@@ -1,0 +1,30 @@
+.ny-checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.ny-checkbox__control {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font: var(--type-small);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+.ny-checkbox__input,
+.ny-radio__input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.ny-checkbox__input:disabled,
+.ny-radio__input:disabled {
+  cursor: not-allowed;
+}
+.ny-checkbox__control a {
+  color: var(--text-primary);
+  text-decoration: underline;
+}

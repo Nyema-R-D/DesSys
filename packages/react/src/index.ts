@@ -18,6 +18,13 @@ export {
 } from './components/StatusBadge/StatusBadge';
 export { TextField, type TextFieldProps } from './components/TextField/TextField';
 export { Chip, ChipGroup, type ChipProps } from './components/Chip/Chip';
+export { Checkbox, type CheckboxProps } from './components/Checkbox/Checkbox';
+export {
+  RadioGroup,
+  type RadioGroupProps,
+  type RadioOption,
+} from './components/RadioGroup/RadioGroup';
+export { Select, type SelectOption, type SelectProps } from './components/Select/Select';
 export { SectionLabel, type SectionLabelProps } from './components/SectionLabel/SectionLabel';
 export { LabRow, type LabRowProps } from './components/LabRow/LabRow';
 export { PillarCard, type PillarCardProps } from './components/PillarCard/PillarCard';

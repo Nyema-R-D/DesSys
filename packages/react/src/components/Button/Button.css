@@ -24,6 +24,17 @@
   padding: 0 26px;
   font-size: 17px;
 }
+.ny-button--sm {
+  height: var(--control-nav);
+  padding: 0 16px;
+  gap: 10px;
+  font-size: 14px;
+}
+.ny-button--full {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .ny-button--primary {
   background: var(--accent);
   color: var(--text-on-accent);
