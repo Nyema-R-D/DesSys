@@ -8,9 +8,16 @@ const BM = /[ɛɔɲŋƐƆƝŊ]/;
 const files = execFileSync('git', ['ls-files'], { encoding: 'utf8' })
   .split('\n')
   .filter((f) => /\.(md|mdx|ts|tsx|vue|yml|json|mjs)$/.test(f))
-  .filter((f) => !/^(CHANGELOG\.md|pnpm-lock\.yaml|docs\/i18n\/|scripts\/i18n\/)/.test(f) && !f.includes('__screenshots__'))
+  .filter(
+    (f) =>
+      !/^(CHANGELOG\.md|pnpm-lock\.yaml|docs\/i18n\/|scripts\/i18n\/)/.test(f) &&
+      !f.includes('__screenshots__'),
+  )
   // Fichiers qui citent les caractères BM sans être des traductions.
-  .filter((f) => !['packages/tokens/scripts/build.mjs', 'packages/tokens/test/tokens.test.mjs'].includes(f));
+  .filter(
+    (f) =>
+      !['packages/tokens/scripts/build.mjs', 'packages/tokens/test/tokens.test.mjs'].includes(f),
+  );
 
 // Fichiers entièrement en bamanankan : toutes leurs lignes de texte sont à relire.
 const bmOnly = (f) => f === 'README.bm.md' || /^docs\/wiki\/bm\//.test(f);
@@ -22,16 +29,33 @@ const textLines = (lines) => {
   });
 };
 
-const clean = (line) => line.trim().replace(/^[-*>|#\s]+/, '').replace(/\s+/g, ' ');
+const clean = (line) =>
+  line
+    .trim()
+    .replace(/^[-*>|#\s]+/, '')
+    .replace(/\s+/g, ' ');
 const sections = [];
 let total = 0;
 
 // 1. Libellés d'interface : paires FR / BM exactes.
 const pairs = [];
-for (const file of ['packages/react/src/components/StatusBadge/StatusBadge.tsx', 'packages/react/src/components/ConnectionStatus/ConnectionStatus.tsx']) {
+for (const file of [
+  'packages/react/src/components/StatusBadge/StatusBadge.tsx',
+  'packages/react/src/components/ConnectionStatus/ConnectionStatus.tsx',
+]) {
   const source = readFileSync(file, 'utf8');
-  const fr = Object.fromEntries([...(source.match(/fr: \{([^}]+)\}/)?.[1] ?? '').matchAll(/(\w+): '([^']+)'/g)].map((m) => [m[1], m[2]]));
-  const bm = Object.fromEntries([...(source.match(/bm: \{([^}]+)\}/)?.[1] ?? '').matchAll(/(\w+): '([^']+)'/g)].map((m) => [m[1], m[2]]));
+  const fr = Object.fromEntries(
+    [...(source.match(/fr: \{([^}]+)\}/)?.[1] ?? '').matchAll(/(\w+): '([^']+)'/g)].map((m) => [
+      m[1],
+      m[2],
+    ]),
+  );
+  const bm = Object.fromEntries(
+    [...(source.match(/bm: \{([^}]+)\}/)?.[1] ?? '').matchAll(/(\w+): '([^']+)'/g)].map((m) => [
+      m[1],
+      m[2],
+    ]),
+  );
   for (const key of Object.keys(bm)) pairs.push([file.split('/').at(-1), key, fr[key], bm[key]]);
 }
 pairs.push(['ConnectionStatus.tsx', 'pending', '{n} en attente', '{n} bɛ makɔnɔni na']);
@@ -51,7 +75,10 @@ for (const file of files) {
     .filter(({ code }) => !code)
     .map(({ n, line }) => ({ n, text: clean(line) }))
     .filter(({ text }) => /[a-zA-Zɛɔ]/.test(text) && !/^-+$|^[-|: ]+$/.test(text))
-    .filter(({ text }) => (bmOnly(file) || BM.test(text)) && !/statusLabels|connectionLabels|bm: \{/.test(text));
+    .filter(
+      ({ text }) =>
+        (bmOnly(file) || BM.test(text)) && !/statusLabels|connectionLabels|bm: \{/.test(text),
+    );
   if (hits.length) byFile.push([file, hits]);
 }
 total += byFile.reduce((sum, [, hits]) => sum + hits.length, 0);
@@ -60,7 +87,8 @@ sections.push(
     byFile
       .map(
         ([file, hits]) =>
-          `### \`${file}\`\n\n` + hits.map(({ n, text }) => `- [ ] L${n} — ${text.slice(0, 240)}`).join('\n'),
+          `### \`${file}\`\n\n` +
+          hits.map(({ n, text }) => `- [ ] L${n} — ${text.slice(0, 240)}`).join('\n'),
       )
       .join('\n\n'),
 );
