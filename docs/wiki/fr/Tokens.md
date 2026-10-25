@@ -12,10 +12,11 @@ Source : `packages/tokens/src/tokens.json`. Le build génère `tokens.css`, `ind
 | `--ny-ink-700`              | `#2E322F`                                                                     | Filets forts                                   |
 | `--ny-ink-650`              | `#3C403D`                                                                     | Texte secondaire (papier)                      |
 | `--ny-ink-600`              | `#5A5F5B`                                                                     | Texte tertiaire (papier)                       |
-| `--ny-ink-500`              | `#6B706C`                                                                     | Texte tertiaire (anthracite)                   |
+| `--ny-ink-500`              | `#6B706C`                                                                     | Palette (bordures, décor)                      |
+| `--ny-ink-400`              | `#7C827D`                                                                     | Texte tertiaire (anthracite), AA               |
 | `--ny-ink-300`              | `#A2A7A3`                                                                     | Texte secondaire (anthracite)                  |
 | `--ny-paper-50/100/200`     | `#F8F7F3` `#F2F0EA` `#E4E1D8`                                                 | Documents                                      |
-| `--ny-laterite-400/500/600` | `#EE7A4B` `#E2602E` `#C24A1C`                                                 | **Accent unique**                              |
+| `--ny-laterite-400/500/600` | `#EE7A4B` `#E2602E` `#BC481B`                                                 | **Accent unique**                              |
 | `--ny-status-*`             | research `#7FA6E0`, prototype `#D9B04E`, pilot `#E2602E`, available `#5FC08A` | **Badges uniquement**                          |
 
 ## Tokens sémantiques (par thème)
@@ -49,3 +50,13 @@ Chasse (`font-stretch`) : `--stretch-display` 118 %, `--stretch-heading` 110 %, 
 - `--control-nav` 40, `--control-field` 48, `--control-cta` 52, `--control-cta-lg` 56 px.
 - `--dur-fast` 140 ms, `--dur-base` 240 ms, `--dur-slow` 600 ms, `--ease-out` cubic-bezier(.2,.7,.2,1).
 - Focus : `--focus-ring-width` 2 px, `--focus-ring-offset` 2 px, `--focus-ring-color` latérite.
+
+## Contrastes (WCAG 2.2 AA)
+
+Audités automatiquement par `packages/tokens/test/contrast.test.mjs` (échec de CI en cas de régression) :
+
+- **Texte (1.4.3, ≥ 4,5:1)** : `text-primary`, `text-secondary`, `text-tertiary`, `accent-text`, `danger` sur `surface-page` et `surface-raised`, dans les deux thèmes ; texte sur accent et sur surface inversée.
+- **Éléments graphiques (1.4.11, ≥ 3:1)** : accent, anneau de focus, couleurs de statut.
+- **En attente de décision** : filets des composants interactifs (`line-strong`, `line-subtle`), 1,4 à 2,3:1 — issue #41.
+
+Ajustements faits lors de l'audit (#22) : texte tertiaire anthracite `ink-500` → `ink-400` (#7C827D) ; `laterite-600` #C24A1C → #BC481B (texte d'accent sur papier) ; statut « Disponible » sur papier #2E9C61.

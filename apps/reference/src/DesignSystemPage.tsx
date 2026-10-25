@@ -188,7 +188,7 @@ function ColorSection() {
           <span className="ny-mono-label">Accent unique</span>
           <div>
             <div className="ref-panel__title">Latérite</div>
-            <code>--ny-laterite-500 · #E2602E · 400 #EE7A4B · 600 #C24A1C</code>
+            <code>--ny-laterite-500 · #E2602E · 400 #EE7A4B · 600 #BC481B</code>
           </div>
         </div>
         <Theme theme="anthracite" className="ref-panel">
