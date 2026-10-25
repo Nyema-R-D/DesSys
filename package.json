@@ -21,7 +21,8 @@
     "test": "pnpm -r run test",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
     "publint": "pnpm -r --filter \"./packages/**\" exec publint",
-    "prepare": "lefthook install || true"
+    "prepare": "lefthook install || true",
+    "i18n:bm": "node scripts/i18n/bm-review.mjs"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.4",
