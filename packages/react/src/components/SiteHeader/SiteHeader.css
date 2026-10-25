@@ -48,7 +48,8 @@
   color: var(--text-primary);
   cursor: pointer;
 }
-.ny-site-header__panel {
+.ny-site-header__panel,
+.ny-site-header__panel-actions {
   display: none;
 }
 @media (max-width: 1039px) {
@@ -68,5 +69,14 @@
     padding: var(--space-4) 0;
     border-top: 1px solid var(--line-hairline);
     font-size: 18px;
+  }
+}
+@media (max-width: 599px) {
+  .ny-site-header__actions {
+    display: none;
+  }
+  .ny-site-header__panel-actions {
+    display: flex;
+    padding-top: var(--space-4);
   }
 }

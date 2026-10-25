@@ -21,7 +21,10 @@ export interface SiteHeaderProps extends HTMLAttributes<HTMLElement> {
   menuLabels?: { open: string; close: string };
 }
 
-/** En-tête collant : logo, navigation (repliée en menu sous 1040 px) et action principale. */
+/**
+ * En-tête collant : logo, navigation (repliée en menu sous 1040 px) et action principale
+ * (déplacée dans le menu sous 600 px).
+ */
 export function SiteHeader({
   links,
   actions,
@@ -66,7 +69,7 @@ export function SiteHeader({
             {renderLinks()}
           </nav>
           <div className="ny-site-header__end">
-            {actions}
+            {actions != null ? <div className="ny-site-header__actions">{actions}</div> : null}
             <button
               type="button"
               className="ny-site-header__toggle ny-mono-label ny-focusable"
@@ -80,6 +83,7 @@ export function SiteHeader({
         </div>
         <nav id={panelId} aria-label={navLabel} className="ny-site-header__panel" hidden={!open}>
           {renderLinks(() => setOpen(false))}
+          {actions != null ? <div className="ny-site-header__panel-actions">{actions}</div> : null}
         </nav>
       </Container>
     </header>
