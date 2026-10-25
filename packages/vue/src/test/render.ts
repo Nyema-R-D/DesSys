@@ -25,7 +25,8 @@ const UNSTABLE = new Set(['id', 'for', 'aria-describedby', 'aria-labelledby', 'a
 /** Forme canonique d'un fragment HTML : comparable entre React et Vue. */
 export function canonical(html: string): string {
   const template = document.createElement('template');
-  template.innerHTML = html.replace(/<!--[\s\S]*?-->/g, '');
+  // Les commentaires (marqueurs SSR de Vue) sont ignorés par le parcours ci-dessous.
+  template.innerHTML = html;
   const walk = (node: Node): string => {
     if (node.nodeType === Node.TEXT_NODE) {
       const text = (node.textContent ?? '').replace(/\s+/g, ' ').trim();
