@@ -38,3 +38,14 @@ describe('Button', () => {
     expect(screen.getByRole('button', { name: 'Parler d’un projet' })).toBeInTheDocument();
   });
 });
+
+describe('Button — tailles', () => {
+  it('applique les classes de taille et de largeur', () => {
+    render(
+      <Button size="sm" fullWidth>
+        Envoyer
+      </Button>,
+    );
+    expect(screen.getByRole('button')).toHaveClass('ny-button--sm', 'ny-button--full');
+  });
+});

@@ -3,11 +3,14 @@ import { cx } from '../../utils';
 import './Button.css';
 
 export type ButtonVariant = 'primary' | 'inverse' | 'secondary' | 'link';
-export type ButtonSize = 'md' | 'lg';
+export type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface CommonProps {
   variant?: ButtonVariant;
+  /** `sm` 40 px (navigation), `md` 52 px, `lg` 56 px (CTA). */
   size?: ButtonSize;
+  /** Occupe toute la largeur ; libellé et élément `trailing` sont écartés aux extrémités. */
+  fullWidth?: boolean;
   /** Élément placé après le libellé, typiquement une flèche typographique → ou ↗. */
   trailing?: ReactNode;
   children?: ReactNode;
@@ -23,6 +26,7 @@ export type ButtonProps = CommonProps &
 export function Button({
   variant = 'primary',
   size = 'md',
+  fullWidth = false,
   trailing,
   children,
   className,
@@ -32,7 +36,8 @@ export function Button({
     'ny-button',
     'ny-focusable',
     `ny-button--${variant}`,
-    size === 'lg' && 'ny-button--lg',
+    size !== 'md' && `ny-button--${size}`,
+    fullWidth && 'ny-button--full',
     className,
   );
   const content = (

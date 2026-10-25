@@ -7,7 +7,7 @@ const meta = {
   args: { children: 'Parler d’un projet', trailing: '→' },
   argTypes: {
     variant: { control: 'inline-radio', options: ['primary', 'inverse', 'secondary', 'link'] },
-    size: { control: 'inline-radio', options: ['md', 'lg'] },
+    size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
   },
 } satisfies Meta<typeof Button>;
 
@@ -37,6 +37,25 @@ export const Ensemble: Story = {
         Lire la note
       </Button>
       <Button disabled>Indisponible</Button>
+    </div>
+  ),
+};
+
+export const Tailles: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 480 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+        <Button size="sm" variant="inverse" trailing="→">
+          Parler d’un projet
+        </Button>
+        <Button trailing="→">Parler d’un projet</Button>
+        <Button size="lg" trailing="→">
+          Parler d’un projet
+        </Button>
+      </div>
+      <Button size="lg" variant="inverse" fullWidth trailing="→">
+        Envoyer la demande
+      </Button>
     </div>
   ),
 };
