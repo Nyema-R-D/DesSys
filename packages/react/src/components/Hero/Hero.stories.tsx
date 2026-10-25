@@ -6,13 +6,7 @@ import { Hero } from './Hero';
 const meta = {
   title: 'Structure/Hero',
   component: Hero,
-  decorators: [
-    (Story) => (
-      <div style={{ margin: -32 }}>
-        <Story />
-      </div>
-    ),
-  ],
+  parameters: { nyPadding: false },
   args: {
     eyebrow: 'Logiciels · Plateformes · Recherche appliquée',
     aside: 'Mali → Afrique',

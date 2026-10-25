@@ -5,14 +5,7 @@ import { SiteHeader } from './SiteHeader';
 const meta = {
   title: 'Structure/SiteHeader',
   component: SiteHeader,
-  parameters: { layout: 'fullscreen' },
-  decorators: [
-    (Story) => (
-      <div style={{ margin: -32, minHeight: 320 }}>
-        <Story />
-      </div>
-    ),
-  ],
+  parameters: { nyPadding: false },
   args: {
     links: [
       { href: '#solutions', label: 'Solutions' },
