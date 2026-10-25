@@ -1,0 +1,75 @@
+.ny-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  height: var(--control-cta);
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-0);
+  font: 600 16px/1 var(--font-sans);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+.ny-button:active:not([aria-disabled='true']):not(:disabled) {
+  transform: translateY(1px);
+}
+.ny-button--lg {
+  height: var(--control-cta-lg);
+  padding: 0 26px;
+  font-size: 17px;
+}
+.ny-button--primary {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+.ny-button--primary:hover {
+  background: var(--accent-hover);
+  color: var(--text-on-accent);
+}
+.ny-button--inverse {
+  background: var(--surface-inverse);
+  color: var(--text-inverse);
+}
+.ny-button--inverse:hover {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+.ny-button--secondary {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.ny-button--secondary:hover {
+  border-color: var(--line-contrast);
+  color: var(--text-primary);
+}
+.ny-button--link {
+  height: auto;
+  padding: 0 var(--space-2);
+  background: none;
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+.ny-button--link:hover {
+  color: var(--accent-hover);
+}
+.ny-button:disabled,
+.ny-button[aria-disabled='true'] {
+  background: var(--surface-disabled);
+  border-color: transparent;
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+}
+.ny-button--link:disabled,
+.ny-button--link[aria-disabled='true'] {
+  background: none;
+}

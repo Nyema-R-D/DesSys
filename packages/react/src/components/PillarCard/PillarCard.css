@@ -1,0 +1,26 @@
+.ny-pillar-card {
+  display: block;
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--line-hairline);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+a.ny-pillar-card:hover {
+  border-top-color: var(--accent);
+}
+.ny-pillar-card__index {
+  margin-bottom: 40px;
+  font: 500 12px/1.2 var(--font-mono);
+  color: var(--accent-text);
+}
+.ny-pillar-card__title {
+  margin: 0 0 var(--space-2);
+  font: 600 24px/1.2 var(--font-sans);
+  font-stretch: var(--stretch-title);
+}
+.ny-pillar-card__description {
+  margin: 0;
+  font: 400 15px/1.5 var(--font-sans);
+  color: var(--text-secondary);
+}

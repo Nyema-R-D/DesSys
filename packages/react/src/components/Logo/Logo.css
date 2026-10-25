@@ -1,0 +1,15 @@
+.ny-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--ny-logo-size) * 0.5);
+  color: inherit;
+  text-decoration: none;
+}
+.ny-logo__wordmark {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-stretch: var(--stretch-display);
+  letter-spacing: var(--tracking-logotype);
+  font-size: calc(var(--ny-logo-size) * 0.72);
+  line-height: 1;
+}

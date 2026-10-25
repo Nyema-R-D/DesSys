@@ -1,0 +1,29 @@
+.ny-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 10px;
+  border: 1px solid var(--line-subtle);
+  font: 500 11px/1.2 var(--font-mono);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: inherit;
+}
+.ny-status-badge__dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background: var(--ny-status-color);
+}
+.ny-status-badge--research {
+  --ny-status-color: var(--ny-status-research);
+}
+.ny-status-badge--prototype {
+  --ny-status-color: var(--ny-status-prototype);
+}
+.ny-status-badge--pilot {
+  --ny-status-color: var(--ny-status-pilot);
+}
+.ny-status-badge--available {
+  --ny-status-color: var(--ny-status-available);
+}

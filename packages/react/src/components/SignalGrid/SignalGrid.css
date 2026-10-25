@@ -1,0 +1,25 @@
+.ny-signal-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--ny-signal-columns), minmax(0, 1fr));
+  gap: 3px;
+}
+.ny-signal-grid__cell {
+  aspect-ratio: 1;
+  background: rgba(242, 240, 234, 0.06);
+  transition: background-color var(--dur-slow) var(--ease-out);
+}
+.ny-signal-grid__cell[data-state='paper'] {
+  background: rgba(242, 240, 234, 0.55);
+}
+.ny-signal-grid__cell[data-state='accent'] {
+  background: var(--ny-laterite-500);
+}
+[data-ny-theme='paper'] .ny-signal-grid__cell {
+  background: rgba(14, 15, 14, 0.06);
+}
+[data-ny-theme='paper'] .ny-signal-grid__cell[data-state='paper'] {
+  background: rgba(14, 15, 14, 0.35);
+}
+[data-ny-theme='paper'] .ny-signal-grid__cell[data-state='accent'] {
+  background: var(--ny-laterite-500);
+}

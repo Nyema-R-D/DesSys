@@ -1,0 +1,16 @@
+.ny-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.ny-section-label__node {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+}

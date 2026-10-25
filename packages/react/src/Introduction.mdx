@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Système NYEMA
+
+Identité sobre, technologique et géométrique. Un seul accent, une grille de modules, un symbole construit sur le carré-nœud.
+
+_Bamanankan :_ NYEMA ka jiracogo sariyaw. Ɲɛgɛn kelen, kare jɛnsɛnnen, taamasiyɛn min sigilen bɛ kare-nɔɔn kan.
+
+## Installation
+
+```bash
+pnpm add @nyema-r-d/react @nyema-r-d/tokens
+```
+
+```tsx
+import '@nyema-r-d/tokens/fonts.css';
+import '@nyema-r-d/tokens/tokens.css';
+import '@nyema-r-d/react/styles.css';
+import { Theme, Button } from '@nyema-r-d/react';
+
+<Theme theme="anthracite">
+  <Button trailing="→">Parler d’un projet</Button>
+</Theme>;
+```
+
+## Règles
+
+- Accent unique : latérite `#E2602E`, 5 à 10 % d’une surface (CTA, nœud, index).
+- Couleurs de statut réservées aux badges.
+- Angles vifs, filets 1 px, aucune ombre portée.
+- Focus clavier : contour latérite 2 px décalé de 2 px.
+- Transitions 140–240 ms, ease-out, jamais de rebond.
