@@ -7,3 +7,5 @@
 - _release-please_ bɛ PR de release labɛn : version kura ani CHANGELOG (tubabukan ni bamanankan).
 - Ni PR in fara ɲɔgɔn kan : tag, release, packages, sɛbɛnw ani wiki bɛ bɔ otomatiki la.
 - Jalon kelen bɛ version kelen kama. Release bɔlen kɔ, jalon bɛ datugu otomatiki la.
+
+- Ka version dɔ wajibiya : `Release-As: X.Y.Z` sɛbɛn commit ka laban dakun na.

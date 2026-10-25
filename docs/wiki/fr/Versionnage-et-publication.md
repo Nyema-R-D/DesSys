@@ -28,4 +28,13 @@ Un jalon par version (`v0.0.1`, `v0.1.0`…). Chaque PR sans jalon est rattaché
 
 ## Forcer une version
 
-Ajoutez dans le corps d'un commit : `Release-As: 0.2.0`.
+Quand un jalon se termine (ex. `v0.1.0` alors que les `feat` donneraient `0.0.x`), ajoutez `Release-As: X.Y.Z` dans **le dernier paragraphe** du message de commit, avec les autres pieds (`Co-Authored-By`, `Closes`). Un `Release-As` suivi d'un autre paragraphe est ignoré :
+
+```text
+chore(release): aligne la version sur le jalon v0.1.0
+
+Release-As: 0.1.0
+Co-Authored-By: …
+```
+
+Fusionnez ensuite la PR en **rebase** (le squash réécrit le message).
