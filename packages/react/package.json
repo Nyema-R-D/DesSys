@@ -1,6 +1,6 @@
 {
   "name": "@nyema-r-d/react",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Composants React du système de design NYEMA.",
   "type": "module",
   "license": "UNLICENSED",

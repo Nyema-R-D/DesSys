@@ -1,6 +1,6 @@
 {
   "name": "nyema-design-system",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Système de design NYEMA — tokens, composants React, configuration et automatisation partagées.",
   "type": "module",
