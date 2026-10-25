@@ -3,10 +3,10 @@ pre-commit:
   parallel: true
   commands:
     format:
-      glob: '*.{js,ts,tsx,json,md,yml,yaml,css}'
+      glob: '*.{js,mjs,ts,tsx,vue,json,md,mdx,yml,yaml,css}'
       run: pnpm prettier --check {staged_files}
     lint:
-      glob: '*.{js,ts,tsx}'
+      glob: '*.{js,mjs,ts,tsx}'
       run: pnpm eslint --max-warnings=0 {staged_files}
 commit-msg:
   commands:
