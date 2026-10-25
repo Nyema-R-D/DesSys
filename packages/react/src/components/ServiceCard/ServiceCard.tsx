@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../utils';
 import { StatusBadge, type Locale, type ProductStatus } from '../StatusBadge/StatusBadge';
-import './ServiceCard.css';
+import '@nyema-r-d/css/components/ServiceCard.css';
 
 export interface ServiceCardProps extends Omit<HTMLAttributes<HTMLElement>, 'title'> {
   /** Code d'offre en mono, ex. « S/01 ». */

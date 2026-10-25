@@ -2,7 +2,7 @@ import { useEffect, useId, useState, type HTMLAttributes, type ReactNode } from 
 import { cx } from '../../utils';
 import { Container } from '../Layout/Layout';
 import { Logo } from '../Logo/Logo';
-import './SiteHeader.css';
+import '@nyema-r-d/css/components/SiteHeader.css';
 
 export interface NavLink {
   href: string;

@@ -1,6 +1,6 @@
 import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { cx } from '../../utils';
-import './Tabs.css';
+import '@nyema-r-d/css/components/Tabs.css';
 
 export interface TabItem {
   id: string;

@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@nyema-r-d/config": "workspace:*",
+    "@nyema-r-d/css": "workspace:*",
     "@nyema-r-d/tokens": "workspace:*",
     "@playwright/test": "1.64.1",
     "@storybook/addon-a11y": "^10.6.3",

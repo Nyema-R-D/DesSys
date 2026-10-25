@@ -1,0 +1,38 @@
+{
+  "name": "@nyema-r-d/css",
+  "version": "0.2.0",
+  "description": "CSS des composants NYEMA (classes ny-), indépendant du framework : React, Vue ou HTML.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nyema-R-D/DesSys.git",
+    "directory": "packages/css"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "exports": {
+    "./styles.css": "./dist/styles.css",
+    "./base.css": "./src/base.css",
+    "./components/*": "./src/components/*"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "echo 'css : rien à typer'",
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "peerDependencies": {
+    "@nyema-r-d/tokens": "workspace:^"
+  },
+  "devDependencies": {
+    "@nyema-r-d/tokens": "workspace:*"
+  }
+}

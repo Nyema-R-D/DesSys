@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../utils';
-import './SectionLabel.css';
+import '@nyema-r-d/css/components/SectionLabel.css';
 
 export interface SectionLabelProps extends HTMLAttributes<HTMLElement> {
   /** Index affiché avant le libellé : « 02 » → « 02 — Offres disponibles ». */

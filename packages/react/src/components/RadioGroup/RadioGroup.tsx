@@ -1,8 +1,8 @@
 import { useId, type ReactNode } from 'react';
 import { cx } from '../../utils';
-import '../Checkbox/Checkbox.css';
-import '../TextField/TextField.css';
-import './RadioGroup.css';
+import '@nyema-r-d/css/components/Checkbox.css';
+import '@nyema-r-d/css/components/TextField.css';
+import '@nyema-r-d/css/components/RadioGroup.css';
 
 export interface RadioOption {
   value: string;

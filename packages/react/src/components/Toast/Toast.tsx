@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import './Toast.css';
+import '@nyema-r-d/css/components/Toast.css';
 
 export type ToastTone = 'info' | 'success' | 'error';
 

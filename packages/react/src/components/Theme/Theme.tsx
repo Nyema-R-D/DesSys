@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react';
 import { cx } from '../../utils';
 // Fondations importées ici : un import dans le seul index.ts peut être éliminé par le bundler.
-import '../../styles/base.css';
+import '@nyema-r-d/css/base.css';
 
 export type ThemeName = 'anthracite' | 'paper';
 

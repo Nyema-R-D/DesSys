@@ -2,7 +2,7 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../utils';
 import { Container } from '../Layout/Layout';
 import { SectionLabel } from '../SectionLabel/SectionLabel';
-import './Hero.css';
+import '@nyema-r-d/css/components/Hero.css';
 
 export interface HeroProps extends Omit<HTMLAttributes<HTMLElement>, 'title'> {
   /** Label mono avec carré-nœud, en haut à gauche. */

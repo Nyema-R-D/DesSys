@@ -5,7 +5,7 @@ import {
   type TextareaHTMLAttributes,
 } from 'react';
 import { cx } from '../../utils';
-import './TextField.css';
+import '@nyema-r-d/css/components/TextField.css';
 
 interface FieldOwnProps {
   label: ReactNode;

@@ -1,6 +1,6 @@
 import type { ComponentType, SVGProps } from 'react';
 import { cx } from '../../utils';
-import './Icon.css';
+import '@nyema-r-d/css/components/Icon.css';
 
 /** Toute icône Lucide (ou compatible) : composant SVG acceptant size, strokeWidth et absoluteStrokeWidth. */
 export type IconComponent = ComponentType<
