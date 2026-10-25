@@ -80,3 +80,6 @@
 - name: 'autorelease: tagged'
   color: 'EDEDED'
   description: 'release-please : release publiée'
+- name: 'visual:update'
+  color: 'D9B04E'
+  description: 'Régénère les captures de référence (workflow Visuel)'

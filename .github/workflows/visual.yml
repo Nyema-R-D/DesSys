@@ -1,10 +1,11 @@
 # Régression visuelle : chaque story, thèmes anthracite et papier, comparée aux références
-# packages/react/visual/__screenshots__. Lancement manuel avec « update » : régénère les
-# références dans l'image Linux de référence et les committe sur la branche choisie.
+# packages/react/visual/__screenshots__. Pour régénérer les références (image Linux de référence,
+# commit sur la branche) : label « visual:update » sur la PR, ou lancement manuel avec « update ».
 name: Visuel
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
     paths: [packages/**, pnpm-lock.yaml, .github/workflows/visual.yml]
   workflow_dispatch:
     inputs:
@@ -20,12 +21,16 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  UPDATE: ${{ inputs.update || contains(github.event.pull_request.labels.*.name, 'visual:update') }}
+
 jobs:
   captures:
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/playwright:v1.64.1-noble
     permissions:
       contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v7
         with:
@@ -35,14 +40,14 @@ jobs:
       - run: pnpm build:packages
       - run: pnpm build:storybook
       - name: Références présentes ?
-        if: ${{ !inputs.update }}
+        if: env.UPDATE != 'true'
         run: |
           if [ ! -d packages/react/visual/__screenshots__ ]; then
             echo "::error::Aucune capture de référence. Lancez le workflow « Visuel » avec update sur cette branche."
             exit 1
           fi
       - name: Comparer les captures
-        run: pnpm --filter @nyema-r-d/react exec playwright test ${{ inputs.update && '--update-snapshots' || '' }}
+        run: pnpm --filter @nyema-r-d/react exec playwright test ${{ env.UPDATE == 'true' && '--update-snapshots' || '' }}
       - if: failure()
         uses: actions/upload-artifact@v7
         with:
@@ -52,7 +57,7 @@ jobs:
             packages/react/test-results
           retention-days: 14
       - name: Committer les références
-        if: inputs.update
+        if: env.UPDATE == 'true'
         run: |
           git config user.name "nyema-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -60,3 +65,8 @@ jobs:
           git diff --cached --quiet && { echo "Références inchangées."; exit 0; }
           git commit -m "test(react): met à jour les captures de référence"
           git push
+      - name: Retirer le label
+        if: env.UPDATE == 'true' && github.event_name == 'pull_request'
+        run: gh pr edit ${{ github.event.pull_request.number }} --remove-label visual:update -R ${{ github.repository }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
