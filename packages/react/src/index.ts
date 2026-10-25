@@ -55,3 +55,4 @@ export {
   type ServiceCardProps,
 } from './components/ServiceCard/ServiceCard';
 export { Tag, TagList } from './components/Tag/Tag';
+export { Icon, type IconComponent, type IconProps, type IconSize } from './components/Icon/Icon';

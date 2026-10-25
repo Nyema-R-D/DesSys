@@ -18,6 +18,7 @@ Package `@nyema-r-d/react`.
 | `PillarCard`                       | Kartu                                                      |
 | `ServiceCard`, `Tag`               | Baara kartu, taamasiyɛn                                    |
 | `SignalGrid`                       | Taamasiyɛn kare                                            |
+| `Icon`                             | Ja fitinin (Lucide)                                        |
 | `Container`, `Section`             | Ɲɛ labɛncogo                                               |
 | `SiteHeader`, `Hero`, `SiteFooter` | Site ka kɔrɔ, a daminɛ, a laban                            |
 | `LanguageSwitch`                   | Kan sugandi (FR / BM)                                      |

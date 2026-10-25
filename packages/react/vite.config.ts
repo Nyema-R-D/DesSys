@@ -11,7 +11,7 @@ export default defineConfig({
       cssFileName: 'styles',
     },
     rolldownOptions: {
-      external: [/^react($|\/)/, /^react-dom($|\/)/, /^@nyema-r-d\/tokens/],
+      external: [/^react($|\/)/, /^react-dom($|\/)/, /^@nyema-r-d\/tokens/, /^lucide-react/],
     },
     sourcemap: true,
   },

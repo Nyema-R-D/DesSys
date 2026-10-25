@@ -20,6 +20,7 @@ Package `@nyema-r-d/react`. Catalogue interactif : Storybook (`pnpm storybook`, 
 | `ServiceCard`, `ServiceGrid` | Carte d'offre        | statut (`variant="plain"`), code `S/01`, titre, description, `href` ; grille à filets 1 px                                          |
 | `Tag`, `TagList`             | Étiquette statique   | non interactive (pour une sélection : `Chip`)                                                                                       |
 | `SignalGrid`                 | Motif de signaux     | 7 % latérite / 17 % papier, `animated` (respecte `prefers-reduced-motion`)                                                          |
+| `Icon`                       | Icône Lucide         | `icon={WifiOff}`, `size` 16/20/24/32, trait 1,5 px constant, décorative sans `label` ; `lucide-react` en dépendance optionnelle     |
 | `Container`, `Section`       | Mise en page         | 1360 px ; index 1/4 + contenu 3/4, une colonne sous 900 px                                                                          |
 | `SiteHeader`                 | En-tête de site      | collant, flou, `links` (`current` → `aria-current`), `actions`, menu replié sous 1040 px (Échap ferme)                              |
 | `Hero`                       | Ouverture de page    | `eyebrow`, `aside`, `title` (h1 display), `lead`, `actions`, `media` + `mediaLegend`                                                |
