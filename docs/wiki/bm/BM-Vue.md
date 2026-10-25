@@ -8,6 +8,6 @@ Package `@nyema-r-d/vue` : Vue 3 komponanw. U ni React komponanw bɛ HTML kelen 
 pnpm add @nyema-r-d/vue @nyema-r-d/tokens
 ```
 
-Komponan 16 bɛ yen v0.3.0 kɔnɔ. Tɔw bɛna na sani 1.0 ka bɔ.
+React komponan bɛɛ bɛ Vue la fana.
 
 Kɔrɔbɔli dɔ bɛ a lajɛ ko Vue ni React bɛ HTML kelen dilan.

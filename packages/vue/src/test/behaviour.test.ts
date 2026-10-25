@@ -6,9 +6,20 @@ import {
   Checkbox,
   Chip,
   ConnectionStatus,
+  DataTable,
+  Hero,
+  LabRow,
+  LanguageSwitch,
   Logo,
+  OfflineBanner,
+  Pagination,
+  RadioGroup,
   Select,
+  ServiceCard,
+  SiteFooter,
+  SiteHeader,
   StatusBadge,
+  Tabs,
   TextField,
   Theme,
 } from '../index';
@@ -90,17 +101,61 @@ describe('Accessibilité Vue (axe-core)', () => {
     h(Checkbox, { label: 'J’accepte' }),
     h(Chip, { selected: true }, () => 'Audit'),
     h(ConnectionStatus, { state: 'syncing', pending: 2 }),
+    h(RadioGroup, { legend: 'Taille', options: [{ value: 'a', label: 'PME' }], modelValue: 'a' }),
+    h(LabRow, { code: 'AI', title: 'Langues', status: 'research' }, () => 'Détail'),
+    h(ServiceCard, {
+      code: 'S/01',
+      title: 'Cadrage',
+      status: 'available',
+      href: '#',
+      headingLevel: 2,
+    }),
+    h(
+      Tabs,
+      {
+        label: 'Dossier',
+        items: [
+          { id: 'a', label: 'Résumé' },
+          { id: 'b', label: 'Visites' },
+        ],
+      },
+      { a: () => 'A', b: () => 'B' },
+    ),
+    h(DataTable, {
+      caption: 'Visites',
+      columns: [{ key: 'n', header: 'Nom', sortable: true }],
+      rows: [{ n: 'Ségou' }],
+      rowKey: (row: unknown) => (row as { n: string }).n,
+    }),
+    h(Pagination, { page: 1, pageCount: 3 }),
+    h(OfflineBanner),
+    h(LanguageSwitch, { modelValue: 'fr' }),
+  ];
+  const landmarks = () => [
+    h(SiteHeader, { links: [{ href: '#a', label: 'Solutions' }] }),
+    h(Hero, { title: 'Titre.', eyebrow: 'Logiciels' }),
+    h(SiteFooter, {
+      columns: [{ title: 'Légal', links: [{ href: '#m', label: 'Mentions' }] }],
+      legal: '© 2026 NYEMA',
+    }),
   ];
 
+  let wrapper: ReturnType<typeof mount> | undefined;
+  afterEach(() => wrapper?.unmount());
+
   it.each(['anthracite', 'paper'] as const)('aucune violation, thème %s', async (theme) => {
-    const wrapper = mount(
-      { render: () => h(Theme, { theme }, () => h('main', samples())) },
+    wrapper = mount(
+      {
+        render: () => {
+          const [header, hero, footer] = landmarks();
+          return h(Theme, { theme }, () => [header, h('main', [hero, ...samples()]), footer]);
+        },
+      },
       { attachTo: document.body },
     );
     const { violations } = await axe.run(wrapper.element as Element, {
       rules: { 'color-contrast': { enabled: false }, region: { enabled: false } },
     });
     expect(violations.map((v) => `${v.id} : ${v.help}`)).toEqual([]);
-    wrapper.unmount();
   });
 });

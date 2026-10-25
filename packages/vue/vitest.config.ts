@@ -8,6 +8,7 @@ export default defineConfig({
     globals: true,
     include: ['src/**/*.test.ts'],
     css: false,
+    setupFiles: ['./src/test/setup.ts'],
     fsModuleCache: false,
   },
 });

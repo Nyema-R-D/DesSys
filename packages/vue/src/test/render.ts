@@ -5,15 +5,18 @@ import { renderToString } from 'vue/server-renderer';
 
 export { createElement as r };
 
-/** Rend un composant Vue côté serveur, avec un slot par défaut éventuel. */
+/** Slot par défaut (texte) ou slots nommés. */
+export type VueSlots = string | Record<string, () => unknown>;
+
+/** Rend un composant Vue côté serveur. */
 export async function renderVue(
   component: Component,
   props: Record<string, unknown> = {},
-  slot?: string,
+  slots?: VueSlots,
 ) {
-  const app = createSSRApp({
-    render: () => h(component, props, slot === undefined ? undefined : { default: () => slot }),
-  });
+  const children =
+    slots === undefined ? undefined : typeof slots === 'string' ? { default: () => slots } : slots;
+  const app = createSSRApp({ render: () => h(component, props, children as never) });
   return renderToString(app);
 }
 

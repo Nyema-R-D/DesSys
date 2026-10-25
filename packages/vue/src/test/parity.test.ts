@@ -1,17 +1,70 @@
 // Parité : chaque composant Vue doit produire le même HTML (structure, classes, attributs ARIA)
 // que son jumeau @nyema-r-d/react. C'est ce qui permet de partager @nyema-r-d/css.
 import * as R from '@nyema-r-d/react';
-import type { Component } from 'vue';
+import { h, type Component } from 'vue';
+import { createElement, type SVGProps } from 'react';
 import * as V from '../index';
-import { canonical, r, renderReact, renderVue } from './render';
+import { canonical, r, renderReact, renderVue, type VueSlots } from './render';
 
 type Case = [
   name: string,
   react: ReturnType<typeof r>,
   vue: Component,
   props?: Record<string, unknown>,
-  slot?: string,
+  slot?: VueSlots,
 ];
+
+// Icône minimale identique dans les deux frameworks : on vérifie l'adaptateur, pas Lucide.
+const ReactGlyph = ({
+  size,
+  strokeWidth,
+  absoluteStrokeWidth: _absolute,
+  ...rest
+}: SVGProps<SVGSVGElement> & { size?: number | string; absoluteStrokeWidth?: boolean }) =>
+  createElement(
+    'svg',
+    { width: size, height: size, 'stroke-width': strokeWidth, viewBox: '0 0 24 24', ...rest },
+    createElement('path', { d: 'M2 12h20' }),
+  );
+const VueGlyph = {
+  props: ['size', 'strokeWidth', 'absoluteStrokeWidth'],
+  setup(props: { size?: number; strokeWidth?: number }) {
+    return () =>
+      h(
+        'svg',
+        {
+          width: props.size,
+          height: props.size,
+          'stroke-width': props.strokeWidth,
+          viewBox: '0 0 24 24',
+        },
+        [h('path', { d: 'M2 12h20' })],
+      );
+  },
+};
+
+const links = [
+  { href: '#solutions', label: 'Solutions', current: true },
+  { href: '#laboratoire', label: 'Laboratoire' },
+];
+const footerColumns = [
+  { title: 'NYEMA', links: [{ href: '#apropos', label: 'À propos' }] },
+  { title: 'Légal', links: [{ href: '/mentions', label: 'Mentions légales' }] },
+];
+const radioOptions = [
+  { value: 'pme', label: 'PME' },
+  { value: 'public', label: 'Administration', disabled: true },
+];
+const tableColumns = [
+  { key: 'cooperative', header: 'Coopérative', sortable: true },
+  { key: 'members', header: 'Membres', sortable: true, align: 'end' as const, width: '120px' },
+  { key: 'agent', header: 'Agent' },
+];
+const tableRows = [
+  { id: '1', cooperative: 'Ségou', members: 142, agent: 'A. Traoré' },
+  { id: '2', cooperative: 'Bamako', members: 38, agent: 'M. Diarra' },
+];
+const rowKey = (row: unknown) => (row as { id: string }).id;
 
 const options = [
   { value: 'bamako', label: 'Bamako' },
@@ -158,6 +211,254 @@ const cases: Case[] = [
     V.Section,
     { index: 1, label: 'Marque' },
     'x',
+  ],
+  [
+    'SignalGrid',
+    r(R.SignalGrid, { columns: 8, rows: 2, seed: 3 }),
+    V.SignalGrid,
+    { columns: 8, rows: 2, seed: 3 },
+  ],
+  [
+    'LabRow fermé',
+    r(R.LabRow, { code: 'OFFLINE', title: 'Synchronisation', status: 'research' }, 'Détail'),
+    V.LabRow,
+    { code: 'OFFLINE', title: 'Synchronisation', status: 'research' },
+    'Détail',
+  ],
+  [
+    'LabRow ouvert',
+    r(R.LabRow, { code: 'DATA', title: 'Données', status: 'pilot', defaultOpen: true }, 'Détail'),
+    V.LabRow,
+    { code: 'DATA', title: 'Données', status: 'pilot', defaultOpen: true },
+    'Détail',
+  ],
+  [
+    'LabRow sans contenu',
+    r(R.LabRow, { code: 'AI', title: 'Langues', status: 'prototype' }),
+    V.LabRow,
+    { code: 'AI', title: 'Langues', status: 'prototype' },
+  ],
+  [
+    'PillarCard',
+    r(R.PillarCard, { index: 2, title: 'Infrastructures', description: 'Hébergement.' }),
+    V.PillarCard,
+    { index: 2, title: 'Infrastructures', description: 'Hébergement.' },
+  ],
+  [
+    'PillarCard lien h2',
+    r(R.PillarCard, { index: '3', title: 'Recherche', href: '#r', headingLevel: 2 }),
+    V.PillarCard,
+    { index: '3', title: 'Recherche', href: '#r', headingLevel: 2 },
+  ],
+  [
+    'ServiceCard',
+    r(R.ServiceCard, {
+      code: 'S/01',
+      title: 'Cadrage',
+      description: 'Atelier.',
+      status: 'available',
+      href: '#c',
+    }),
+    V.ServiceCard,
+    { code: 'S/01', title: 'Cadrage', description: 'Atelier.', status: 'available', href: '#c' },
+  ],
+  [
+    'ServiceCard sans statut',
+    r(R.ServiceCard, { title: 'Audit' }),
+    V.ServiceCard,
+    { title: 'Audit' },
+  ],
+  ['ServiceGrid', r(R.ServiceGrid, null, 'x'), V.ServiceGrid, {}, 'x'],
+  [
+    'RadioGroup',
+    r(R.RadioGroup, {
+      legend: 'Taille',
+      name: 'taille',
+      options: radioOptions,
+      defaultValue: 'pme',
+    }),
+    V.RadioGroup,
+    { legend: 'Taille', name: 'taille', options: radioOptions, modelValue: 'pme' },
+  ],
+  [
+    'RadioGroup erreur horizontal',
+    r(R.RadioGroup, {
+      legend: 'Taille',
+      name: 't2',
+      options: radioOptions,
+      required: true,
+      error: 'Requis.',
+      orientation: 'horizontal',
+    }),
+    V.RadioGroup,
+    {
+      legend: 'Taille',
+      name: 't2',
+      options: radioOptions,
+      required: true,
+      error: 'Requis.',
+      orientation: 'horizontal',
+    },
+  ],
+  [
+    'Tabs',
+    r(R.Tabs, {
+      label: 'Dossier',
+      items: [
+        { id: 'a', label: 'Résumé', content: 'A' },
+        { id: 'b', label: 'Visites', content: 'B' },
+        { id: 'c', label: 'Archives', content: 'C', disabled: true },
+      ],
+    }),
+    V.Tabs,
+    {
+      label: 'Dossier',
+      items: [
+        { id: 'a', label: 'Résumé' },
+        { id: 'b', label: 'Visites' },
+        { id: 'c', label: 'Archives', disabled: true },
+      ],
+    },
+    { a: () => 'A', b: () => 'B', c: () => 'C' },
+  ],
+  [
+    'Dialog',
+    r(R.Dialog, { open: false, onClose: () => {}, title: 'Supprimer ?', footer: 'Pied' }, 'Corps'),
+    V.Dialog,
+    { open: false, title: 'Supprimer ?' },
+    { default: () => 'Corps', footer: () => 'Pied' },
+  ],
+  ['ToastProvider', r(R.ToastProvider, null, 'App'), V.ToastProvider, {}, 'App'],
+  [
+    'DataTable',
+    r(R.DataTable, { caption: 'Visites', columns: tableColumns, rows: tableRows, rowKey }),
+    V.DataTable,
+    { caption: 'Visites', columns: tableColumns, rows: tableRows, rowKey },
+  ],
+  [
+    'DataTable trié compact',
+    r(R.DataTable, {
+      caption: 'Visites',
+      columns: tableColumns,
+      rows: tableRows,
+      rowKey,
+      defaultSort: { key: 'members', direction: 'descending' },
+      density: 'compact',
+      captionHidden: true,
+    }),
+    V.DataTable,
+    {
+      caption: 'Visites',
+      columns: tableColumns,
+      rows: tableRows,
+      rowKey,
+      defaultSort: { key: 'members', direction: 'descending' },
+      density: 'compact',
+      captionHidden: true,
+    },
+  ],
+  [
+    'DataTable vide',
+    r(R.DataTable, {
+      caption: 'Visites',
+      columns: tableColumns,
+      rows: [],
+      rowKey,
+      empty: 'Aucune visite.',
+    }),
+    V.DataTable,
+    { caption: 'Visites', columns: tableColumns, rows: [], rowKey, empty: 'Aucune visite.' },
+  ],
+  [
+    'DataTable chargement',
+    r(R.DataTable, { caption: 'Visites', columns: tableColumns, rows: [], rowKey, loading: true }),
+    V.DataTable,
+    { caption: 'Visites', columns: tableColumns, rows: [], rowKey, loading: true },
+  ],
+  [
+    'Pagination',
+    r(R.Pagination, { page: 2, pageCount: 4, onPageChange: () => {} }),
+    V.Pagination,
+    { page: 2, pageCount: 4 },
+  ],
+  [
+    'Pagination masquée',
+    r(R.Pagination, { page: 1, pageCount: 1, onPageChange: () => {} }),
+    V.Pagination,
+    { page: 1, pageCount: 1 },
+  ],
+  ['OfflineBanner', r(R.OfflineBanner), V.OfflineBanner],
+  ['Icon décorative', r(R.Icon, { icon: ReactGlyph }), V.Icon, { icon: VueGlyph }],
+  [
+    'Icon nommée',
+    r(R.Icon, { icon: ReactGlyph, size: 24, label: 'Hors ligne' }),
+    V.Icon,
+    { icon: VueGlyph, size: 24, label: 'Hors ligne' },
+  ],
+  [
+    'LanguageSwitch boutons',
+    r(R.LanguageSwitch, { value: 'fr' }),
+    V.LanguageSwitch,
+    { modelValue: 'fr' },
+  ],
+  [
+    'LanguageSwitch liens',
+    r(R.LanguageSwitch, { value: 'bm', getHref: (l: string) => `/${l}/` }),
+    V.LanguageSwitch,
+    { modelValue: 'bm', getHref: (l: string) => `/${l}/` },
+  ],
+  [
+    'SiteHeader',
+    r(R.SiteHeader, { links, actions: 'CTA' }),
+    V.SiteHeader,
+    { links },
+    { actions: () => 'CTA' },
+  ],
+  [
+    'SiteHeader sans action',
+    r(R.SiteHeader, { links, brandHref: '/fr/' }),
+    V.SiteHeader,
+    { links, brandHref: '/fr/' },
+  ],
+  [
+    'Hero',
+    r(R.Hero, {
+      eyebrow: 'Logiciels',
+      aside: 'Mali → Afrique',
+      title: 'Titre.',
+      lead: 'Accroche.',
+      actions: 'A',
+      media: 'M',
+      mediaLegend: ['Réseau', 'Hors ligne'],
+    }),
+    V.Hero,
+    {
+      eyebrow: 'Logiciels',
+      aside: 'Mali → Afrique',
+      title: 'Titre.',
+      lead: 'Accroche.',
+      mediaLegend: ['Réseau', 'Hors ligne'],
+    },
+    { actions: () => 'A', media: () => 'M' },
+  ],
+  ['Hero minimal', r(R.Hero, { title: 'Titre.' }), V.Hero, { title: 'Titre.' }],
+  [
+    'Hero aside seul',
+    r(R.Hero, { aside: 'Mali', title: 'Titre.' }),
+    V.Hero,
+    { aside: 'Mali', title: 'Titre.' },
+  ],
+  [
+    'SiteFooter',
+    r(R.SiteFooter, {
+      columns: footerColumns,
+      legal: '© 2026 NYEMA',
+      tagline: 'Technologie utile.',
+      extra: 'FR',
+    }),
+    V.SiteFooter,
+    { columns: footerColumns, legal: '© 2026 NYEMA', tagline: 'Technologie utile.' },
+    { extra: () => 'FR' },
   ],
 ];
 
