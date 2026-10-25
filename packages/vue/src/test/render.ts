@@ -25,8 +25,13 @@ const UNSTABLE = new Set(['id', 'for', 'aria-describedby', 'aria-labelledby', 'a
 /** Forme canonique d'un fragment HTML : comparable entre React et Vue. */
 export function canonical(html: string): string {
   const template = document.createElement('template');
-  // Les commentaires (marqueurs SSR de Vue) sont ignorés par le parcours ci-dessous.
   template.innerHTML = html;
+  // Retire les commentaires (marqueurs SSR de Vue) puis fusionne les nœuds texte qu'ils séparaient.
+  const comments = document.createTreeWalker(template.content, NodeFilter.SHOW_COMMENT);
+  const found: Node[] = [];
+  while (comments.nextNode()) found.push(comments.currentNode);
+  found.forEach((comment) => comment.parentNode?.removeChild(comment));
+  template.content.normalize();
   const walk = (node: Node): string => {
     if (node.nodeType === Node.TEXT_NODE) {
       const text = (node.textContent ?? '').replace(/\s+/g, ' ').trim();
