@@ -10,7 +10,7 @@
 
 NYEMA ka taamasiyɛn, a kulɛrw, a sɛbɛnni cogo ani a komponanw bɛ nin dépôt in kɔnɔ. Ɲɛgɛn kelen dɔrɔn : latérite `#E2602E`. NYEMA ka porogaramu, baarakɛminɛn, app ani site bɛɛ bɛ nin sariyaw de labaara.
 
-> Cogoya : **a ma latigɛ fɔlɔ** — a sigilen bɛ dossier de cadrage kan, sigibagaw ka kan k'a sɔn.
+> Cogoya : **sigibagaw y'a sɔn** (oktɔburu 2026, #20) — a sigilen bɛ dossier de cadrage kan.
 
 ## Packages
 

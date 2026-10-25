@@ -1,5 +1,7 @@
 # NYEMA — Design system
 
+> **Statut** : marque validée par les fondateurs le 25/10/2026 (#20). Texte d'origine conservé ci-dessous ; la recherche d'antériorité juridique (dossier §8) relève d'une démarche distincte.
+
 Source : `uploads/NYEMA_Dossier_Technique_Strategique.pdf` (dossier de cadrage, 25/10/2026). NYEMA = marque mère d'un portefeuille de produits numériques pour le Mali et l'Afrique (AI, ID, GOV, OFFLINE, TRUST, DATA, COMMERCE OS, CIVIC, AGRO, EDU, OPEN AFRICA, ENERGY, CORE, SOVEREIGN AI, DEV AFRICA). Priorité n°1 : le site officiel.
 
 ## Index

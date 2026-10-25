@@ -11,7 +11,7 @@
 
 Identité sobre, technologique et géométrique. Un seul accent (latérite `#E2602E`), une grille de modules, un symbole construit sur le carré-nœud. Ce dépôt est la source unique de la marque NYEMA pour tous les logiciels, outils, apps et sites de l'écosystème.
 
-> Statut : **provisoire** — dérivé du dossier de cadrage, à valider par les fondateurs.
+> Statut : **validé par les fondateurs** (octobre 2026, #20) — dérivé du dossier de cadrage.
 
 ## Packages
 
