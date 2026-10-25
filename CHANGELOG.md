@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.2.0](https://github.com/Nyema-R-D/DesSys/compare/v0.1.0...v0.2.0) (2026-10-25)
+
+
+### Nouveautés · Fɛn kuraw
+
+* **react:** ajoute DataTable et Pagination ([ad909fd](https://github.com/Nyema-R-D/DesSys/commit/ad909fd390d5395db14808200f8f7e12bf80ce9d)), closes [#16](https://github.com/Nyema-R-D/DesSys/issues/16)
+* **react:** ajoute l'adaptateur d'icônes Lucide ([f644adc](https://github.com/Nyema-R-D/DesSys/commit/f644adc3aa2ca521d8f4eb2d9621c124369af66a)), closes [#18](https://github.com/Nyema-R-D/DesSys/issues/18)
+* **react:** ajoute l'état de connexion et la bannière hors ligne ([703524f](https://github.com/Nyema-R-D/DesSys/commit/703524f8218c1c9d2478ba7965e0feee2b19012e)), closes [#17](https://github.com/Nyema-R-D/DesSys/issues/17)
+* **react:** ajoute Tabs, Dialog et Toast ([51bae33](https://github.com/Nyema-R-D/DesSys/commit/51bae3373e7478eb62212a262ea313ad2c9f04cd)), closes [#15](https://github.com/Nyema-R-D/DesSys/issues/15)
+
+
+### Documentation · Sɛbɛnw
+
+* met à jour la liste des composants et la règle Release-As ([e0826e1](https://github.com/Nyema-R-D/DesSys/commit/e0826e1144c3aeeb34319bf96511a5b736a91687))
+
+
+### CI/CD
+
+* désactive le cache disque de Vitest pour l'audit d'accessibilité ([031e04d](https://github.com/Nyema-R-D/DesSys/commit/031e04dbebbf00b5b1dad3ce75a8dec4e1982ff1))
+
 ## [0.1.0](https://github.com/Nyema-R-D/DesSys/compare/v0.0.1...v0.1.0) (2026-10-25)
 
 
