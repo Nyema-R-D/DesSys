@@ -1,8 +1,9 @@
 const warned = new Set<string>();
 
+// Sans dépendre des types Node : `process` n'existe pas toujours (navigateur sans bundler).
 const isProduction = () =>
-  typeof process !== 'undefined' &&
-  (process as { env?: Record<string, string | undefined> }).env?.NODE_ENV === 'production';
+  (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env
+    ?.NODE_ENV === 'production';
 
 /**
  * Signale une API dépréciée, une seule fois par API et jamais en production.

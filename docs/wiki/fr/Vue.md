@@ -26,12 +26,23 @@ const nom = ref('');
 </template>
 ```
 
-## Composants disponibles (v0.3.0)
+## Composants
 
-`Theme`, `Mark`, `Logo`, `Button` (slot `trailing`), `StatusBadge`, `TextField` (`v-model`), `Select` (`v-model`), `Checkbox` (`v-model`), `Chip`, `ChipGroup`, `SectionLabel`, `Tag`, `TagList`, `ConnectionStatus`, `Container`, `Section`.
+Tous les composants de `@nyema-r-d/react` existent en Vue, avec les adaptations idiomatiques suivantes :
 
-Les autres composants arrivent avant la 1.0 (issue « parité complète »). En attendant, la structure HTML de Storybook + `@nyema-r-d/css` permet de les reproduire.
+| React                                                              | Vue                                                                                   |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| `value` + `onChange`                                               | `v-model` (`TextField`, `Select`, `Checkbox`, `RadioGroup`, `Tabs`, `LanguageSwitch`) |
+| `page` + `onPageChange`                                            | `v-model:page` (`Pagination`)                                                         |
+| `open` + `onOpenChange`                                            | `v-model:open` (`LabRow`), `@close` (`Dialog`)                                        |
+| `sort` + `onSortChange`                                            | `v-model:sort` (`DataTable`)                                                          |
+| props `ReactNode` (`actions`, `media`, `footer`, `extra`, `brand`) | slots nommés `#actions`, `#media`, `#footer`, `#extra`, `#brand`                      |
+| `TabItem.content`                                                  | slot nommé par onglet : `#<id>`                                                       |
+| `DataTableColumn.cell`                                             | slot `#cell-<key>="{ row }"`                                                          |
+| `useOnlineStatus()` → `boolean`                                    | `useOnlineStatus()` → `Ref<boolean>`                                                  |
+| `ToastProvider` + `useToast()`                                     | idem (provide / inject)                                                               |
+| `Icon icon={WifiOff}` (lucide-react)                               | `<Icon :icon="WifiOff" />` (lucide-vue-next)                                          |
 
 ## Garantie de parité
 
-`packages/vue/src/test/parity.test.ts` rend chaque composant Vue côté serveur et compare son HTML (classes, attributs ARIA, structure) à celui du composant React avec les mêmes props. Toute divergence fait échouer la CI. Un composant Vue exporté sans cas de parité fait aussi échouer le test.
+`packages/vue/src/test/parity.test.ts` rend chaque composant Vue côté serveur et compare son HTML (classes, attributs ARIA, structure) à celui du composant React avec les mêmes props. Toute divergence fait échouer la CI. Un composant Vue exporté sans cas de parité fait aussi échouer le test. 63 cas couvrent les 33 composants, dans leurs principaux états (ouvert/fermé, trié, vide, chargement, erreur, lien/bouton).
