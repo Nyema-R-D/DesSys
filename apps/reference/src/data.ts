@@ -6,6 +6,7 @@ export const neutrals = [
   ['Ink 800', 'ink', '800'],
   ['Ink 700', 'ink', '700'],
   ['Ink 500', 'ink', '500'],
+  ['Ink 400', 'ink', '400'],
   ['Ink 300', 'ink', '300'],
   ['Paper 200', 'paper', '200'],
   ['Paper 100', 'paper', '100'],
