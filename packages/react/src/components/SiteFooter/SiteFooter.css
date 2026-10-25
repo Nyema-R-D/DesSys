@@ -1,0 +1,54 @@
+.ny-site-footer {
+  padding-block: var(--space-8) 40px;
+}
+.ny-site-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--line-hairline);
+}
+.ny-site-footer__brand {
+  display: inline-flex;
+  align-self: flex-start;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.ny-site-footer__columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+}
+.ny-site-footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ny-site-footer__heading {
+  margin: 0 0 16px;
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+.ny-site-footer__link {
+  font: 400 15px/1.4 var(--font-sans);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.ny-site-footer__link:hover {
+  color: var(--accent-hover);
+}
+.ny-site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-5);
+  font-size: 11px;
+  color: var(--text-tertiary);
+}

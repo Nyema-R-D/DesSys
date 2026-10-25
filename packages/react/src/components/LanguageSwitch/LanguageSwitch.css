@@ -1,0 +1,30 @@
+.ny-language-switch {
+  display: inline-flex;
+  gap: var(--space-1);
+}
+.ny-language-switch__option {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px var(--space-2);
+  border: 0;
+  background: none;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.ny-language-switch__option:hover {
+  color: var(--text-primary);
+}
+.ny-language-switch__option[aria-pressed='true'],
+.ny-language-switch__option[aria-current='true'] {
+  color: var(--text-primary);
+}
+.ny-language-switch__option[aria-pressed='true']::before,
+.ny-language-switch__option[aria-current='true']::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+}

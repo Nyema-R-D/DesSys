@@ -36,3 +36,16 @@ export {
   type SignalState,
 } from './components/SignalGrid/SignalGrid';
 export { Container, Section, type SectionProps } from './components/Layout/Layout';
+export { SiteHeader, type NavLink, type SiteHeaderProps } from './components/SiteHeader/SiteHeader';
+export { Hero, type HeroProps } from './components/Hero/Hero';
+export {
+  SiteFooter,
+  type FooterColumn,
+  type SiteFooterProps,
+} from './components/SiteFooter/SiteFooter';
+export {
+  LanguageSwitch,
+  defaultLanguages,
+  type LanguageOption,
+  type LanguageSwitchProps,
+} from './components/LanguageSwitch/LanguageSwitch';

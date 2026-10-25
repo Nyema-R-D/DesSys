@@ -18,6 +18,8 @@ Package `@nyema-r-d/react`.
 | `PillarCard`                       | Kartu                                                      |
 | `SignalGrid`                       | Taamasiyɛn kare                                            |
 | `Container`, `Section`             | Ɲɛ labɛncogo                                               |
+| `SiteHeader`, `Hero`, `SiteFooter` | Site ka kɔrɔ, a daminɛ, a laban                            |
+| `LanguageSwitch`                   | Kan sugandi (FR / BM)                                      |
 
 ```tsx
 <StatusBadge status="research" locale="bm" />
