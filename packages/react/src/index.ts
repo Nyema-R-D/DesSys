@@ -81,3 +81,4 @@ export {
   type SortState,
 } from './components/DataTable/DataTable';
 export { Pagination, type PaginationProps } from './components/Pagination/Pagination';
+export { resetDeprecationWarnings, warnDeprecated } from './deprecation';

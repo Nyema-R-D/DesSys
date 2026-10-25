@@ -9,13 +9,14 @@
 5. Fusion en **squash** : le titre de la PR devient l'entrée du CHANGELOG.
 6. release-please met à jour la PR de release ; sa fusion publie la version.
 
-| Préfixe                                    | Effet sur la version (avant 1.0) | Section du CHANGELOG                    |
-| ------------------------------------------ | -------------------------------- | --------------------------------------- |
-| `feat:`                                    | patch (0.0.x)                    | Nouveautés · Fɛn kuraw                  |
-| `fix:` / `perf:`                           | patch                            | Corrections · Latilenniw / Performances |
-| `feat!:` ou `BREAKING CHANGE:`             | mineure (0.x.0)                  | idem + ⚠                                |
-| `docs:` `ci:` `build:` `refactor:` `deps:` | patch                            | sections dédiées                        |
-| `test:` `style:` `chore:`                  | aucune                           | masqué                                  |
+| Préfixe                                    | Effet sur la version (avant 1.0) | Section du CHANGELOG                                           |
+| ------------------------------------------ | -------------------------------- | -------------------------------------------------------------- |
+| `feat:`                                    | patch (0.0.x)                    | Nouveautés · Fɛn kuraw                                         |
+| `fix:` / `perf:`                           | patch                            | Corrections · Latilenniw / Performances                        |
+| `deprecate:`                               | patch (mineure après 1.0)        | Dépréciations · A tɛna mɛn — voir la politique de dépréciation |
+| `feat!:` ou `BREAKING CHANGE:`             | mineure (0.x.0)                  | idem + ⚠                                                       |
+| `docs:` `ci:` `build:` `refactor:` `deps:` | patch                            | sections dédiées                                               |
+| `test:` `style:` `chore:`                  | aucune                           | masqué                                                         |
 
 Après 1.0 : `feat` → mineure, `fix` → patch, cassant → majeure.
 

@@ -21,6 +21,10 @@
       "section": "Performances · Teliya"
     },
     {
+      "type": "deprecate",
+      "section": "Dépréciations · A tɛna mɛn"
+    },
+    {
       "type": "revert",
       "section": "Retours arrière · Segin kɔ"
     },
