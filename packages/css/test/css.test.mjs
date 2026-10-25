@@ -1,11 +1,9 @@
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
 import { readdirSync, readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { test } from 'node:test';
 
 const require = createRequire(import.meta.url);
-execFileSync('node', ['scripts/build.mjs']);
 const styles = readFileSync('dist/styles.css', 'utf8');
 const withoutComments = styles.replace(/\/\*[\s\S]*?\*\//g, '');
 const tokens = readFileSync(require.resolve('@nyema-r-d/tokens/tokens.css'), 'utf8');
