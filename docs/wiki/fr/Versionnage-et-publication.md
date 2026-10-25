@@ -37,4 +37,4 @@ Release-As: 0.1.0
 Co-Authored-By: …
 ```
 
-Fusionnez ensuite la PR en **rebase** (le squash réécrit le message).
+Le commit doit **modifier au moins un fichier** : la fusion en rebase de GitHub supprime les commits vides, et leur `Release-As` avec. Fusionnez ensuite la PR en **rebase** (le squash réécrit le message).
