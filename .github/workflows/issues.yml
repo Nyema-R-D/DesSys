@@ -24,5 +24,7 @@ jobs:
             };
             const statuses = labels.filter((n) => n.startsWith('status:'));
             if ((action === 'opened' || action === 'reopened') && !statuses.length) await set(['status:triage']);
-            if (action === 'milestoned') await set(['status:ready'], ['status:triage']);
+            // Une issue bloquée ou en attente des fondateurs ne devient pas « prête » en entrant dans un jalon.
+            const waiting = labels.some((n) => ['status:blocked', 'status:needs-founders', 'status:in-progress'].includes(n));
+            if (action === 'milestoned' && !waiting) await set(['status:ready'], ['status:triage']);
             if (action === 'closed') await set([], statuses);
