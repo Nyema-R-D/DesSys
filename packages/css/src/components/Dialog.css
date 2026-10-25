@@ -26,7 +26,7 @@
   flex: none;
   width: var(--control-nav);
   height: var(--control-nav);
-  border: 1px solid var(--line-subtle);
+  border: 1px solid var(--line-control);
   background: transparent;
   color: var(--text-secondary);
   font-size: 22px;

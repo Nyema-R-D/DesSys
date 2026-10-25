@@ -53,7 +53,7 @@
 }
 .ny-button--secondary {
   background: transparent;
-  border-color: var(--line-strong);
+  border-color: var(--line-control);
   color: var(--text-primary);
   font-weight: 500;
 }

@@ -34,8 +34,9 @@ const GRAPHICS = [
   'status-pilot',
   'status-available',
 ];
-// Exceptions connues, en attente de décision (issue #41) : filets des composants interactifs.
-const PENDING = ['line-strong', 'line-subtle'];
+// Bordures des composants interactifs (champs, bouton secondaire, chip) : 1.4.11, décision #41.
+// Les filets décoratifs (line-hairline, line-subtle, line-strong) ne délimitent pas de contrôle.
+const CONTROL_BORDER = 'line-control';
 
 for (const theme of ['anthracite', 'paper']) {
   const v = (name) => tokens.themes[theme][`--${name}`];
@@ -64,8 +65,10 @@ for (const theme of ['anthracite', 'paper']) {
     assert.ok(contrast(tokens['--focus-ring-color'], v('surface-page')) >= 3, 'anneau de focus');
   });
 
-  test(`${theme} : exceptions en attente (#41) toujours sous le seuil`, () => {
-    // Si ce test échoue, l'exception est résolue : retirez-la de PENDING.
-    for (const line of PENDING) assert.ok(contrast(v(line), v('surface-page')) < 3, line);
+  test(`${theme} : bordure des contrôles ≥ 3:1 sur chaque surface (1.4.11)`, () => {
+    for (const bg of SURFACES) {
+      const ratio = contrast(v(CONTROL_BORDER), v(bg));
+      assert.ok(ratio >= 3, `${CONTROL_BORDER} sur ${bg} : ${ratio.toFixed(2)}`);
+    }
   });
 }

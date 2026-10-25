@@ -21,7 +21,7 @@ Source : `packages/tokens/src/tokens.json`. Le build génère `tokens.css`, `ind
 
 ## Tokens sémantiques (par thème)
 
-`--surface-page`, `--surface-raised`, `--surface-inverse`, `--surface-disabled`, `--text-primary`, `--text-secondary`, `--text-tertiary`, `--text-inverse`, `--text-on-accent`, `--line-hairline`, `--line-subtle`, `--line-strong`, `--line-contrast`, `--accent`, `--accent-hover`, `--accent-text`, `--danger`, `--status-research`, `--status-prototype`, `--status-pilot`, `--status-available`.
+`--surface-page`, `--surface-raised`, `--surface-inverse`, `--surface-disabled`, `--text-primary`, `--text-secondary`, `--text-tertiary`, `--text-inverse`, `--text-on-accent`, `--line-hairline`, `--line-subtle`, `--line-strong`, `--line-contrast`, `--line-control`, `--accent`, `--accent-hover`, `--accent-text`, `--danger`, `--status-research`, `--status-prototype`, `--status-pilot`, `--status-available`.
 
 Les couleurs de statut sont assombries en thème papier (#3D6FB8, #A07A16, #C24A1C, #2E9E62) pour rester visibles sur fond clair (contraste ≥ 3:1).
 
@@ -59,6 +59,6 @@ Audités automatiquement par `packages/tokens/test/contrast.test.mjs` (échec de
 
 - **Texte (1.4.3, ≥ 4,5:1)** : `text-primary`, `text-secondary`, `text-tertiary`, `accent-text`, `danger` sur `surface-page` et `surface-raised`, dans les deux thèmes ; texte sur accent et sur surface inversée.
 - **Éléments graphiques (1.4.11, ≥ 3:1)** : accent, anneau de focus, couleurs de statut.
-- **En attente de décision** : filets des composants interactifs (`line-strong`, `line-subtle`), 1,4 à 2,3:1 — issue #41.
+- **Bordures des contrôles (1.4.11, ≥ 3:1)** : `--line-control` (anthracite `ink-500` #6B706C, papier #868984) pour champs, listes, bouton secondaire, chips, bouton Menu et fermeture de modale (#41). Les filets décoratifs (`line-hairline`, `line-subtle`, `line-strong`) restent fins : ils ne délimitent aucun contrôle.
 
 Ajustements faits lors de l'audit (#22) : texte tertiaire anthracite `ink-500` → `ink-400` (#7C827D) ; `laterite-600` #C24A1C → #BC481B (texte d'accent sur papier) ; statut « Disponible » sur papier #2E9C61.
