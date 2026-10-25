@@ -77,4 +77,4 @@ Ce dépôt sert de modèle pour les autres outils NYEMA : configuration (`@nyema
 
 ## Source de design
 
-Projet Claude Design « Système de design NYEMA complet ». Notes de marque : [design/claude-design/readme.md](design/claude-design/readme.md).
+Projet Claude Design « Système de design NYEMA complet ». Notes de marque : [design/claude-design/marque.md](design/claude-design/marque.md).
