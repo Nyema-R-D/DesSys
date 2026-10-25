@@ -19,6 +19,10 @@ Package `@nyema-r-d/react`. Catalogue interactif : Storybook (`pnpm storybook`, 
 | `PillarCard`           | Carte de pilier      | index « /02 », titre, description, `href` optionnel                                                                                 |
 | `SignalGrid`           | Motif de signaux     | 7 % latérite / 17 % papier, `animated` (respecte `prefers-reduced-motion`)                                                          |
 | `Container`, `Section` | Mise en page         | 1360 px ; index 1/4 + contenu 3/4, une colonne sous 900 px                                                                          |
+| `SiteHeader`           | En-tête de site      | collant, flou, `links` (`current` → `aria-current`), `actions`, menu replié sous 1040 px (Échap ferme)                              |
+| `Hero`                 | Ouverture de page    | `eyebrow`, `aside`, `title` (h1 display), `lead`, `actions`, `media` + `mediaLegend`                                                |
+| `SiteFooter`           | Pied de page         | `columns` (navigations nommées), `legal`, `tagline`, `extra`                                                                        |
+| `LanguageSwitch`       | Langue FR / BM       | mode bouton (`onChange`) ou lien (`getHref`, `hreflang`) ; langue active marquée du carré-nœud                                      |
 
 ## Exemple
 
