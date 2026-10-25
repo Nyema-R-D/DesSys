@@ -1,0 +1,9 @@
+{
+  "extends": "@nyema-r-d/config/tsconfig/react-library.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "types": ["vite/client", "vitest/globals"]
+  },
+  "include": ["src", "vite.config.ts", "vitest.config.ts"]
+}

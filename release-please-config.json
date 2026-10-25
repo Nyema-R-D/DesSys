@@ -82,6 +82,11 @@
         },
         {
           "type": "json",
+          "path": "packages/vue/package.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
           "path": "packages/config/package.json",
           "jsonpath": "$.version"
         },
