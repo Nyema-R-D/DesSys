@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.4.0](https://github.com/Nyema-R-D/DesSys/compare/v0.3.0...v0.4.0) (2026-10-25)
+
+
+### Nouveautés · Fɛn kuraw
+
+* **vue:** atteint la parité complète avec @nyema-r-d/react ([32b6be2](https://github.com/Nyema-R-D/DesSys/commit/32b6be21498a28ca2920d9049e67b2ce6b86c2d1)), closes [#38](https://github.com/Nyema-R-D/DesSys/issues/38)
+
+
+### Corrections · Latilenniw
+
+* **tokens:** rend les textes conformes WCAG AA et automatise l'audit des contrastes ([0737a77](https://github.com/Nyema-R-D/DesSys/commit/0737a7778d9ef153afb1c660af9fbcd6bf0750a1)), closes [#22](https://github.com/Nyema-R-D/DesSys/issues/22)
+
+
+### Documentation · Sɛbɛnw
+
+* définit la politique de dépréciation et l'outille ([042fbd7](https://github.com/Nyema-R-D/DesSys/commit/042fbd70a4f21c2d7c2cc9527d55c824cd71f494)), closes [#24](https://github.com/Nyema-R-D/DesSys/issues/24)
+* sépare les notes de marque de la correspondance design → code ([ff2d31a](https://github.com/Nyema-R-D/DesSys/commit/ff2d31aede595ead3ab448c04006af5dd865e086))
+* **wiki:** présente les garanties d'accessibilité et de stabilité ([efd1fe7](https://github.com/Nyema-R-D/DesSys/commit/efd1fe7479a34fd111ffa0b31118534fe93790f6))
+
 ## [0.3.0](https://github.com/Nyema-R-D/DesSys/compare/v0.2.0...v0.3.0) (2026-10-25)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@nyema-r-d/config",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Configuration partagée NYEMA : TypeScript, ESLint, Prettier, Commitlint.",
   "type": "module",
   "license": "UNLICENSED",
