@@ -20,6 +20,7 @@ Package `@nyema-r-d/react`.
 | `SignalGrid`                        | Taamasiyɛn kare                                            |
 | `Icon`                              | Ja fitinin (Lucide)                                        |
 | `ConnectionStatus`, `OfflineBanner` | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli                            |
+| `Tabs`, `Dialog`, `Toast`           | Onglets, modale, kunnafoni fitinin                         |
 | `Container`, `Section`              | Ɲɛ labɛncogo                                               |
 | `SiteHeader`, `Hero`, `SiteFooter`  | Site ka kɔrɔ, a daminɛ, a laban                            |
 | `LanguageSwitch`                    | Kan sugandi (FR / BM)                                      |

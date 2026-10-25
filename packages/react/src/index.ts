@@ -65,3 +65,11 @@ export {
   type OfflineBannerProps,
 } from './components/ConnectionStatus/ConnectionStatus';
 export { useOnlineStatus } from './hooks/useOnlineStatus';
+export { Tabs, type TabItem, type TabsProps } from './components/Tabs/Tabs';
+export { Dialog, type DialogProps } from './components/Dialog/Dialog';
+export {
+  ToastProvider,
+  useToast,
+  type ToastOptions,
+  type ToastTone,
+} from './components/Toast/Toast';
