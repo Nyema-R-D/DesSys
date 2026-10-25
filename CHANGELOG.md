@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/Nyema-R-D/DesSys/compare/v0.2.0...v0.3.0) (2026-10-25)
+
+
+### Nouveautés · Fɛn kuraw
+
+* **css:** extrait le CSS des composants dans @nyema-r-d/css ([4a6c255](https://github.com/Nyema-R-D/DesSys/commit/4a6c255031ce252757528448cb178fe1ab719906)), closes [#37](https://github.com/Nyema-R-D/DesSys/issues/37)
+* **vue:** ajoute le package @nyema-r-d/vue ([acd3306](https://github.com/Nyema-R-D/DesSys/commit/acd3306830a7565a592b8a73e349e6b430a1cc23)), closes [#19](https://github.com/Nyema-R-D/DesSys/issues/19)
+
+
+### Documentation · Sɛbɛnw
+
+* **wiki:** oriente vers Vue et le CSS seul depuis l'accueil ([2fe3b83](https://github.com/Nyema-R-D/DesSys/commit/2fe3b83f498b516b143bf5aa032c0ff01981c71c))
+
 ## [0.2.0](https://github.com/Nyema-R-D/DesSys/compare/v0.1.0...v0.2.0) (2026-10-25)
 
 

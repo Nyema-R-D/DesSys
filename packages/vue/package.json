@@ -1,6 +1,6 @@
 {
   "name": "@nyema-r-d/vue",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Composants Vue 3 du système de design NYEMA (même CSS et même HTML que @nyema-r-d/react).",
   "type": "module",
   "license": "UNLICENSED",
