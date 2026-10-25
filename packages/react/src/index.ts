@@ -73,3 +73,11 @@ export {
   type ToastOptions,
   type ToastTone,
 } from './components/Toast/Toast';
+export {
+  DataTable,
+  type DataTableColumn,
+  type DataTableProps,
+  type SortDirection,
+  type SortState,
+} from './components/DataTable/DataTable';
+export { Pagination, type PaginationProps } from './components/Pagination/Pagination';
