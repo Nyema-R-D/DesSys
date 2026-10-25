@@ -21,7 +21,10 @@ const preview: Preview = {
   initialGlobals: { theme: 'anthracite' },
   decorators: [
     (Story, context) => (
-      <Theme theme={context.globals.theme as ThemeName} style={{ padding: 32, minHeight: '100%' }}>
+      <Theme
+        theme={context.globals.theme as ThemeName}
+        style={{ padding: context.parameters.nyPadding === false ? 0 : 32, minHeight: '100vh' }}
+      >
         <Story />
       </Theme>
     ),

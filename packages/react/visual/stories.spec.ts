@@ -16,6 +16,8 @@ for (const theme of ['anthracite', 'paper'] as const) {
     test(`${story.id} › ${theme}`, async ({ page }) => {
       // Mouvement réduit : la grille de signaux reste statique, la capture est déterministe.
       await page.emulateMedia({ reducedMotion: 'reduce' });
+      // Les stories « Mobile » sont capturées à la largeur d'un téléphone.
+      if (story.id.endsWith('--mobile')) await page.setViewportSize({ width: 390, height: 844 });
       await page.goto(`/iframe.html?id=${story.id}&viewMode=story&globals=theme:${theme}`);
       await page.locator('#storybook-root > *').first().waitFor();
       await page.evaluate(() => document.fonts.ready);

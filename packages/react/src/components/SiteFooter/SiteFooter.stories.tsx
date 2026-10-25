@@ -11,13 +11,7 @@ function Langues() {
 const meta = {
   title: 'Structure/SiteFooter',
   component: SiteFooter,
-  decorators: [
-    (Story) => (
-      <div style={{ margin: -32 }}>
-        <Story />
-      </div>
-    ),
-  ],
+  parameters: { nyPadding: false },
   args: {
     columns: [
       {
