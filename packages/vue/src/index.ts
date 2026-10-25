@@ -27,3 +27,4 @@ export type { ThemeName } from './components/Theme.vue';
 export type { MarkTone } from './components/Mark.vue';
 export type { ButtonSize, ButtonVariant } from './components/Button.vue';
 export type { SelectOption } from './components/Select.vue';
+export { resetDeprecationWarnings, warnDeprecated } from './deprecation';

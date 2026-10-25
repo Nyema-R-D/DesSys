@@ -18,7 +18,7 @@ jobs:
       - uses: actions/github-script@v9
         with:
           script: |
-            const types = ['feat', 'fix', 'perf', 'revert', 'refactor', 'docs', 'build', 'ci', 'deps', 'test', 'style', 'chore'];
+            const types = ['feat', 'fix', 'perf', 'deprecate', 'revert', 'refactor', 'docs', 'build', 'ci', 'deps', 'test', 'style', 'chore'];
             const title = context.payload.pull_request.title;
             const pattern = new RegExp(`^(${types.join('|')})(\\([a-z0-9-]+\\))?!?: \\S`);
             if (!pattern.test(title)) {
