@@ -18,6 +18,13 @@
 
 `packages/react/src/test/a11y.test.tsx` rend **chaque story** dans les thèmes anthracite et papier et l'audite avec axe-core ; toute violation fait échouer `pnpm test`, donc la CI. Le contraste des couleurs n'est pas mesurable dans jsdom : il relève de l'audit dédié (issue #22). Une nouvelle story est couverte automatiquement.
 
+## Régression visuelle
+
+Chaque story est capturée (thèmes anthracite et papier, mouvement réduit) et comparée aux références `packages/react/visual/__screenshots__`. Les références sont produites **uniquement en CI**, dans l'image Docker Playwright, pour un rendu de polices identique.
+
+- Changement visuel voulu : _Actions → Visuel → Run workflow_, choisir la branche, cocher `update`. Le workflow committe les nouvelles captures sur la branche.
+- Échec inattendu : télécharger l'artefact `rapport-visuel` (diff image par image).
+
 ## En local
 
 `lefthook` exécute Prettier et ESLint sur les fichiers indexés, et commitlint sur le message. `pnpm check` reproduit la CI.
