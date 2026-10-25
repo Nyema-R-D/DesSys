@@ -1,0 +1,72 @@
+.ny-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--surface-page) 86%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-hairline);
+}
+.ny-site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  height: 68px;
+}
+.ny-site-header__brand {
+  display: inline-flex;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.ny-site-header__nav {
+  display: flex;
+  gap: 22px;
+  white-space: nowrap;
+}
+.ny-site-header__link {
+  font: 400 14px/1 var(--font-sans);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.ny-site-header__link:hover,
+.ny-site-header__link[aria-current='page'] {
+  color: var(--text-primary);
+}
+.ny-site-header__end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: none;
+}
+.ny-site-header__toggle {
+  display: none;
+  height: var(--control-nav);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.ny-site-header__panel {
+  display: none;
+}
+@media (max-width: 1039px) {
+  .ny-site-header__bar > .ny-site-header__nav {
+    display: none;
+  }
+  .ny-site-header__toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+  .ny-site-header__panel:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: var(--space-5);
+  }
+  .ny-site-header__panel .ny-site-header__link {
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--line-hairline);
+    font-size: 18px;
+  }
+}
