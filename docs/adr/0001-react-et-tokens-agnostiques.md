@@ -15,3 +15,7 @@ Le système doit servir le site officiel, des apps métier et des outils interne
 ## Conséquences
 
 Un projet Vue ou Svelte peut adopter la marque dès aujourd'hui via les tokens ; seuls les comportements (dépliage, focus) seraient à réécrire.
+
+## Mise à jour — v0.3.0
+
+Le CSS des composants est extrait dans `@nyema-r-d/css` (issue #37), consommé par `@nyema-r-d/react` et `@nyema-r-d/vue`. `@nyema-r-d/react/styles.css` reste fourni.

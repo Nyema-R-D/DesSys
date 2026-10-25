@@ -1,6 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../utils';
-import './Button.css';
+import '@nyema-r-d/css/components/Button.css';
 
 export type ButtonVariant = 'primary' | 'inverse' | 'secondary' | 'link';
 export type ButtonSize = 'sm' | 'md' | 'lg';

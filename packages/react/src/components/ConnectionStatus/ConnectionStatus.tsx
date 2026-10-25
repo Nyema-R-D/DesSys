@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../utils';
 import type { Locale } from '../StatusBadge/StatusBadge';
-import './ConnectionStatus.css';
+import '@nyema-r-d/css/components/ConnectionStatus.css';
 
 export type ConnectionState = 'online' | 'offline' | 'syncing' | 'conflict';
 

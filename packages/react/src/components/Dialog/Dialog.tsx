@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react';
 import { cx } from '../../utils';
-import './Dialog.css';
+import '@nyema-r-d/css/components/Dialog.css';
 
 export interface DialogProps {
   open: boolean;

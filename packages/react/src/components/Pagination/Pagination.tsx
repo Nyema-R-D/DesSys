@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react';
 import { cx } from '../../utils';
 import { Button } from '../Button/Button';
-import './Pagination.css';
+import '@nyema-r-d/css/components/Pagination.css';
 
 export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange'> {
   /** Page courante, à partir de 1. */

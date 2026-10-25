@@ -1,7 +1,7 @@
 import type { CSSProperties, HTMLAttributes } from 'react';
 import { cx } from '../../utils';
 import { Mark, type MarkTone } from '../Mark/Mark';
-import './Logo.css';
+import '@nyema-r-d/css/components/Logo.css';
 
 export interface LogoProps extends HTMLAttributes<HTMLSpanElement> {
   /** Hauteur du symbole en px (logo complet : 72 px de large minimum). */

@@ -1,6 +1,6 @@
 import { useId, useMemo, useState, type ReactNode } from 'react';
 import { cx } from '../../utils';
-import './DataTable.css';
+import '@nyema-r-d/css/components/DataTable.css';
 
 export type SortDirection = 'ascending' | 'descending';
 export interface SortState {

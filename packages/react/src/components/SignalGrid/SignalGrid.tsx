@@ -1,6 +1,6 @@
 import { useEffect, useState, type CSSProperties, type HTMLAttributes } from 'react';
 import { cx } from '../../utils';
-import './SignalGrid.css';
+import '@nyema-r-d/css/components/SignalGrid.css';
 
 export type SignalState = 'off' | 'paper' | 'accent';
 

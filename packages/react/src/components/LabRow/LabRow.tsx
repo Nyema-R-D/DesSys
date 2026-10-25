@@ -1,7 +1,7 @@
 import { useId, useState, type HTMLAttributes, type ReactNode } from 'react';
 import { cx } from '../../utils';
 import { StatusBadge, type Locale, type ProductStatus } from '../StatusBadge/StatusBadge';
-import './LabRow.css';
+import '@nyema-r-d/css/components/LabRow.css';
 
 export interface LabRowProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   /** Code produit en mono : OFFLINE, TRUST, DATA… */

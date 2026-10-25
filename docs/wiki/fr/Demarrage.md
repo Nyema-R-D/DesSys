@@ -33,14 +33,17 @@ Polices : `fonts-local.css` embarque Archivo (variable : graisse et chasse) et J
 
 `Theme` pose `data-ny-theme` et la classe `ny-root` (typographie, fond, anneau de focus). Les thèmes peuvent s'imbriquer : une carte papier dans une page anthracite.
 
-## 4. Sans React
+## 4. Sans React (HTML, Vue, autre)
 
 ```html
 <link rel="stylesheet" href="node_modules/@nyema-r-d/tokens/dist/tokens.css" />
+<link rel="stylesheet" href="node_modules/@nyema-r-d/css/dist/styles.css" />
 <body
   data-ny-theme="paper"
   style="background: var(--surface-page); color: var(--text-primary)"
 ></body>
 ```
+
+Avec `@nyema-r-d/css`, les classes des composants (`ny-button ny-button--primary`, `ny-status-badge`…) s'utilisent directement ; la structure HTML attendue est celle rendue dans Storybook.
 
 Les valeurs sont aussi disponibles en JS (`import { tokens, themes } from '@nyema-r-d/tokens'`) et en JSON (`@nyema-r-d/tokens/tokens.json`).

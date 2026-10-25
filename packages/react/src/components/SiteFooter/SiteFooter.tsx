@@ -2,7 +2,7 @@ import { useId, type HTMLAttributes, type ReactNode } from 'react';
 import { cx } from '../../utils';
 import { Container } from '../Layout/Layout';
 import { Logo } from '../Logo/Logo';
-import './SiteFooter.css';
+import '@nyema-r-d/css/components/SiteFooter.css';
 
 export interface FooterColumn {
   title: ReactNode;

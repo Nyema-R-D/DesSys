@@ -1,6 +1,6 @@
 import { useId, type InputHTMLAttributes, type ReactNode } from 'react';
 import { cx } from '../../utils';
-import './Checkbox.css';
+import '@nyema-r-d/css/components/Checkbox.css';
 
 export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label: ReactNode;

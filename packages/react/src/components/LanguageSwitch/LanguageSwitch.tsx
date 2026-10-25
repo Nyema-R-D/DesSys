@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 import { cx } from '../../utils';
-import './LanguageSwitch.css';
+import '@nyema-r-d/css/components/LanguageSwitch.css';
 
 export interface LanguageOption {
   /** Code BCP 47 : `fr`, `bm`… */

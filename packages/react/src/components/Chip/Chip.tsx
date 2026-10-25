@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, HTMLAttributes } from 'react';
 import { cx } from '../../utils';
-import './Chip.css';
+import '@nyema-r-d/css/components/Chip.css';
 
 export interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   selected?: boolean;

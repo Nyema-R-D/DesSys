@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../utils';
 import { SectionLabel } from '../SectionLabel/SectionLabel';
-import './Layout.css';
+import '@nyema-r-d/css/components/Layout.css';
 
 /** Conteneur 1360 px, gouttière fluide 20–56 px. */
 export function Container({ className, ...props }: HTMLAttributes<HTMLDivElement>) {

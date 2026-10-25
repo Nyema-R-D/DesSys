@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 import { cx } from '../../utils';
-import './Tag.css';
+import '@nyema-r-d/css/components/Tag.css';
 
 /** Étiquette statique (non interactive). Pour une sélection, utiliser Chip. */
 export function Tag({ className, ...props }: HTMLAttributes<HTMLSpanElement>) {

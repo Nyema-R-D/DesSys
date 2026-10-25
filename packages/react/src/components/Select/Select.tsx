@@ -1,7 +1,7 @@
 import { useId, type ReactNode, type SelectHTMLAttributes } from 'react';
 import { cx } from '../../utils';
-import '../TextField/TextField.css';
-import './Select.css';
+import '@nyema-r-d/css/components/TextField.css';
+import '@nyema-r-d/css/components/Select.css';
 
 export interface SelectOption {
   value: string;

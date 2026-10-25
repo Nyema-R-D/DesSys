@@ -1,4 +1,4 @@
-import './styles/base.css';
+import '@nyema-r-d/css/base.css';
 
 export { Theme, type ThemeName, type ThemeProps } from './components/Theme/Theme';
 export { Mark, type MarkProps, type MarkTone } from './components/Mark/Mark';

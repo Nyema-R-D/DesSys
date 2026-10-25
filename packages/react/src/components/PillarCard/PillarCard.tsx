@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../utils';
-import './PillarCard.css';
+import '@nyema-r-d/css/components/PillarCard.css';
 
 export interface PillarCardProps extends Omit<HTMLAttributes<HTMLElement>, 'title'> {
   /** Index du pilier : 2 → « /02 ». */
