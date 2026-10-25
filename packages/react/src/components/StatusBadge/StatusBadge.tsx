@@ -15,6 +15,8 @@ export interface StatusBadgeProps extends HTMLAttributes<HTMLSpanElement> {
   /** Chaque produit porte un statut explicite. Ne jamais annoncer « disponible » un produit en idée. */
   status: ProductStatus;
   locale?: Locale;
+  /** `outline` (défaut) : cadre filet ; `plain` : sans cadre, pour les légendes et cartes. */
+  variant?: 'outline' | 'plain';
   children?: ReactNode;
 }
 
@@ -22,12 +24,21 @@ export interface StatusBadgeProps extends HTMLAttributes<HTMLSpanElement> {
 export function StatusBadge({
   status,
   locale = 'fr',
+  variant = 'outline',
   children,
   className,
   ...props
 }: StatusBadgeProps) {
   return (
-    <span className={cx('ny-status-badge', `ny-status-badge--${status}`, className)} {...props}>
+    <span
+      className={cx(
+        'ny-status-badge',
+        `ny-status-badge--${status}`,
+        variant === 'plain' && 'ny-status-badge--plain',
+        className,
+      )}
+      {...props}
+    >
       <span className="ny-status-badge__dot" aria-hidden="true" />
       {children ?? statusLabels[locale][status]}
     </span>

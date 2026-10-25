@@ -24,3 +24,14 @@ export const Tous: Story = {
     </div>
   ),
 };
+
+export const SansCadre: Story = {
+  name: 'Sans cadre (légende)',
+  render: (args) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+      {(['research', 'prototype', 'pilot', 'available'] as const).map((status) => (
+        <StatusBadge key={status} {...args} status={status} variant="plain" />
+      ))}
+    </div>
+  ),
+};

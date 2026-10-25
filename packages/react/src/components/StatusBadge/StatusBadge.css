@@ -16,14 +16,18 @@
   background: var(--ny-status-color);
 }
 .ny-status-badge--research {
-  --ny-status-color: var(--ny-status-research);
+  --ny-status-color: var(--status-research);
 }
 .ny-status-badge--prototype {
-  --ny-status-color: var(--ny-status-prototype);
+  --ny-status-color: var(--status-prototype);
 }
 .ny-status-badge--pilot {
-  --ny-status-color: var(--ny-status-pilot);
+  --ny-status-color: var(--status-pilot);
 }
 .ny-status-badge--available {
-  --ny-status-color: var(--ny-status-available);
+  --ny-status-color: var(--status-available);
+}
+.ny-status-badge--plain {
+  padding: 0;
+  border: 0;
 }
