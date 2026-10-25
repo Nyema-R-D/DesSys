@@ -27,6 +27,8 @@
     },
     "./tokens.css": "./dist/tokens.css",
     "./fonts.css": "./dist/fonts.css",
+    "./fonts-local.css": "./dist/fonts-local.css",
+    "./fonts/*": "./dist/fonts/*",
     "./tokens.json": "./dist/tokens.json",
     "./assets/*": "./dist/assets/*"
   },
@@ -34,5 +36,9 @@
     "build": "node scripts/build.mjs",
     "typecheck": "echo 'tokens : types générés au build'",
     "test": "node --test \"test/*.test.mjs\""
+  },
+  "devDependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0"
   }
 }

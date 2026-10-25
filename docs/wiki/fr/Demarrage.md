@@ -21,13 +21,15 @@ pnpm add @nyema-r-d/react @nyema-r-d/tokens
 ## 3. Styles et thème
 
 ```tsx
-import '@nyema-r-d/tokens/fonts.css'; // Archivo + JetBrains Mono (Google Fonts)
+import '@nyema-r-d/tokens/fonts-local.css'; // Archivo + JetBrains Mono embarquées (hors ligne)
 import '@nyema-r-d/tokens/tokens.css'; // variables CSS
 import '@nyema-r-d/react/styles.css'; // styles des composants
 import { Theme } from '@nyema-r-d/react';
 
 <Theme theme="anthracite">{/* application */}</Theme>;
 ```
+
+Polices : `fonts-local.css` embarque Archivo (variable : graisse et chasse) et JetBrains Mono en latin + latin-ext (caractères bamanankan inclus), environ 340 Ko, sans appel à un service tiers. `fonts.css` reste disponible pour charger depuis Google Fonts.
 
 `Theme` pose `data-ny-theme` et la classe `ny-root` (typographie, fond, anneau de focus). Les thèmes peuvent s'imbriquer : une carte papier dans une page anthracite.
 

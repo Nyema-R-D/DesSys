@@ -1,4 +1,4 @@
-import '@nyema-r-d/tokens/fonts.css';
+import '@nyema-r-d/tokens/fonts-local.css';
 import '@nyema-r-d/tokens/tokens.css';
 import '@nyema-r-d/react/styles.css';
 import './reference.css';

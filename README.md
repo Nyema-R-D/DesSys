@@ -31,7 +31,7 @@ pnpm add @nyema-r-d/react @nyema-r-d/tokens
 ```
 
 ```tsx
-import '@nyema-r-d/tokens/fonts.css';
+import '@nyema-r-d/tokens/fonts-local.css';
 import '@nyema-r-d/tokens/tokens.css';
 import '@nyema-r-d/react/styles.css';
 import { Theme, Logo, Button, StatusBadge } from '@nyema-r-d/react';

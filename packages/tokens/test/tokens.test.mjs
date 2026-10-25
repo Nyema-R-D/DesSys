@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
 execFileSync('node', ['scripts/build.mjs']);
@@ -38,4 +38,15 @@ test('les noms historiques du design sont conservés', () => {
   ]) {
     assert.ok(css.includes(`${name}:`), name);
   }
+});
+
+test('les polices locales couvrent latin et latin-ext pour les deux familles', () => {
+  const fonts = readFileSync('dist/fonts-local.css', 'utf8');
+  for (const family of ["'Archivo'", "'JetBrains Mono'"])
+    assert.ok(fonts.includes(`font-family: ${family}`), family);
+  for (const url of fonts.match(/url\(\.\/fonts\/[^)]+\)/g)) {
+    assert.ok(existsSync(`dist/${url.slice(6, -1)}`), url);
+  }
+  // U+025B (ɛ) est dans la plage latin-ext : nécessaire au bamanankan.
+  assert.match(fonts, /U\+0100-02BA|U\+0100-02AF/);
 });

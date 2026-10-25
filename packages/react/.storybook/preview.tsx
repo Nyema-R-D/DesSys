@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react-vite';
-import '@nyema-r-d/tokens/fonts.css';
+import '@nyema-r-d/tokens/fonts-local.css';
 import '@nyema-r-d/tokens/tokens.css';
 import { Theme, type ThemeName } from '../src';
 
