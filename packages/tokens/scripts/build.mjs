@@ -1,5 +1,6 @@
 // Génère dist/ à partir de src/tokens.json : CSS (variables), JS/TS (objet typé), JSON résolu.
 import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -97,4 +98,41 @@ writeFileSync(
 );
 
 cpSync(join(root, 'assets'), join(dist, 'assets'), { recursive: true });
-console.log(`tokens : ${baseVars.length} primitives, ${Object.keys(themes).length} thèmes → dist/`);
+
+// Polices auto-hébergées (hors ligne, sans Google Fonts) : sous-ensembles latin et latin-ext,
+// ce dernier couvrant les caractères bamanankan (ɛ, ɔ, ɲ, ŋ).
+const require = createRequire(import.meta.url);
+const fontSources = [
+  { pkg: '@fontsource-variable/archivo', css: ['wdth.css'], family: 'Archivo' },
+  {
+    pkg: '@fontsource/jetbrains-mono',
+    css: ['latin-400.css', 'latin-500.css', 'latin-ext-400.css', 'latin-ext-500.css'],
+    family: 'JetBrains Mono',
+  },
+];
+mkdirSync(join(dist, 'fonts'), { recursive: true });
+const faces = [];
+for (const { pkg, css, family } of fontSources) {
+  const dir = dirname(require.resolve(`${pkg}/package.json`));
+  for (const file of css) {
+    const blocks = readFileSync(join(dir, file), 'utf8').match(/@font-face\s*{[^}]+}/g) ?? [];
+    for (const block of blocks) {
+      const font = block.match(/url\(\.\/files\/([^)]+\.woff2)\)/)?.[1];
+      if (!font || !/-latin(-ext)?-/.test(font)) continue;
+      cpSync(join(dir, 'files', font), join(dist, 'fonts', font));
+      faces.push(
+        block
+          .replace(/font-family: '[^']+'/, `font-family: '${family}'`)
+          .replace('./files/', './fonts/'),
+      );
+    }
+  }
+  cpSync(join(dir, 'LICENSE'), join(dist, 'fonts', `LICENSE-${family.replace(/\s/g, '')}.txt`));
+}
+writeFileSync(
+  join(dist, 'fonts-local.css'),
+  `/* Archivo et JetBrains Mono — SIL Open Font License 1.1 (voir fonts/LICENSE-*). */\n${faces.join('\n')}\n`,
+);
+console.log(
+  `tokens : ${baseVars.length} primitives, ${Object.keys(themes).length} thèmes, ${faces.length} @font-face → dist/`,
+);
