@@ -460,6 +460,63 @@ const cases: Case[] = [
     { columns: footerColumns, legal: '© 2026 NYEMA', tagline: 'Technologie utile.' },
     { extra: () => 'FR' },
   ],
+  [
+    'TextField compteur',
+    r(R.TextField, {
+      label: 'Note',
+      maxLength: 200,
+      showCount: true,
+      value: 'abc',
+      onChange: () => {},
+    }),
+    V.TextField,
+    { label: 'Note', maxlength: 200, showCount: true, modelValue: 'abc' },
+  ],
+  ['Switch', r(R.Switch, { label: 'Hors ligne' }), V.Switch, { label: 'Hors ligne' }],
+  [
+    'Switch avec aide, activé',
+    r(R.Switch, { label: 'Hors ligne', hint: 'Envoi différé.', checked: true, readOnly: true }),
+    V.Switch,
+    { label: 'Hors ligne', hint: 'Envoi différé.', modelValue: true, readonly: true },
+  ],
+  [
+    'FileUpload',
+    r(R.FileUpload, {
+      label: 'Justificatif',
+      hint: 'PDF, 5 Mo.',
+      error: 'Trop lourd.',
+      required: true,
+      accept: 'application/pdf',
+    }),
+    V.FileUpload,
+    {
+      label: 'Justificatif',
+      hint: 'PDF, 5 Mo.',
+      error: 'Trop lourd.',
+      required: true,
+      accept: 'application/pdf',
+    },
+  ],
+  [
+    'DateField',
+    r(R.DateField, { label: 'Visite', min: '2026-01-01', value: '2026-11-04', onChange: () => {} }),
+    V.DateField,
+    { label: 'Visite', min: '2026-01-01', modelValue: '2026-11-04' },
+  ],
+  [
+    'Fieldset',
+    r(
+      R.Fieldset,
+      { legend: 'Coopérative', description: 'Telle qu’enregistrée.', error: 'Incomplet.' },
+      'champs',
+    ),
+    V.Fieldset,
+    { legend: 'Coopérative', description: 'Telle qu’enregistrée.', error: 'Incomplet.' },
+    'champs',
+  ],
+  ['FormRow', r(R.FormRow, null, 'a'), V.FormRow, {}, 'a'],
+  ['FormRow 3 colonnes', r(R.FormRow, { columns: 3 }, 'a'), V.FormRow, { columns: 3 }, 'a'],
+  ['FormActions', r(R.FormActions, null, 'a'), V.FormActions, {}, 'a'],
 ];
 
 describe('Parité HTML React ↔ Vue', () => {

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { TextField } from './TextField';
 
 describe('TextField', () => {
@@ -22,5 +22,18 @@ describe('TextField', () => {
   it('rend une zone de texte en mode multiline', () => {
     render(<TextField label="Message" multiline />);
     expect(screen.getByLabelText('Message').tagName).toBe('TEXTAREA');
+  });
+
+  it('compte les caractères quand showCount et maxLength sont fournis', () => {
+    render(<TextField label="Note" maxLength={20} showCount defaultValue="abc" />);
+    const input = screen.getByLabelText('Note');
+    expect(input).toHaveAccessibleDescription('3 / 20');
+    fireEvent.change(input, { target: { value: 'abcdef' } });
+    expect(input).toHaveAccessibleDescription('6 / 20');
+  });
+
+  it('suit la valeur contrôlée pour le compteur', () => {
+    render(<TextField label="Note" maxLength={20} showCount value="abcd" onChange={() => {}} />);
+    expect(screen.getByText('4 / 20')).toBeInTheDocument();
   });
 });
