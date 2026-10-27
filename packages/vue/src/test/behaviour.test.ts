@@ -2,6 +2,11 @@ import { mount } from '@vue/test-utils';
 import axe from 'axe-core';
 import { h, ref } from 'vue';
 import {
+  Accordion,
+  Breadcrumb,
+  Menu,
+  Skeleton,
+  Tooltip,
   Button,
   Checkbox,
   DateField,
@@ -28,6 +33,8 @@ import {
   TextField,
   Theme,
 } from '../index';
+
+const flush = () => new Promise((resolve) => setTimeout(resolve));
 
 describe('Comportements Vue', () => {
   it('TextField : v-model dans les deux sens', async () => {
@@ -108,6 +115,51 @@ describe('Comportements Vue', () => {
     expect(wrapper.get('.ny-file__zone').attributes('data-dragging')).toBe('');
   });
 
+  it('Menu : clavier, sélection et retour du focus', async () => {
+    const wrapper = mount(Menu, {
+      props: {
+        label: 'Actions',
+        items: [
+          { id: 'modifier', label: 'Modifier' },
+          { id: 'exporter', label: 'Exporter', disabled: true },
+          { id: 'supprimer', label: 'Supprimer' },
+        ],
+      },
+      attachTo: document.body,
+    });
+    const trigger = wrapper.get('[aria-haspopup]');
+    await trigger.trigger('keydown', { key: 'ArrowUp' });
+    await flush();
+    const items = wrapper.findAll('[role="menuitem"]');
+    expect(document.activeElement).toBe(items[2]!.element);
+    await wrapper.get('[role="menu"]').trigger('keydown', { key: 'ArrowDown' });
+    await flush();
+    expect(document.activeElement).toBe(items[0]!.element);
+    await wrapper.get('[role="menu"]').trigger('keydown', { key: 'Escape' });
+    expect(wrapper.get('[role="menu"]').attributes('hidden')).toBeDefined();
+    expect(document.activeElement).toBe(trigger.element);
+    await trigger.trigger('click');
+    await items[2]!.trigger('click');
+    expect(wrapper.emitted('select')?.[0]).toEqual(['supprimer']);
+    wrapper.unmount();
+  });
+
+  it('Tooltip : décrit le déclencheur, s’ouvre au focus, se ferme avec Échap', async () => {
+    const wrapper = mount(Tooltip, {
+      props: { content: 'Envoi différé.' },
+      slots: { default: () => h('button', { type: 'button' }, 'Attente') },
+      attachTo: document.body,
+    });
+    const tip = wrapper.get('[role="tooltip"]');
+    expect(wrapper.get('button').attributes('aria-describedby')).toBe(tip.attributes('id'));
+    await wrapper.get('button').trigger('focusin');
+    expect(tip.attributes('hidden')).toBeUndefined();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    await flush();
+    expect(tip.attributes('hidden')).toBeDefined();
+    wrapper.unmount();
+  });
+
   it('Button : slot trailing', () => {
     const wrapper = mount(Button, { slots: { default: 'Suivant', trailing: '↗' } });
     expect(wrapper.get('[aria-hidden="true"]').text()).toBe('↗');
@@ -160,6 +212,15 @@ describe('Accessibilité Vue (axe-core)', () => {
     h(LanguageSwitch, { modelValue: 'fr' }),
     h(Switch, { label: 'Hors ligne', hint: 'Envoi différé.' }),
     h(FileUpload, { label: 'Justificatif', hint: 'PDF.', error: 'Trop lourd.' }),
+    h(Breadcrumb, { items: [{ label: 'Coopératives', href: '#c' }, { label: 'Ségou' }] }),
+    h(
+      Accordion,
+      { items: [{ id: 'a', title: 'Question' }], defaultOpen: ['a'] },
+      { a: () => 'Réponse' },
+    ),
+    h(Skeleton, { lines: 2 }),
+    h(Tooltip, { content: 'Aide' }, () => h('button', { type: 'button' }, 'Info')),
+    h(Menu, { label: 'Actions', items: [{ id: 'a', label: 'Modifier' }] }),
     h(Fieldset, { legend: 'Coopérative', description: 'Telle qu’enregistrée.' }, () =>
       h(FormRow, { columns: 2 }, () => [
         h(TextField, { label: 'Nom' }),
