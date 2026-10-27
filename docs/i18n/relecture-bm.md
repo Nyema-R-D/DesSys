@@ -2,7 +2,7 @@
 
 > Généré par `node scripts/i18n/bm-review.mjs` — ne pas modifier à la main. Issue #23 : la 1.0 attend cette relecture.
 
-**179 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
+**181 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
 
 Points d'attention signalés lors de la rédaction :
 
@@ -208,6 +208,8 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L16 — Komponanw bɛ token sémantiques labaara (`--accent`, `--text-primary`, `--surface-page`…) : u bɛ yɛlɛma ni `data-ny-theme` yɛlɛmana.
 - [ ] L18 — Yɔrɔ (espacement)
 - [ ] L20 — `--space-1` … `--space-10` : 4, 8, 12, 16, 24, 32, 48, 64, 96, 144 px.
+- [ ] L22 — Figma (DTCG)
+- [ ] L24 — `@nyema-r-d/tokens/tokens.dtcg.json` : token kelenw, W3C Design Tokens cogo la. Tokens Studio bɛ se k'a don Figma kɔnɔ. Token yɛlɛmani bɛɛ bɛ kɛ PR fɛ `src/tokens.json` kan.
 
 ### `docs/wiki/bm/BM-Version-ni-boli.md`
 

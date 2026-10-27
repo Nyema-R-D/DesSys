@@ -80,6 +80,74 @@ const resolved = {
 };
 writeFileSync(join(dist, 'tokens.json'), JSON.stringify(resolved, null, 2) + '\n');
 
+// Export W3C Design Tokens (DTCG), lisible par Tokens Studio pour Figma et Style Dictionary :
+// un ensemble « core » (primitives) et un ensemble par thème, références {…} conservées.
+const families = (value) => value.split(',').map((f) => f.trim().replace(/^'|'$/g, ''));
+const dtcg = (path, value) => {
+  const group = path[0];
+  const token = (type, $value, extra = {}) => ({
+    ...(type ? { $type: type } : {}),
+    $value,
+    ...extra,
+    $extensions: { 'com.nyema': { cssVar: cssName(path) } },
+  });
+  if (group === 'color') return token('color', value);
+  if (group === 'focus') return token(path[1] === 'ring-color' ? 'color' : 'dimension', value);
+  if (group === 'font') return token('fontFamily', families(value));
+  if (group === 'motion')
+    return path[1].startsWith('dur')
+      ? token('duration', value)
+      : token('cubicBezier', value.match(/[\d.]+/g).map(Number));
+  if (group === 'stretch')
+    return token(null, value, { $description: 'font-stretch (largeur Archivo) — sans type DTCG' });
+  if (group === 'type') {
+    const [, weight, size, lineHeight, family] = value.match(
+      /^(\d+) (.+)\/([\d.]+) var\(--font-(\w+)\)$/,
+    );
+    return token('typography', {
+      fontFamily: `{font.${family}}`,
+      fontWeight: Number(weight),
+      fontSize: size,
+      lineHeight: Number(lineHeight),
+    });
+  }
+  return token('dimension', value);
+};
+const nest = (entries) => {
+  const out = {};
+  for (const [path, value] of entries) {
+    let node = out;
+    for (const key of path.slice(0, -1)) node = node[key] ??= {};
+    node[path.at(-1)] = value;
+  }
+  return out;
+};
+const themeSet = (name) =>
+  Object.fromEntries(
+    Object.entries(themes[name]).map(([k, v]) => [
+      k,
+      { $type: 'color', $value: v, $extensions: { 'com.nyema': { cssVar: `--${k}` } } },
+    ]),
+  );
+writeFileSync(
+  join(dist, 'tokens.dtcg.json'),
+  JSON.stringify(
+    {
+      core: nest(flatten(base).map(([path, value]) => [path, dtcg(path, value)])),
+      anthracite: themeSet('anthracite'),
+      paper: themeSet('paper'),
+      $themes: Object.keys(themes).map((name) => ({
+        id: name,
+        name,
+        selectedTokenSets: { core: 'source', [name]: 'enabled' },
+      })),
+      $metadata: { tokenSetOrder: ['core', ...Object.keys(themes)] },
+    },
+    null,
+    2,
+  ) + '\n',
+);
+
 const tree = (obj) =>
   Object.fromEntries(
     Object.entries(obj)

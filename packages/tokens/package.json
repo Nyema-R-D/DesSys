@@ -30,6 +30,7 @@
     "./fonts-local.css": "./dist/fonts-local.css",
     "./fonts/*": "./dist/fonts/*",
     "./tokens.json": "./dist/tokens.json",
+    "./tokens.dtcg.json": "./dist/tokens.dtcg.json",
     "./assets/*": "./dist/assets/*"
   },
   "scripts": {

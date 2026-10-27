@@ -62,3 +62,15 @@ Audités automatiquement par `packages/tokens/test/contrast.test.mjs` (échec de
 - **Bordures des contrôles (1.4.11, ≥ 3:1)** : `--line-control` (anthracite `ink-500` #6B706C, papier #868984) pour champs, listes, bouton secondaire, chips, bouton Menu et fermeture de modale (#41). Les filets décoratifs (`line-hairline`, `line-subtle`, `line-strong`) restent fins : ils ne délimitent aucun contrôle.
 
 Ajustements faits lors de l'audit (#22) : texte tertiaire anthracite `ink-500` → `ink-400` (#7C827D) ; `laterite-600` #C24A1C → #BC481B (texte d'accent sur papier) ; statut « Disponible » sur papier #2E9C61.
+
+## Figma et outils de design (DTCG)
+
+`@nyema-r-d/tokens/tokens.dtcg.json` exporte les mêmes tokens au format [W3C Design Tokens](https://www.designtokens.org/) (`$value`, `$type`). Il est généré avec le reste : designers et code partagent une seule source.
+
+- Ensembles : `core` (primitives), `anthracite` et `paper` (tokens sémantiques). Les thèmes référencent `core` (`{color.ink.950}`).
+- Chaque token porte le nom de sa variable CSS dans `$extensions["com.nyema"].cssVar`.
+- `type.*` devient un token `typography` (famille, graisse, taille, interligne). `stretch.*` (largeur Archivo) n'a pas d'équivalent DTCG et reste sans `$type`.
+
+**Import dans Figma avec Tokens Studio** : Settings → Sync → _URL_ (fichier brut de la dernière release) ou _Import_ → choisir `tokens.dtcg.json` en mode « ensembles multiples ». Les deux thèmes apparaissent dans le menu Themes. Ne modifiez pas les tokens dans Figma : toute évolution passe par une PR sur `src/tokens.json`.
+
+Le fichier est lisible aussi par Style Dictionary 4 et les autres outils compatibles DTCG.
