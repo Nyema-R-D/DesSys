@@ -35,6 +35,15 @@ jobs:
       - uses: ./.github/actions/setup
       - run: pnpm commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
 
+  kit:
+    name: Kit de démarrage (React et Vue générés, installés, vérifiés)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: pnpm build:packages
+      - run: pnpm --filter @nyema-r-d/create-app test:e2e
+
   bamanankan:
     name: Inventaire bamanankan à jour
     runs-on: ubuntu-latest

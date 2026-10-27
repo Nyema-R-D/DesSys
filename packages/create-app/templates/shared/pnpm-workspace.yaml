@@ -1,0 +1,4 @@
+# Réglages pnpm du projet (pas de sous-paquets). Scripts d'installation autorisés :
+allowBuilds:
+  esbuild: true
+  lefthook: true

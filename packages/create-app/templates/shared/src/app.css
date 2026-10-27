@@ -1,0 +1,31 @@
+/* Mise en page de l'écran d'accueil : uniquement des tokens du design system. */
+.app {
+  min-height: 100vh;
+}
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--line-hairline);
+}
+.app__main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding-block: var(--space-9);
+}
+.app__title {
+  margin: 0;
+  font: var(--type-h1);
+  font-stretch: var(--stretch-headline);
+  letter-spacing: var(--tracking-headline);
+}
+.app__lead {
+  max-width: 60ch;
+  margin: 0;
+  font: var(--type-body-lg);
+  color: var(--text-secondary);
+}

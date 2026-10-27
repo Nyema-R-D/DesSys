@@ -14,12 +14,13 @@ NYEMA ka taamasiyɛn, a kulɛrw, a sɛbɛnni cogo ani a komponanw bɛ nin dépô
 
 ## Packages
 
-| Package             | A baara                                                       |
-| ------------------- | ------------------------------------------------------------- |
-| `@nyema-r-d/tokens` | Kulɛrw, sɛbɛnni, yɔrɔ, lamagali ; thème anthracite ni papier. |
-| `@nyema-r-d/react`  | React komponanw.                                              |
-| `@nyema-r-d/config` | TypeScript, ESLint, Prettier, Commitlint labɛnw.              |
-| `apps/reference`    | Design system ka sɛbɛn jiralen.                               |
+| Package                 | A baara                                                       |
+| ----------------------- | ------------------------------------------------------------- |
+| `@nyema-r-d/tokens`     | Kulɛrw, sɛbɛnni, yɔrɔ, lamagali ; thème anthracite ni papier. |
+| `@nyema-r-d/react`      | React komponanw.                                              |
+| `@nyema-r-d/config`     | TypeScript, ESLint, Prettier, Commitlint labɛnw.              |
+| `@nyema-r-d/create-app` | Baarakɛminɛn kura daminɛ : `pnpm create @nyema-r-d/app`.      |
+| `apps/reference`        | Design system ka sɛbɛn jiralen.                               |
 
 ## K'a labaara porozɛ dɔ kɔnɔ
 
