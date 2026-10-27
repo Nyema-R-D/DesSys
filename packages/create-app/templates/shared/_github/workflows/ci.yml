@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+  packages: read # @nyema-r-d/* sur GitHub Packages
+
+jobs:
+  check:
+    name: Format, lint, types, tests, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          # Écrit le jeton dans le .npmrc utilisateur du runner (pnpm ignore celui du projet).
+          registry-url: https://npm.pkg.github.com
+          scope: '@nyema-r-d'
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: pnpm check
+
+  titre:
+    name: Titre de PR conventionnel
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v9
+        with:
+          script: |
+            const types = ['feat', 'fix', 'perf', 'revert', 'refactor', 'docs', 'build', 'ci', 'deps', 'test', 'style', 'chore'];
+            const title = context.payload.pull_request.title;
+            if (!new RegExp(`^(${types.join('|')})(\\([a-z0-9-]+\\))?!?: \\S`).test(title)) {
+              core.setFailed(`Titre non conventionnel : « ${title} ». Attendu : type(portée): description.`);
+            }

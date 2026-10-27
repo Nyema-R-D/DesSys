@@ -1,0 +1,36 @@
+{
+  "name": "@nyema-r-d/create-app",
+  "version": "0.4.0",
+  "description": "Kit de démarrage d'un outil NYEMA : pnpm create @nyema-r-d/app. Vite + React ou Vue, design system, CI et release prêts.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nyema-R-D/DesSys.git",
+    "directory": "packages/create-app"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "bin": {
+    "create-app": "./index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "src",
+    "templates",
+    "dist"
+  ],
+  "exports": {
+    ".": "./src/create.mjs"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "echo 'create-app : JavaScript, vérifié par les tests'",
+    "test": "node scripts/build.mjs && node --test \"test/*.test.mjs\"",
+    "test:e2e": "node test/e2e.mjs"
+  }
+}
