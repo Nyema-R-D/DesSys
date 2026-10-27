@@ -2,7 +2,7 @@
 
 > Généré par `node scripts/i18n/bm-review.mjs` — ne pas modifier à la main. Issue #23 : la 1.0 attend cette relecture.
 
-**178 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
+**179 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
 
 Points d'attention signalés lors de la rédaction :
 
@@ -61,8 +61,8 @@ Affichés dans les produits : priorité de relecture.
 
 - [ ] L4 — description: 'Nouveauté · Fɛn kura'
 - [ ] L10 — description: 'Documentation · Sɛbɛn'
-- [ ] L55 — description: 'À qualifier · Ka sɛgɛsɛgɛ'
-- [ ] L61 — description: 'En cours · A bɛ ka kɛ'
+- [ ] L64 — description: 'À qualifier · Ka sɛgɛsɛgɛ'
+- [ ] L70 — description: 'En cours · A bɛ ka kɛ'
 
 ### `.github/workflows/pr.yml`
 
@@ -219,6 +219,7 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L8 — Ni PR in fara ɲɔgɔn kan : tag, release, packages, sɛbɛnw ani wiki bɛ bɔ otomatiki la.
 - [ ] L9 — Jalon kelen bɛ version kelen kama. Release bɔlen kɔ, jalon bɛ datugu otomatiki la.
 - [ ] L11 — Ka version dɔ wajibiya : `Release-As: X.Y.Z` sɛbɛn commit ka laban dakun na.
+- [ ] L12 — Ni release dɔ bɛ makɔnɔ (misali la sɛgɛsɛgɛli), baara kura bɛ kɛ bolo `next` kan. Release bɔlen kɔ, `next` bɛ fara `main` kan (rebase).
 
 ### `docs/wiki/bm/BM-Vue.md`
 

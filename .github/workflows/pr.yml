@@ -43,7 +43,12 @@ jobs:
             const { data: milestones } = await github.rest.issues.listMilestones({
               ...context.repo, state: 'open', sort: 'due_on', direction: 'asc',
             });
-            const next = milestones.find((m) => /^v\d+\.\d+\.\d+$/.test(m.title));
+            const versions = milestones
+              .filter((m) => /^v\d+\.\d+\.\d+$/.test(m.title))
+              .sort((a, b) => a.title.localeCompare(b.title, 'en', { numeric: true }));
+            // main → prochaine version ; next (gel avant release) → la version suivante.
+            const onNext = context.payload.pull_request.base.ref === 'next';
+            const next = onNext ? versions[1] ?? versions[0] : versions[0];
             if (!next) return core.info('Aucun jalon ouvert.');
             await github.rest.issues.update({
               ...context.repo, issue_number: context.payload.pull_request.number, milestone: next.number,
