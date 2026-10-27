@@ -4,6 +4,11 @@ import { h, ref } from 'vue';
 import {
   Button,
   Checkbox,
+  DateField,
+  Fieldset,
+  FileUpload,
+  FormRow,
+  Switch,
   Chip,
   ConnectionStatus,
   DataTable,
@@ -80,6 +85,29 @@ describe('Comportements Vue', () => {
     expect(wrapper.attributes('href')).toBeUndefined();
   });
 
+  it('Switch, DateField : v-model', async () => {
+    const toggle = mount(Switch, { props: { label: 'Hors ligne', modelValue: false } });
+    await toggle.get('input').setValue(true);
+    expect(toggle.emitted('update:modelValue')?.[0]).toEqual([true]);
+    expect(toggle.get('input').attributes('role')).toBe('switch');
+    const date = mount(DateField, { props: { label: 'Visite', modelValue: '2026-11-04' } });
+    expect(date.get('input').element.value).toBe('2026-11-04');
+    await date.get('input').setValue('2026-12-01');
+    expect(date.emitted('update:modelValue')?.[0]).toEqual(['2026-12-01']);
+  });
+
+  it('FileUpload : émet les fichiers et les liste', async () => {
+    const wrapper = mount(FileUpload, { props: { label: 'Justificatif' } });
+    const input = wrapper.get('input');
+    const pdf = new File(['x'.repeat(2048)], 'releve.pdf');
+    Object.defineProperty(input.element, 'files', { value: [pdf] });
+    await input.trigger('change');
+    expect(wrapper.emitted('filesChange')?.[0]).toEqual([[pdf]]);
+    expect(wrapper.get('li').text()).toBe('releve.pdf2 ko');
+    await wrapper.get('.ny-file__zone').trigger('dragenter');
+    expect(wrapper.get('.ny-file__zone').attributes('data-dragging')).toBe('');
+  });
+
   it('Button : slot trailing', () => {
     const wrapper = mount(Button, { slots: { default: 'Suivant', trailing: '↗' } });
     expect(wrapper.get('[aria-hidden="true"]').text()).toBe('↗');
@@ -130,6 +158,14 @@ describe('Accessibilité Vue (axe-core)', () => {
     h(Pagination, { page: 1, pageCount: 3 }),
     h(OfflineBanner),
     h(LanguageSwitch, { modelValue: 'fr' }),
+    h(Switch, { label: 'Hors ligne', hint: 'Envoi différé.' }),
+    h(FileUpload, { label: 'Justificatif', hint: 'PDF.', error: 'Trop lourd.' }),
+    h(Fieldset, { legend: 'Coopérative', description: 'Telle qu’enregistrée.' }, () =>
+      h(FormRow, { columns: 2 }, () => [
+        h(TextField, { label: 'Nom' }),
+        h(DateField, { label: 'Création' }),
+      ]),
+    ),
   ];
   const landmarks = () => [
     h(SiteHeader, { links: [{ href: '#a', label: 'Solutions' }] }),
