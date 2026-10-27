@@ -1,6 +1,6 @@
 {
   "name": "@nyema-r-d/css",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "CSS des composants NYEMA (classes ny-), indépendant du framework : React, Vue ou HTML.",
   "type": "module",
   "license": "UNLICENSED",
