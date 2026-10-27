@@ -2,6 +2,8 @@
 
 Chaque nouvel outil NYEMA reprend la même configuration et la même automatisation.
 
+**Pour une application** (site, outil métier, back-office) : utilisez le [kit de démarrage](Kit-de-demarrage), `pnpm create @nyema-r-d/app`. Les options ci-dessous servent aux dépôts de bibliothèques ou aux cas particuliers.
+
 ## Option A — modèle GitHub
 
 Ce dépôt est un _template_ : **Use this template** → nouveau dépôt. Supprimez `packages/tokens`, `packages/react`, `apps/reference`, gardez le reste.

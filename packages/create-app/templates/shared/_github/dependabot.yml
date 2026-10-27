@@ -1,0 +1,28 @@
+version: 2
+registries:
+  nyema:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{ secrets.PACKAGES_TOKEN }}
+updates:
+  - package-ecosystem: npm
+    directory: /
+    registries: [nyema]
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Africa/Bamako
+    commit-message:
+      prefix: deps
+      prefix-development: chore
+    groups:
+      nyema:
+        patterns: ['@nyema-r-d/*']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      timezone: Africa/Bamako
+    commit-message:
+      prefix: ci

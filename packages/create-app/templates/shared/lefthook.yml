@@ -1,0 +1,14 @@
+# Mêmes contrôles que la CI, sur les fichiers indexés.
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: '*.{js,mjs,ts,tsx,vue,json,md,yml,yaml,css,html}'
+      run: pnpm prettier --check {staged_files}
+    lint:
+      glob: '*.{js,mjs,ts,tsx,vue}'
+      run: pnpm eslint --max-warnings=0 {staged_files}
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm commitlint --edit {1}

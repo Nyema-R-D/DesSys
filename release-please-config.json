@@ -96,6 +96,11 @@
         },
         {
           "type": "json",
+          "path": "packages/create-app/package.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
           "path": "apps/reference/package.json",
           "jsonpath": "$.version"
         }

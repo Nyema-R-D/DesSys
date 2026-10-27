@@ -103,6 +103,8 @@ importers:
         specifier: '>=8'
         version: 8.72.0(eslint@10.13.0(jiti@2.7.0))(typescript@6.0.3)
 
+  packages/create-app: {}
+
   packages/css:
     devDependencies:
       '@nyema-r-d/tokens':
