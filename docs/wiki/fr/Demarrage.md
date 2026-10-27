@@ -5,12 +5,17 @@
 Les packages sont publiés sur GitHub Packages, scope `@nyema-r-d`.
 
 ```ini
-# .npmrc du projet
+# .npmrc du projet (versionné : jamais de jeton ici)
 @nyema-r-d:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 
-En local, `GITHUB_TOKEN` est un jeton personnel avec `read:packages`. En CI, le `GITHUB_TOKEN` du workflow suffit si le dépôt consommateur a reçu l'accès au package (Package settings → Manage Actions access).
+Le jeton (`read:packages`) va dans la configuration **utilisateur** : pnpm 11 ignore une variable `${…}` placée dans le `.npmrc` du projet, pour ne pas la divulguer.
+
+```bash
+pnpm config set //npm.pkg.github.com/:_authToken "$(gh auth token)"
+```
+
+En CI, `actions/setup-node` avec `registry-url: https://npm.pkg.github.com` et `scope: '@nyema-r-d'` écrit ce jeton (`NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}` sur l'étape d'installation). Le dépôt consommateur doit avoir reçu l'accès au package (Package settings → Manage Actions access).
 
 ## 2. Installation
 
