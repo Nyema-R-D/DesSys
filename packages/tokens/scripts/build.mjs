@@ -120,9 +120,11 @@ for (const { pkg, css, family } of fontSources) {
       const font = block.match(/url\(\.\/files\/([^)]+\.woff2)\)/)?.[1];
       if (!font || !/-latin(-ext)?-/.test(font)) continue;
       cpSync(join(dir, 'files', font), join(dist, 'fonts', font));
+      // Seul le woff2 est copié : le repli .woff de fontsource pointerait vers un fichier absent.
       faces.push(
         block
           .replace(/font-family: '[^']+'/, `font-family: '${family}'`)
+          .replace(/,\s*url\(\.\/files\/[^)]+\.woff\) format\('woff'\)/, '')
           .replace('./files/', './fonts/'),
       );
     }

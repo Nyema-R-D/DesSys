@@ -42,7 +42,9 @@ test('les polices locales couvrent latin et latin-ext pour les deux familles', (
   const fonts = readFileSync('dist/fonts-local.css', 'utf8');
   for (const family of ["'Archivo'", "'JetBrains Mono'"])
     assert.ok(fonts.includes(`font-family: ${family}`), family);
-  for (const url of fonts.match(/url\(\.\/fonts\/[^)]+\)/g)) {
+  // Chaque url() pointe vers un fichier livré (aucun reste de ./files/ de fontsource).
+  for (const url of fonts.match(/url\([^)]+\)/g)) {
+    assert.match(url, /^url\(\.\/fonts\//, url);
     assert.ok(existsSync(`dist/${url.slice(6, -1)}`), url);
   }
   // U+025B (ɛ) est dans la plage latin-ext : nécessaire au bamanankan.
