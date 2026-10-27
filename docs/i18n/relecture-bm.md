@@ -3,6 +3,7 @@
 > Généré par `node scripts/i18n/bm-review.mjs` — ne pas modifier à la main. Issue #23 : la 1.0 attend cette relecture.
 
 **187 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
+**185 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
 
 Points d'attention signalés lors de la rédaction :
 
