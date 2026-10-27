@@ -9,3 +9,4 @@
 - Jalon kelen bɛ version kelen kama. Release bɔlen kɔ, jalon bɛ datugu otomatiki la.
 
 - Ka version dɔ wajibiya : `Release-As: X.Y.Z` sɛbɛn commit ka laban dakun na.
+- Ni release dɔ bɛ makɔnɔ (misali la sɛgɛsɛgɛli), baara kura bɛ kɛ bolo `next` kan. Release bɔlen kɔ, `next` bɛ fara `main` kan (rebase).

@@ -2,6 +2,12 @@
   - changed-files: [{ any-glob-to-any-file: 'packages/tokens/**' }]
 'area:react':
   - changed-files: [{ any-glob-to-any-file: 'packages/react/**' }]
+'area:vue':
+  - changed-files: [{ any-glob-to-any-file: 'packages/vue/**' }]
+'area:css':
+  - changed-files: [{ any-glob-to-any-file: 'packages/css/**' }]
+'area:create':
+  - changed-files: [{ any-glob-to-any-file: 'packages/create-app/**' }]
 'area:config':
   - changed-files: [{ any-glob-to-any-file: 'packages/config/**' }]
 'area:reference':
