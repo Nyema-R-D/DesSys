@@ -2,7 +2,7 @@
 
 > Généré par `node scripts/i18n/bm-review.mjs` — ne pas modifier à la main. Issue #23 : la 1.0 attend cette relecture.
 
-**184 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
+**187 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
 
 Points d'attention signalés lors de la rédaction :
 
@@ -181,9 +181,12 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L25 — `ConnectionStatus`, `OfflineBanner` | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli |
 - [ ] L26 — `Tabs`, `Dialog`, `Toast` | Onglets, modale, kunnafoni fitinin |
 - [ ] L27 — `DataTable`, `Pagination` | Kunnafoniw tabulo, ɲɛw |
-- [ ] L28 — `Container`, `Section` | Ɲɛ labɛncogo |
-- [ ] L29 — `SiteHeader`, `Hero`, `SiteFooter` | Site ka kɔrɔ, a daminɛ, a laban |
-- [ ] L30 — `LanguageSwitch` | Kan sugandi (FR / BM) |
+- [ ] L28 — `Breadcrumb`, `Menu` | Sira jira, baara sugandi |
+- [ ] L29 — `Accordion`, `Tooltip` | Yɔrɔ dayɛlɛli, ɲɛfɔli fitinin |
+- [ ] L30 — `Skeleton` | A bɛ ka don (chargement) |
+- [ ] L31 — `Container`, `Section` | Ɲɛ labɛncogo |
+- [ ] L32 — `SiteHeader`, `Hero`, `SiteFooter` | Site ka kɔrɔ, a daminɛ, a laban |
+- [ ] L33 — `LanguageSwitch` | Kan sugandi (FR / BM) |
 
 ### `docs/wiki/bm/BM-Otomatiki.md`
 
