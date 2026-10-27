@@ -11,6 +11,7 @@ import { tokens, themes } from '@nyema-r-d/tokens';
 - `tokens.css` — variables CSS ; thème anthracite par défaut, `[data-ny-theme="paper"]` pour les documents.
 - `fonts-local.css` + `fonts/` — polices embarquées (OFL), fonctionnent hors ligne ; `fonts.css` — variante Google Fonts.
 - `tokens.json` — valeurs résolues.
+- `tokens.dtcg.json` — format W3C Design Tokens (Figma via Tokens Studio, Style Dictionary).
 - `assets/nyema-mark-{dark,light,laterite,mono-black,mono-white}.svg` — symbole.
 
 Source : `src/tokens.json`. Documentation : wiki, page _Tokens_.

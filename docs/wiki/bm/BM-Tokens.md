@@ -18,3 +18,7 @@ Komponanw bɛ token sémantiques labaara (`--accent`, `--text-primary`, `--surfa
 ## Yɔrɔ (espacement)
 
 `--space-1` … `--space-10` : 4, 8, 12, 16, 24, 32, 48, 64, 96, 144 px.
+
+## Figma (DTCG)
+
+`@nyema-r-d/tokens/tokens.dtcg.json` : token kelenw, W3C Design Tokens cogo la. Tokens Studio bɛ se k'a don Figma kɔnɔ. Token yɛlɛmani bɛɛ bɛ kɛ PR fɛ `src/tokens.json` kan.
