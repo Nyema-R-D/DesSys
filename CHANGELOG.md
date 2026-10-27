@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.4.1](https://github.com/Nyema-R-D/DesSys/compare/v0.4.0...v0.4.1) (2026-10-27)
+
+
+### Nouveautés · Fɛn kuraw
+
+* **css:** rend les bordures des contrôles conformes WCAG 1.4.11 ([5585364](https://github.com/Nyema-R-D/DesSys/commit/5585364f481a2db1b85b7d05c32a5dd747b54124)), closes [#41](https://github.com/Nyema-R-D/DesSys/issues/41)
+* **tokens:** aligne l'échelle typographique sur la page de référence ([5b4754d](https://github.com/Nyema-R-D/DesSys/commit/5b4754d408047971be452e6979e2346604895884)), closes [#21](https://github.com/Nyema-R-D/DesSys/issues/21)
+
+
+### Corrections · Latilenniw
+
+* **tokens:** retire le repli .woff absent de fonts-local.css ([fcc5495](https://github.com/Nyema-R-D/DesSys/commit/fcc54959a57aa40fe142da08898e2112c11cc368))
+
+
+### Documentation · Sɛbɛnw
+
+* enregistre la validation de la marque par les fondateurs ([10be1d1](https://github.com/Nyema-R-D/DesSys/commit/10be1d1256a4cacffeb38eda85880b7286e5dc54)), closes [#20](https://github.com/Nyema-R-D/DesSys/issues/20)
+* **i18n:** inventorie les textes en bamanankan pour la relecture native ([ca8becc](https://github.com/Nyema-R-D/DesSys/commit/ca8becc58aa2f2af8c243052ecc87816e5a12f06))
+* **wiki:** place le jeton GitHub Packages dans la config utilisateur ([27af976](https://github.com/Nyema-R-D/DesSys/commit/27af97623a7628999767501d59308d0c1c24982c))
+
+
+### CI/CD
+
+* ajoute la branche d'intégration next pour geler la 1.0 ([533c883](https://github.com/Nyema-R-D/DesSys/commit/533c883ee1b2028b636f17042512e89d868b5785)), closes [#47](https://github.com/Nyema-R-D/DesSys/issues/47)
+* étend les crochets pre-commit aux fichiers mjs, vue et mdx ([7f43b7e](https://github.com/Nyema-R-D/DesSys/commit/7f43b7e33e75e2bac6e30fc1ba3d3bf91ca7ff8a))
+* ne marque pas « prête » une issue bloquée en entrant dans un jalon ([#44](https://github.com/Nyema-R-D/DesSys/issues/44)) ([55e0a48](https://github.com/Nyema-R-D/DesSys/commit/55e0a488c8fb53af1db7c376589ca561ae40043e))
+
 ## [0.4.0](https://github.com/Nyema-R-D/DesSys/compare/v0.3.0...v0.4.0) (2026-10-25)
 
 
