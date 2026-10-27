@@ -1,0 +1,27 @@
+/* Bloc de chargement : pulsation lente, figée si l'utilisateur réduit les animations. */
+.ny-skeleton {
+  display: block;
+  width: var(--ny-skeleton-width, 100%);
+  height: var(--ny-skeleton-height, 1em);
+  background: var(--surface-disabled);
+  animation: ny-skeleton-pulse 1.6s var(--ease-out) infinite alternate;
+}
+.ny-skeleton-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: var(--ny-skeleton-width, 100%);
+}
+.ny-skeleton-text > .ny-skeleton:last-child:not(:first-child) {
+  width: 60%;
+}
+@keyframes ny-skeleton-pulse {
+  to {
+    opacity: 0.45;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ny-skeleton {
+    animation: none;
+  }
+}

@@ -1,0 +1,30 @@
+/* Info-bulle (WCAG 1.4.13) : la bulle touche son déclencheur, on peut la survoler sans qu'elle disparaisse. */
+.ny-tooltip {
+  position: relative;
+  display: inline-flex;
+}
+.ny-tooltip__bubble {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: 20;
+  width: max-content;
+  max-width: 280px;
+  padding-bottom: var(--space-2);
+}
+.ny-tooltip__bubble[hidden] {
+  display: none;
+}
+.ny-tooltip--bottom .ny-tooltip__bubble {
+  top: 100%;
+  bottom: auto;
+  padding: var(--space-2) 0 0;
+}
+.ny-tooltip__text {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-inverse);
+  color: var(--text-inverse);
+  font: var(--type-small);
+  font-size: 13px;
+}
