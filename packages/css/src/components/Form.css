@@ -1,0 +1,58 @@
+/* Mise en page des formulaires : sections (Fieldset), lignes de champs (FormRow), actions. */
+.ny-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.ny-fieldset__legend {
+  padding: 0;
+  margin-bottom: var(--space-2);
+  font: var(--type-body-lg);
+  font-weight: 600;
+  font-stretch: var(--stretch-title);
+  color: var(--text-primary);
+}
+.ny-fieldset__description {
+  margin: 0 0 var(--space-2);
+  font: var(--type-small);
+  color: var(--text-secondary);
+}
+.ny-fieldset__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-4);
+}
+.ny-fieldset > .ny-field__error {
+  display: block;
+  margin-top: var(--space-3);
+}
+/* Jusqu'à N colonnes ; chaque champ garde au moins 220 px, sinon la ligne passe sur une colonne. */
+.ny-form-row {
+  --ny-form-row-min: 220px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      max(
+        var(--ny-form-row-min),
+        calc(
+          (100% - (var(--ny-form-row-columns, 2) - 1) * var(--space-5)) /
+            var(--ny-form-row-columns, 2)
+        )
+      ),
+      1fr
+    )
+  );
+  gap: var(--space-5);
+  align-items: start;
+}
+.ny-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line-hairline);
+}

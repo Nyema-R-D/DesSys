@@ -10,14 +10,22 @@ const props = defineProps<{
   multiline?: boolean;
   required?: boolean;
   id?: string;
+  /** Affiche « n / maxlength » sous le champ (requiert l'attribut `maxlength`). */
+  showCount?: boolean;
 }>();
 const model = defineModel<string>();
 const attrs = useAttrs();
 const generatedId = useId();
 const inputId = computed(() => props.id ?? generatedId);
+const maxLength = computed(() => attrs.maxlength ?? attrs.maxLength);
+const counted = computed(() => props.showCount && maxLength.value !== undefined);
 const describedBy = computed(
   () =>
-    [props.hint && `${inputId.value}-hint`, props.error && `${inputId.value}-error`]
+    [
+      props.hint && `${inputId.value}-hint`,
+      counted.value && `${inputId.value}-count`,
+      props.error && `${inputId.value}-error`,
+    ]
       .filter(Boolean)
       .join(' ') || undefined,
 );
@@ -53,6 +61,9 @@ const inputAttrs = computed(() => {
       :aria-describedby="describedBy"
     />
     <span v-if="hint" :id="`${inputId}-hint`" class="ny-field__hint">{{ hint }}</span>
+    <span v-if="counted" :id="`${inputId}-count`" class="ny-field__count"
+      >{{ (model ?? '').length }} / {{ maxLength }}</span
+    >
     <span v-if="error" :id="`${inputId}-error`" class="ny-field__error" role="alert">{{
       error
     }}</span>

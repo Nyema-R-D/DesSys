@@ -2,7 +2,7 @@
 
 > Généré par `node scripts/i18n/bm-review.mjs` — ne pas modifier à la main. Issue #23 : la 1.0 attend cette relecture.
 
-**181 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
+**184 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
 
 Points d'attention signalés lors de la rédaction :
 
@@ -168,19 +168,22 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L12 — `StatusBadge` | Porogaramu cogoya (`locale="bm"` bɛ bamanankan tɔgɔw jira) |
 - [ ] L13 — `TextField` | Sɛbɛnni yɔrɔ |
 - [ ] L14 — `Select`, `RadioGroup`, `Checkbox` | Sugandili (formulaire) |
-- [ ] L15 — `Chip`, `ChipGroup` | Sugandili |
-- [ ] L16 — `SectionLabel` | Label |
-- [ ] L17 — `LabRow` | Laboratoire ka sira |
-- [ ] L18 — `PillarCard` | Kartu |
-- [ ] L19 — `ServiceCard`, `Tag` | Baara kartu, taamasiyɛn |
-- [ ] L20 — `SignalGrid` | Taamasiyɛn kare |
-- [ ] L21 — `Icon` | Ja fitinin (Lucide) |
-- [ ] L22 — `ConnectionStatus`, `OfflineBanner` | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli |
-- [ ] L23 — `Tabs`, `Dialog`, `Toast` | Onglets, modale, kunnafoni fitinin |
-- [ ] L24 — `DataTable`, `Pagination` | Kunnafoniw tabulo, ɲɛw |
-- [ ] L25 — `Container`, `Section` | Ɲɛ labɛncogo |
-- [ ] L26 — `SiteHeader`, `Hero`, `SiteFooter` | Site ka kɔrɔ, a daminɛ, a laban |
-- [ ] L27 — `LanguageSwitch` | Kan sugandi (FR / BM) |
+- [ ] L15 — `Switch` | A da wuli / a datugu |
+- [ ] L16 — `FileUpload`, `DateField` | Dosiye bila, don (date) |
+- [ ] L17 — `Fieldset`, `FormRow`, `FormActions` | Formulaire labɛncogo |
+- [ ] L18 — `Chip`, `ChipGroup` | Sugandili |
+- [ ] L19 — `SectionLabel` | Label |
+- [ ] L20 — `LabRow` | Laboratoire ka sira |
+- [ ] L21 — `PillarCard` | Kartu |
+- [ ] L22 — `ServiceCard`, `Tag` | Baara kartu, taamasiyɛn |
+- [ ] L23 — `SignalGrid` | Taamasiyɛn kare |
+- [ ] L24 — `Icon` | Ja fitinin (Lucide) |
+- [ ] L25 — `ConnectionStatus`, `OfflineBanner` | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli |
+- [ ] L26 — `Tabs`, `Dialog`, `Toast` | Onglets, modale, kunnafoni fitinin |
+- [ ] L27 — `DataTable`, `Pagination` | Kunnafoniw tabulo, ɲɛw |
+- [ ] L28 — `Container`, `Section` | Ɲɛ labɛncogo |
+- [ ] L29 — `SiteHeader`, `Hero`, `SiteFooter` | Site ka kɔrɔ, a daminɛ, a laban |
+- [ ] L30 — `LanguageSwitch` | Kan sugandi (FR / BM) |
 
 ### `docs/wiki/bm/BM-Otomatiki.md`
 

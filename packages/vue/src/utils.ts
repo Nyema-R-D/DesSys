@@ -43,3 +43,12 @@ export function createSignalPattern(count: number, seed = 1): SignalState[] {
   });
   return states;
 }
+
+/** Taille de fichier lisible : 820 ko, 1,4 Mo (identique à @nyema-r-d/react). */
+export const formatFileSize = (bytes: number) => {
+  const format = (n: number) =>
+    new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 1 }).format(n);
+  return bytes < 1024 * 1024
+    ? `${format(Math.max(1, bytes / 1024))} ko`
+    : `${format(bytes / 1024 / 1024)} Mo`;
+};
