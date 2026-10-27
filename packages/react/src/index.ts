@@ -17,6 +17,16 @@ export {
   type StatusBadgeProps,
 } from './components/StatusBadge/StatusBadge';
 export { TextField, type TextFieldProps } from './components/TextField/TextField';
+export { Switch, type SwitchProps } from './components/Switch/Switch';
+export { FileUpload, type FileUploadProps } from './components/FileUpload/FileUpload';
+export { DateField, type DateFieldProps } from './components/DateField/DateField';
+export {
+  Fieldset,
+  FormActions,
+  FormRow,
+  type FieldsetProps,
+  type FormRowProps,
+} from './components/Fieldset/Fieldset';
 export { Chip, ChipGroup, type ChipProps } from './components/Chip/Chip';
 export { Checkbox, type CheckboxProps } from './components/Checkbox/Checkbox';
 export {
@@ -82,3 +92,4 @@ export {
 } from './components/DataTable/DataTable';
 export { Pagination, type PaginationProps } from './components/Pagination/Pagination';
 export { resetDeprecationWarnings, warnDeprecated } from './deprecation';
+export { formatFileSize } from './utils';
