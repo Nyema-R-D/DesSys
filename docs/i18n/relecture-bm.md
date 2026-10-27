@@ -2,7 +2,7 @@
 
 > Généré par `node scripts/i18n/bm-review.mjs` — ne pas modifier à la main. Issue #23 : la 1.0 attend cette relecture.
 
-**187 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
+**201 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
 
 Points d'attention signalés lors de la rédaction :
 
@@ -100,15 +100,16 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L19 — `@nyema-r-d/tokens` | Kulɛrw, sɛbɛnni, yɔrɔ, lamagali ; thème anthracite ni papier. |
 - [ ] L20 — `@nyema-r-d/react` | React komponanw. |
 - [ ] L21 — `@nyema-r-d/config` | TypeScript, ESLint, Prettier, Commitlint labɛnw. |
-- [ ] L22 — `apps/reference` | Design system ka sɛbɛn jiralen. |
-- [ ] L24 — K'a labaara porozɛ dɔ kɔnɔ
-- [ ] L42 — Baara kɛcogo
-- [ ] L51 — Otomatiki
-- [ ] L53 — Commit bɛɛ ka kan ka sɛbɛn _Conventional Commits_ cogo la.
-- [ ] L54 — PR bɛɛ bɛ sɛgɛsɛgɛ CI fɛ.
-- [ ] L55 — _release-please_ bɛ version ni CHANGELOG labɛn ; PR de release fara ɲɔgɔn kan, version kura bɛ bɔ otomatiki la.
-- [ ] L56 — Jalon = version. Baara tɔw ni sira jiraminɛn bɛ yɛlɛma otomatiki la wiki kɔnɔ.
-- [ ] L58 — Kunnafoni wɛrɛw : [wiki](https://github.com/Nyema-R-D/DesSys/wiki) · [docs/wiki/bm](docs/wiki/bm).
+- [ ] L22 — `@nyema-r-d/create-app` | Baarakɛminɛn kura daminɛ : `pnpm create @nyema-r-d/app`. |
+- [ ] L23 — `apps/reference` | Design system ka sɛbɛn jiralen. |
+- [ ] L25 — K'a labaara porozɛ dɔ kɔnɔ
+- [ ] L43 — Baara kɛcogo
+- [ ] L52 — Otomatiki
+- [ ] L54 — Commit bɛɛ ka kan ka sɛbɛn _Conventional Commits_ cogo la.
+- [ ] L55 — PR bɛɛ bɛ sɛgɛsɛgɛ CI fɛ.
+- [ ] L56 — _release-please_ bɛ version ni CHANGELOG labɛn ; PR de release fara ɲɔgɔn kan, version kura bɛ bɔ otomatiki la.
+- [ ] L57 — Jalon = version. Baara tɔw ni sira jiraminɛn bɛ yɛlɛma otomatiki la wiki kɔnɔ.
+- [ ] L59 — Kunnafoni wɛrɛw : [wiki](https://github.com/Nyema-R-D/DesSys/wiki) · [docs/wiki/bm](docs/wiki/bm).
 
 ### `SECURITY.md`
 
@@ -124,9 +125,10 @@ Affichés dans les produits : priorité de relecture.
 
 ### `docs/wiki/_Sidebar.md`
 
-- [ ] L16 — [Daminɛ](BM-Daminen)
-- [ ] L20 — [Version ni bɔli](BM-Version-ni-boli)
-- [ ] L23 — [Baara tɔw](BM-Baara-tow) · [Sira jiraminɛn](BM-Sira-jiraminen)
+- [ ] L17 — [Daminɛ](BM-Daminen)
+- [ ] L21 — [Version ni bɔli](BM-Version-ni-boli)
+- [ ] L24 — [Baarakɛminɛn kura](BM-Kit)
+- [ ] L25 — [Baara tɔw](BM-Baara-tow) · [Sira jiraminɛn](BM-Sira-jiraminen)
 
 ### `docs/wiki/bm/BM-Daminen.md`
 
@@ -155,6 +157,12 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L7 — 3. Fɛn kura bɛ di o version kelen kɔnɔ.
 - [ ] L8 — 4. A bɛ to yen version fitinin kelen ni kalo 3 ye, ka sɔrɔ ka bɔ version belebele (majeure) nata la dɔrɔn.
 - [ ] L9 — 5. Commit bɛ sɛbɛn ni `deprecate:` ye.
+
+### `docs/wiki/bm/BM-Kit.md`
+
+- [ ] L1 — Baarakɛminɛn kura daminɛ
+- [ ] L3 — ⚠️ Bamanankan sɛbɛn — ka sɛgɛsɛgɛ. · [🇫🇷 Version française](Kit-de-demarrage)
+- [ ] L9 — Baarakɛminɛn kura bɛ labɛn ni design system ye, ani CI ni release. Kunnafoni wɛrɛw bɛ tubabukan na.
 
 ### `docs/wiki/bm/BM-Komponanw.md`
 
@@ -240,6 +248,24 @@ Affichés dans les produits : priorité de relecture.
 ### `packages/config/README.md`
 
 - [ ] L3 — Configuration partagée de l'écosystème NYEMA. · _NYEMA baarakɛminɛnw ka labɛn min bɛ tila._
+
+### `packages/create-app/index.mjs`
+
+- [ ] L18 — console.log(`Créer un outil NYEMA · NYEMA baarakɛminɛn kura dabɔ
+
+### `packages/create-app/templates/shared/README.bm.md`
+
+- [ ] L1 — %%TITLE%%
+- [ ] L3 — ⚠️ Bamanankan sɛbɛn — ka sɛgɛsɛgɛ. · [🇫🇷 Version française](README.md)
+- [ ] L5 — NYEMA baarakɛminɛn, [NYEMA design system](https://github.com/Nyema-R-D/DesSys) v%%DS_VERSION%% kan.
+- [ ] L13 — Commit bɛɛ bɛ sɛbɛn _Conventional Commits_ cogo la. Kunnafoni wɛrɛw : [README.md](README.md).
+
+### `packages/create-app/templates/shared/release-please-config.json`
+
+- [ ] L9 — { "type": "feat", "section": "Nouveautés · Fɛn kuraw" },
+- [ ] L12 — { "type": "revert", "section": "Retours arrière · Segin kɔ" },
+- [ ] L13 — { "type": "refactor", "section": "Refonte · Labɛn kura" },
+- [ ] L14 — { "type": "docs", "section": "Documentation · Sɛbɛnw" },
 
 ### `packages/react/src/Introduction.mdx`
 

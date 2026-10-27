@@ -1,6 +1,6 @@
 # NYEMA Design System — consignes pour Claude
 
-- Monorepo pnpm : `packages/tokens` (source `src/tokens.json` → `scripts/build.mjs`), `packages/css` (CSS des composants, classes `ny-`), `packages/react`, `packages/vue`, `packages/config`, `apps/reference`.
+- Monorepo pnpm : `packages/tokens` (source `src/tokens.json` → `scripts/build.mjs`), `packages/css` (CSS des composants, classes `ny-`), `packages/react`, `packages/vue`, `packages/config`, `packages/create-app` (kit `pnpm create @nyema-r-d/app`, modèles dans `templates/`), `apps/reference`.
 - Avant de conclure : `pnpm check`.
 - Tokens : modifier uniquement `packages/tokens/src/tokens.json`, jamais `dist/`.
 - Composants : CSS dans `packages/css/src/components/<Composant>.css` (partagé React/Vue), classes `ny-`, valeurs via variables CSS ; tests Vitest + story Storybook obligatoires.

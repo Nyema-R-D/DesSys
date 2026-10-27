@@ -20,7 +20,7 @@ const files = execFileSync('git', ['ls-files'], { encoding: 'utf8' })
   );
 
 // Fichiers entièrement en bamanankan : toutes leurs lignes de texte sont à relire.
-const bmOnly = (f) => f === 'README.bm.md' || /^docs\/wiki\/bm\//.test(f);
+const bmOnly = (f) => /(^|\/)README\.bm\.md$/.test(f) || /^docs\/wiki\/bm\//.test(f);
 const textLines = (lines) => {
   let code = false;
   return lines.map((line, i) => {

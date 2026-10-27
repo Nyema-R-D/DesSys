@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "node",
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": true,
+  "include-v-in-tag": true,
+  "pull-request-title-pattern": "chore(release): v${version}",
+  "changelog-sections": [
+    { "type": "feat", "section": "Nouveautés · Fɛn kuraw" },
+    { "type": "fix", "section": "Corrections · Latilenniw" },
+    { "type": "perf", "section": "Performances · Teliya" },
+    { "type": "revert", "section": "Retours arrière · Segin kɔ" },
+    { "type": "refactor", "section": "Refonte · Labɛn kura" },
+    { "type": "docs", "section": "Documentation · Sɛbɛnw" },
+    { "type": "deps", "section": "Dépendances" },
+    { "type": "ci", "section": "CI/CD", "hidden": true },
+    { "type": "build", "section": "Construction", "hidden": true },
+    { "type": "test", "section": "Tests", "hidden": true },
+    { "type": "style", "section": "Style", "hidden": true },
+    { "type": "chore", "section": "Maintenance", "hidden": true }
+  ],
+  "packages": { ".": {} }
+}

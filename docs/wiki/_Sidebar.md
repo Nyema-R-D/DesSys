@@ -8,6 +8,7 @@
 - [Versionnage et publication](Versionnage-et-publication)
 - [Politique de dépréciation](Politique-de-depreciation)
 - [Automatisation CI/CD](Automatisation-CI-CD)
+- [Kit de démarrage](Kit-de-demarrage)
 - [Réutiliser ce dépôt](Reutiliser-ce-depot)
 - [Backlog](Backlog) · [Feuille de route](Feuille-de-route)
 
@@ -20,4 +21,5 @@
 - [Version ni bɔli](BM-Version-ni-boli)
 - [Ka dabila](BM-Ka-dabila)
 - [Otomatiki](BM-Otomatiki)
+- [Baarakɛminɛn kura](BM-Kit)
 - [Baara tɔw](BM-Baara-tow) · [Sira jiraminɛn](BM-Sira-jiraminen)
