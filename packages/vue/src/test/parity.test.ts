@@ -64,6 +64,16 @@ const tableRows = [
   { id: '1', cooperative: 'Ségou', members: 142, agent: 'A. Traoré' },
   { id: '2', cooperative: 'Bamako', members: 38, agent: 'M. Diarra' },
 ];
+const crumbs = [
+  { label: 'Coopératives', href: '/c' },
+  { label: 'Ségou', href: '/c/s' },
+  { label: 'Visite' },
+];
+const menuItems = [
+  { id: 'modifier', label: 'Modifier' },
+  { id: 'exporter', label: 'Exporter', disabled: true },
+  { id: 'supprimer', label: 'Supprimer', tone: 'danger' as const },
+];
 const rowKey = (row: unknown) => (row as { id: string }).id;
 
 const options = [
@@ -517,6 +527,62 @@ const cases: Case[] = [
   ['FormRow', r(R.FormRow, null, 'a'), V.FormRow, {}, 'a'],
   ['FormRow 3 colonnes', r(R.FormRow, { columns: 3 }, 'a'), V.FormRow, { columns: 3 }, 'a'],
   ['FormActions', r(R.FormActions, null, 'a'), V.FormActions, {}, 'a'],
+  ['Breadcrumb', r(R.Breadcrumb, { items: crumbs }), V.Breadcrumb, { items: crumbs }],
+  [
+    'Breadcrumb libellé',
+    r(R.Breadcrumb, { items: crumbs, label: 'Chemin' }),
+    V.Breadcrumb,
+    { items: crumbs, label: 'Chemin' },
+  ],
+  [
+    'Accordion',
+    r(R.Accordion, {
+      items: [
+        { id: 'a', title: 'Première', content: 'A' },
+        { id: 'b', title: 'Seconde', content: 'B' },
+      ],
+      defaultOpen: ['a'],
+    }),
+    V.Accordion,
+    {
+      items: [
+        { id: 'a', title: 'Première' },
+        { id: 'b', title: 'Seconde' },
+      ],
+      defaultOpen: ['a'],
+    },
+    { a: () => 'A', b: () => 'B' },
+  ],
+  ['Skeleton', r(R.Skeleton), V.Skeleton],
+  [
+    'Skeleton dimensionné',
+    r(R.Skeleton, { width: '50%', height: '20px' }),
+    V.Skeleton,
+    { width: '50%', height: '20px' },
+  ],
+  [
+    'Skeleton texte',
+    r(R.Skeleton, { lines: 3, width: '300px' }),
+    V.Skeleton,
+    { lines: 3, width: '300px' },
+  ],
+  [
+    'Tooltip',
+    r(R.Tooltip, {
+      content: 'Envoi différé.',
+      placement: 'bottom',
+      children: r('button', { type: 'button' }, 'Attente'),
+    }),
+    V.Tooltip,
+    { content: 'Envoi différé.', placement: 'bottom' },
+    { default: () => h('button', { type: 'button' }, 'Attente') },
+  ],
+  [
+    'Menu',
+    r(R.Menu, { label: 'Actions', items: menuItems, align: 'end' }),
+    V.Menu,
+    { label: 'Actions', items: menuItems, align: 'end' },
+  ],
 ];
 
 describe('Parité HTML React ↔ Vue', () => {

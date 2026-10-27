@@ -1,0 +1,53 @@
+/* Bouton de menu (motif ARIA menu button) : liste d'actions sous le déclencheur. */
+.ny-menu {
+  position: relative;
+  display: inline-flex;
+}
+.ny-menu__list {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  left: 0;
+  z-index: 30;
+  min-width: max(100%, 200px);
+  margin: 0;
+  padding: var(--space-1) 0;
+  list-style: none;
+  border: 1px solid var(--line-control);
+  background: var(--surface-raised);
+}
+.ny-menu--end .ny-menu__list {
+  right: 0;
+  left: auto;
+}
+.ny-menu__list[hidden] {
+  display: none;
+}
+.ny-menu__item {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 0;
+  background: none;
+  color: var(--text-primary);
+  font: var(--type-small);
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+.ny-menu__item:hover,
+.ny-menu__item:focus {
+  background: var(--surface-disabled);
+  outline: none;
+}
+.ny-menu__item:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: calc(-1 * var(--focus-ring-width));
+}
+.ny-menu__item--danger {
+  color: var(--danger);
+}
+.ny-menu__item:disabled {
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+  background: none;
+}
