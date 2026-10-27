@@ -49,8 +49,17 @@ textarea.ny-field__input {
   font-size: 13px;
   color: var(--text-secondary);
 }
+.ny-field__count {
+  align-self: flex-end;
+  margin-top: calc(-1 * var(--space-1));
+  font: var(--type-label);
+  color: var(--text-tertiary);
+}
 .ny-field__error {
   font: var(--type-small);
   font-size: 13px;
   color: var(--danger);
+}
+.ny-field--date .ny-field__input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
 }

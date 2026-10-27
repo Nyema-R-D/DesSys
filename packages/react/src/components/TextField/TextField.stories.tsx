@@ -26,3 +26,13 @@ export const AvecAide: Story = {
 export const Multiligne: Story = {
   args: { label: 'Message', multiline: true, placeholder: undefined },
 };
+export const Compteur: Story = {
+  args: {
+    label: 'Observations',
+    multiline: true,
+    maxLength: 280,
+    showCount: true,
+    defaultValue: 'Parcelle irriguée, maïs en floraison.',
+    placeholder: undefined,
+  },
+};
