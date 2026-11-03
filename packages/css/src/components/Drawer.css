@@ -12,13 +12,15 @@
   display: flex;
   flex-direction: column;
 }
-.ny-drawer--end {
-  margin-left: auto;
-  border-left-width: 1px;
+/* Même spécificité que la règle de base, sinon sa marge nulle l'emporte. Propriétés logiques :
+   `end` reste du côté de fin de ligne quel que soit le sens d'écriture. */
+.ny-dialog.ny-drawer--end {
+  margin-inline-start: auto;
+  border-inline-start-width: 1px;
 }
-.ny-drawer--start {
-  margin-right: auto;
-  border-right-width: 1px;
+.ny-dialog.ny-drawer--start {
+  margin-inline-end: auto;
+  border-inline-end-width: 1px;
 }
 .ny-drawer .ny-dialog__body {
   flex: 1;
