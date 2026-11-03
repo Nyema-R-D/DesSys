@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.6.1](https://github.com/Nyema-R-D/DesSys/compare/v0.6.0...v0.6.1) (2026-11-03)
+
+
+### Nouveautés · Fɛn kuraw
+
+* **reference:** ajoute la section Applications à la page de référence ([dd62046](https://github.com/Nyema-R-D/DesSys/commit/dd6204665a0d47b10fff9684e28fa06ed0504a43))
+
+
+### Corrections · Latilenniw
+
+* **reference:** supprime le débordement horizontal sur mobile ([c1e7047](https://github.com/Nyema-R-D/DesSys/commit/c1e7047aa742dee5fbab0e77c2e87e46c8feddf4))
+
+
+### CI/CD
+
+* atteste la provenance des archives publiées ([bbe9804](https://github.com/Nyema-R-D/DesSys/commit/bbe980496f2ec0e8d06e1f99aa41bfffa7fd42a2))
+* rend la revue des dépendances bloquante ([6150974](https://github.com/Nyema-R-D/DesSys/commit/615097448626d946c528e7f020cf4e28493303be))
+
 ## [0.6.0](https://github.com/Nyema-R-D/DesSys/compare/v0.5.0...v0.6.0) (2026-11-03)
 
 
