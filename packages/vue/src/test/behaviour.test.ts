@@ -3,6 +3,7 @@ import axe from 'axe-core';
 import { h, ref } from 'vue';
 import {
   Accordion,
+  Alert,
   Breadcrumb,
   Menu,
   Skeleton,
@@ -180,6 +181,19 @@ describe('Comportements Vue', () => {
     wrapper.unmount();
   });
 
+  it('Alert : rôle selon le ton et événement dismiss', async () => {
+    const wrapper = mount(Alert, {
+      props: { tone: 'error', title: 'Envoi impossible', dismissible: true },
+      slots: { default: 'Vérifiez les champs.' },
+    });
+    expect(wrapper.get('[role="alert"]').text()).toContain('Erreur');
+    await wrapper.get('button').trigger('click');
+    expect(wrapper.emitted('dismiss')).toHaveLength(1);
+    const info = mount(Alert, { slots: { default: 'Info.' } });
+    expect(info.find('[role="status"]').exists()).toBe(true);
+    expect(info.find('button').exists()).toBe(false);
+  });
+
   it('Tooltip : décrit le déclencheur, s’ouvre au focus, se ferme avec Échap', async () => {
     const wrapper = mount(Tooltip, {
       props: { content: 'Envoi différé.' },
@@ -214,6 +228,7 @@ describe('Accessibilité Vue (axe-core)', () => {
       options: [{ value: 'bamako', label: 'Bamako' }],
       hint: 'Filtrer',
     }),
+    h(Alert, { tone: 'warning', title: 'Conflit', dismissible: true }, () => 'Détail'),
     h(Select, {
       label: 'Région',
       options: [{ value: 'a', label: 'Bamako' }],

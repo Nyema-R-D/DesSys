@@ -581,6 +581,24 @@ const cases: Case[] = [
     },
     { a: () => 'A', b: () => 'B' },
   ],
+  ['Alert', r(R.Alert, null, 'Info.'), V.Alert, {}, 'Info.'],
+  [
+    'Alert erreur, titre, action, fermeture',
+    r(
+      R.Alert,
+      { tone: 'error', title: 'Envoi impossible', action: 'A', onDismiss: () => {} },
+      'Corps',
+    ),
+    V.Alert,
+    { tone: 'error', title: 'Envoi impossible', dismissible: true },
+    { default: () => 'Corps', action: () => 'A' },
+  ],
+  [
+    'Alert libellé personnalisé, sans contenu',
+    r(R.Alert, { tone: 'success', toneLabel: 'Fait', title: 'Envoyé' }),
+    V.Alert,
+    { tone: 'success', toneLabel: 'Fait', title: 'Envoyé' },
+  ],
   ['Skeleton', r(R.Skeleton), V.Skeleton],
   [
     'Skeleton dimensionné',

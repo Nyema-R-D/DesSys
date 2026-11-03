@@ -56,6 +56,7 @@ export { default as FormActions } from './components/FormActions.vue';
 export { default as Breadcrumb } from './components/Breadcrumb.vue';
 export { default as Accordion } from './components/Accordion.vue';
 export { default as Skeleton } from './components/Skeleton.vue';
+export { default as Alert, alertToneLabels, type AlertTone } from './components/Alert.vue';
 export { default as Tooltip } from './components/Tooltip.vue';
 export { default as Menu } from './components/Menu.vue';
 export type { BreadcrumbItem } from './components/Breadcrumb.vue';
