@@ -12,7 +12,7 @@ commit conventionnel → PR (squash) → main
               (version dans chaque package.json + CHANGELOG bilingue)
 fusion de la PR de release
         ├─ tag vX.Y.Z + release GitHub (notes = CHANGELOG + en-tête FR/BM)
-        ├─ publication des packages sur GitHub Packages + archives .tgz jointes
+        ├─ publication des packages sur GitHub Packages + archives .tgz jointes et attestées
         ├─ documentation (référence + Storybook) jointe, déployée sur Pages si activé
         ├─ issues du jalon vX.Y.Z commentées « Livré dans… », jalon fermé
         └─ wiki, backlog, feuille de route et tableau de bord régénérés
@@ -46,7 +46,8 @@ Quand une release attend une validation humaine (relecture, décision des fondat
 1. Créer la branche `next` depuis `main`. La CI complète et CodeQL tournent sur ses push et ses PR.
 2. Les PR de la version suivante ciblent `next`. Elles sont rattachées automatiquement au **deuxième** jalon ouvert (`v1.1.0`), celles de `main` au premier (`v1.0.0`).
 3. `main` ne reçoit que ce qui concerne la release gelée (corrections, relecture), puis le `Release-As`.
-4. Une fois la release publiée : PR `next` → `main`, fusionnée en **rebase** pour conserver chaque commit `feat`/`fix`. release-please ouvre alors la PR de la version suivante. Supprimer `next`.
+4. Une fois la release publiée : PR `next` → `main`, fusionnée en **rebase** pour conserver chaque commit `feat`/`fix`. release-please ouvre alors la PR de la version suivante.
+5. `next` n'est jamais supprimée : la règle de dépôt « Conserver next » l'empêche, y compris lors de la suppression automatique des branches fusionnées. Après chaque fusion vers `main`, la réaligner : `git push origin main:next`.
 
 ### Publier `next` avant la release gelée
 
@@ -56,3 +57,12 @@ Si l'attente se prolonge, le travail de `next` peut sortir en version mineure 0.
 2. Fusionner sur `main` un commit non vide portant `Release-As: 0.5.0`. Sans ce pied, `bump-patch-for-minor-pre-major` donnerait une version de correctif (0.4.x).
 3. La PR release-please passe en v0.5.0. La fusionner publie la version.
 4. Réaligner `next` sur `main` tant que la release gelée reste en attente.
+
+## Vérifier une archive
+
+Chaque archive `.tgz` jointe à une release porte une attestation de build GitHub (GitHub Packages ne gère pas la provenance npm), à partir des releases suivant la v0.6.0 :
+
+```bash
+gh release download vX.Y.Z --repo Nyema-R-D/DesSys --pattern '*.tgz'
+gh attestation verify nyema-r-d-react-X.Y.Z.tgz --repo Nyema-R-D/DesSys
+```
