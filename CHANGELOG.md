@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.6.0](https://github.com/Nyema-R-D/DesSys/compare/v0.5.0...v0.6.0) (2026-11-03)
+
+
+### Nouveautés · Fɛn kuraw
+
+* ajoute Alert, message persistant dans la page ([d4d1bd2](https://github.com/Nyema-R-D/DesSys/commit/d4d1bd2616984fdb1dfd1dfc4a485c9f3da57f1f)), closes [#72](https://github.com/Nyema-R-D/DesSys/issues/72)
+* ajoute Drawer et Stepper ([62a6a00](https://github.com/Nyema-R-D/DesSys/commit/62a6a00404ef7b930e8f8798e711f7c75b72e7d0)), closes [#74](https://github.com/Nyema-R-D/DesSys/issues/74)
+* ajoute la Combobox, liste filtrable à la saisie ([2797b44](https://github.com/Nyema-R-D/DesSys/commit/2797b44303cbf234999bed5bb963850f7770c1f8)), closes [#71](https://github.com/Nyema-R-D/DesSys/issues/71)
+* ajoute Progress et Spinner, et la progression par fichier de FileUpload ([8abd092](https://github.com/Nyema-R-D/DesSys/commit/8abd0927cbaf29a90084b5de5ddef053b72b6eba)), closes [#73](https://github.com/Nyema-R-D/DesSys/issues/73)
+
+
+### Corrections · Latilenniw
+
+* **css:** place le Drawer du côté demandé ([ddaddca](https://github.com/Nyema-R-D/DesSys/commit/ddaddca50fe0e927b051f11d8099384361aeb314))
+
+
+### Documentation · Sɛbɛnw
+
+* **wiki:** décrit les adaptations Vue des composants de la 0.6.0 ([0b5f5bf](https://github.com/Nyema-R-D/DesSys/commit/0b5f5bf6aed2b73fdbc8ffd7ba0bffe553cbc265))
+
 ## [0.5.0](https://github.com/Nyema-R-D/DesSys/compare/v0.4.0...v0.5.0) (2026-11-03)
 
 
