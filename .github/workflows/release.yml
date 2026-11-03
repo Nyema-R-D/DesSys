@@ -40,6 +40,9 @@ jobs:
     permissions:
       contents: write
       packages: write
+      # Attestations de build des archives (GitHub Packages ne gère pas la provenance npm).
+      id-token: write
+      attestations: write
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
@@ -51,11 +54,17 @@ jobs:
         run: pnpm -r --filter "./packages/**" publish --no-git-checks --access restricted
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Joindre les archives à la release
+      - name: Empaqueter les archives
         run: |
           mkdir -p tarballs
           pnpm -r --filter "./packages/**" exec pnpm pack --pack-destination "$GITHUB_WORKSPACE/tarballs"
-          gh release upload "${{ needs.release-please.outputs.tag }}" tarballs/*.tgz --clobber
+      # Vérifiable avec : gh attestation verify <archive>.tgz --repo Nyema-R-D/DesSys
+      - name: Attester la provenance des archives
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: tarballs/*.tgz
+      - name: Joindre les archives à la release
+        run: gh release upload "${{ needs.release-please.outputs.tag }}" tarballs/*.tgz --clobber
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
