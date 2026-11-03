@@ -14,6 +14,8 @@ import {
   DateField,
   Fieldset,
   FileUpload,
+  Progress,
+  Spinner,
   FormRow,
   Switch,
   Chip,
@@ -115,6 +117,23 @@ describe('Comportements Vue', () => {
     expect(wrapper.get('li').text()).toBe('releve.pdf2 ko');
     await wrapper.get('.ny-file__zone').trigger('dragenter');
     expect(wrapper.get('.ny-file__zone').attributes('data-dragging')).toBe('');
+  });
+
+  it('FileUpload : barre d’avancement par fichier', async () => {
+    const wrapper = mount(FileUpload, {
+      props: {
+        label: 'Justificatif',
+        getProgress: (file: File) => (file.name === 'releve.pdf' ? 40 : undefined),
+      },
+    });
+    const input = wrapper.get('input');
+    const files = [new File(['x'], 'releve.pdf'), new File(['y'], 'photo.jpg')];
+    Object.defineProperty(input.element, 'files', { value: files });
+    await input.trigger('change');
+    const bars = wrapper.findAll('progress');
+    expect(bars).toHaveLength(1);
+    expect(bars[0]!.attributes('aria-label')).toBe('Envoi de releve.pdf');
+    expect((bars[0]!.element as HTMLProgressElement).value).toBe(40);
   });
 
   it('Menu : clavier, sélection et retour du focus', async () => {
@@ -223,6 +242,9 @@ describe('Accessibilité Vue (axe-core)', () => {
     h(Button, { href: '#', variant: 'link' }, () => 'Lire la note'),
     h(StatusBadge, { status: 'pilot' }),
     h(TextField, { label: 'E-mail', required: true, error: 'Adresse invalide.' }),
+    h(Progress, { label: 'Synchronisation', value: 64, hint: 'Wi-Fi' }),
+    h(Progress, { label: 'Préparation' }),
+    h(Spinner),
     h(Combobox, {
       label: 'Commune',
       options: [{ value: 'bamako', label: 'Bamako' }],

@@ -1,0 +1,99 @@
+/* Barre de progression : <progress> natif, piste neutre, remplissage latérite, angles vifs. */
+.ny-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.ny-progress__header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.ny-progress__label {
+  font: 500 11px/1.2 var(--font-mono);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.ny-progress__value {
+  flex: none;
+  font: var(--type-label);
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+.ny-progress__bar {
+  display: block;
+  width: 100%;
+  height: 6px;
+  border: 0;
+  border-radius: var(--radius-0);
+  background: var(--line-subtle);
+  color: var(--accent);
+  appearance: none;
+}
+.ny-progress__bar::-webkit-progress-bar {
+  background: var(--line-subtle);
+}
+.ny-progress__bar::-webkit-progress-value {
+  background: var(--accent);
+  transition: width var(--dur-base) var(--ease-out);
+}
+.ny-progress__bar::-moz-progress-bar {
+  background: var(--accent);
+}
+/* Indéterminée : un segment latérite parcourt la piste. */
+.ny-progress__bar:indeterminate {
+  background: linear-gradient(var(--accent), var(--accent)) no-repeat var(--line-subtle);
+  background-size: 30% 100%;
+  animation: ny-progress-slide 1.4s var(--ease-out) infinite;
+}
+.ny-progress__bar:indeterminate::-webkit-progress-bar {
+  background: transparent;
+}
+.ny-progress__bar:indeterminate::-moz-progress-bar {
+  background: transparent;
+}
+@keyframes ny-progress-slide {
+  from {
+    background-position: -40% 0;
+  }
+  to {
+    background-position: 140% 0;
+  }
+}
+
+/* Indicateur compact : carré au filet latérite sur un côté, en rotation. */
+.ny-spinner {
+  display: inline-flex;
+  vertical-align: middle;
+}
+.ny-spinner__mark {
+  width: var(--ny-spinner-size);
+  height: var(--ny-spinner-size);
+  border: 2px solid var(--line-subtle);
+  border-top-color: var(--accent);
+  animation: ny-spinner-turn 0.9s linear infinite;
+}
+.ny-spinner--sm {
+  --ny-spinner-size: 14px;
+}
+.ny-spinner--md {
+  --ny-spinner-size: 20px;
+}
+@keyframes ny-spinner-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ny-progress__bar:indeterminate {
+    background-position: 0 0;
+    background-size: 100% 100%;
+    animation: none;
+    opacity: 0.5;
+  }
+  .ny-spinner__mark {
+    animation: none;
+  }
+}

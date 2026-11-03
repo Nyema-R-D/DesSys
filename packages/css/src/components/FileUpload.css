@@ -63,6 +63,7 @@
 }
 .ny-file__item {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: var(--space-4);
   padding: var(--space-3) 0;
@@ -78,4 +79,8 @@
   flex: none;
   font: var(--type-label);
   color: var(--text-secondary);
+}
+.ny-file__progress {
+  flex-basis: 100%;
+  height: 4px;
 }

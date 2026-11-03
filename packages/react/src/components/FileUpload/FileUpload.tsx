@@ -2,6 +2,7 @@ import { useId, useState, type ChangeEvent, type InputHTMLAttributes, type React
 import { cx, formatFileSize } from '../../utils';
 import '@nyema-r-d/css/components/TextField.css';
 import '@nyema-r-d/css/components/FileUpload.css';
+import '@nyema-r-d/css/components/Progress.css';
 
 export interface FileUploadProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label: ReactNode;
@@ -14,6 +15,10 @@ export interface FileUploadProps extends Omit<InputHTMLAttributes<HTMLInputEleme
   /** Fichiers choisis ou déposés. La validation (taille, type) revient au produit, via `error`. */
   onFilesChange?: (files: File[]) => void;
   formatSize?: (bytes: number) => string;
+  /** Avancement de l'envoi d'un fichier, de 0 à 100 ; `undefined` : pas de barre. */
+  getProgress?: (file: File) => number | undefined;
+  /** Nom accessible de la barre : « Envoi de releve.pdf ». */
+  progressLabel?: (file: File) => string;
 }
 
 /**
@@ -28,6 +33,8 @@ export function FileUpload({
   browseLabel = 'parcourez',
   onFilesChange,
   formatSize = formatFileSize,
+  getProgress,
+  progressLabel = (file) => `Envoi de ${file.name}`,
   className,
   id,
   required,
@@ -88,12 +95,23 @@ export function FileUpload({
       ) : null}
       {files.length ? (
         <ul className="ny-file__list">
-          {files.map((file) => (
-            <li key={`${file.name}-${file.size}`} className="ny-file__item">
-              <span className="ny-file__name">{file.name}</span>
-              <span className="ny-file__size">{formatSize(file.size)}</span>
-            </li>
-          ))}
+          {files.map((file) => {
+            const progress = getProgress?.(file);
+            return (
+              <li key={`${file.name}-${file.size}`} className="ny-file__item">
+                <span className="ny-file__name">{file.name}</span>
+                <span className="ny-file__size">{formatSize(file.size)}</span>
+                {progress !== undefined ? (
+                  <progress
+                    className="ny-progress__bar ny-file__progress"
+                    aria-label={progressLabel(file)}
+                    max={100}
+                    value={progress}
+                  />
+                ) : null}
+              </li>
+            );
+          })}
         </ul>
       ) : null}
     </div>
