@@ -175,7 +175,7 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L11 — `Button` | Butɔn |
 - [ ] L12 — `StatusBadge` | Porogaramu cogoya (`locale="bm"` bɛ bamanankan tɔgɔw jira) |
 - [ ] L13 — `TextField` | Sɛbɛnni yɔrɔ |
-- [ ] L14 — `Select`, `RadioGroup`, `Checkbox` | Sugandili (formulaire) |
+- [ ] L14 — `Select`, `Combobox`, `RadioGroup`, `Checkbox` | Sugandili (formulaire) |
 - [ ] L15 — `Switch` | A da wuli / a datugu |
 - [ ] L16 — `FileUpload`, `DateField` | Dosiye bila, don (date) |
 - [ ] L17 — `Fieldset`, `FormRow`, `FormActions` | Formulaire labɛncogo |

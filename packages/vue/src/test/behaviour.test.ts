@@ -9,6 +9,7 @@ import {
   Tooltip,
   Button,
   Checkbox,
+  Combobox,
   DateField,
   Fieldset,
   FileUpload,
@@ -144,6 +145,41 @@ describe('Comportements Vue', () => {
     wrapper.unmount();
   });
 
+  it('Combobox : filtre, clavier, choix et effacement', async () => {
+    const wrapper = mount(Combobox, {
+      props: {
+        label: 'Commune',
+        options: [
+          { value: 'bamako', label: 'Bamako' },
+          { value: 'segou', label: 'Ségou' },
+          { value: 'sikasso', label: 'Sikasso', disabled: true },
+        ],
+        modelValue: null,
+      },
+      attachTo: document.body,
+    });
+    const input = wrapper.get('[role="combobox"]');
+    await input.setValue('seg');
+    expect(input.attributes('aria-expanded')).toBe('true');
+    expect(wrapper.findAll('[role="option"]').map((o) => o.text())).toEqual(['Ségou']);
+    await input.setValue('');
+    await input.trigger('keydown', { key: 'ArrowUp' });
+    const options = wrapper.findAll('[role="option"]');
+    expect(input.attributes('aria-activedescendant')).toBe(options[1]!.attributes('id'));
+    await input.trigger('keydown', { key: 'Enter' });
+    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['segou']);
+    await wrapper.setProps({ modelValue: 'segou' });
+    expect((input.element as HTMLInputElement).value).toBe('Ségou');
+    await input.setValue('Kayes');
+    expect(wrapper.get('[role="status"]').text()).toBe('Aucun résultat');
+    await input.trigger('keydown', { key: 'Escape' });
+    expect((input.element as HTMLInputElement).value).toBe('Ségou');
+    await input.setValue('');
+    await input.trigger('blur');
+    expect(wrapper.emitted('update:modelValue')?.at(-1)).toEqual([null]);
+    wrapper.unmount();
+  });
+
   it('Tooltip : décrit le déclencheur, s’ouvre au focus, se ferme avec Échap', async () => {
     const wrapper = mount(Tooltip, {
       props: { content: 'Envoi différé.' },
@@ -173,6 +209,11 @@ describe('Accessibilité Vue (axe-core)', () => {
     h(Button, { href: '#', variant: 'link' }, () => 'Lire la note'),
     h(StatusBadge, { status: 'pilot' }),
     h(TextField, { label: 'E-mail', required: true, error: 'Adresse invalide.' }),
+    h(Combobox, {
+      label: 'Commune',
+      options: [{ value: 'bamako', label: 'Bamako' }],
+      hint: 'Filtrer',
+    }),
     h(Select, {
       label: 'Région',
       options: [{ value: 'a', label: 'Bamako' }],
