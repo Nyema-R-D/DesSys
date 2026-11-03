@@ -60,3 +60,27 @@ export const typeScale = [
     sample: '03 — Laboratoire · Statut : Recherche',
   },
 ];
+
+export const communes = [
+  { value: 'bamako', label: 'Bamako' },
+  { value: 'kayes', label: 'Kayes' },
+  { value: 'koulikoro', label: 'Koulikoro' },
+  { value: 'mopti', label: 'Mopti' },
+  { value: 'segou', label: 'Ségou' },
+  { value: 'sikasso', label: 'Sikasso' },
+];
+
+export interface Visit {
+  id: string;
+  cooperative: string;
+  members: number;
+  agent: string;
+  state: 'online' | 'offline' | 'syncing' | 'conflict';
+}
+
+export const visits: Visit[] = [
+  { id: '1', cooperative: 'Ségou', members: 142, agent: 'A. Traoré', state: 'online' },
+  { id: '2', cooperative: 'Bamako', members: 38, agent: 'M. Diarra', state: 'syncing' },
+  { id: '3', cooperative: 'Sikasso', members: 96, agent: 'F. Coulibaly', state: 'offline' },
+  { id: '4', cooperative: 'Mopti', members: 61, agent: 'S. Keïta', state: 'conflict' },
+];

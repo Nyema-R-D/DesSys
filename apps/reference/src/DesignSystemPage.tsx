@@ -1,23 +1,48 @@
 import {
+  Accordion,
+  Alert,
+  Breadcrumb,
   Button,
   Checkbox,
   Chip,
   ChipGroup,
+  Combobox,
+  ConnectionStatus,
   Container,
+  DataTable,
+  DateField,
+  Dialog,
+  Drawer,
+  Fieldset,
+  FileUpload,
+  FormActions,
+  FormRow,
   LabRow,
   Logo,
   Mark,
+  Menu,
+  Pagination,
   PillarCard,
+  Progress,
   RadioGroup,
   SectionLabel,
   Select,
   SignalGrid,
+  Skeleton,
+  Spinner,
   StatusBadge,
+  Stepper,
+  Switch,
+  Tabs,
   TextField,
   Theme,
+  ToastProvider,
+  Tooltip,
+  useToast,
+  type DataTableColumn,
 } from '@nyema-r-d/react';
 import { useState, type ReactNode } from 'react';
-import { neutrals, spaces, statuses, typeScale } from './data';
+import { communes, neutrals, spaces, statuses, typeScale, visits, type Visit } from './data';
 
 const nav = [
   ['marque', 'Marque'],
@@ -25,6 +50,7 @@ const nav = [
   ['type', 'Typographie'],
   ['grille', 'Grille'],
   ['composants', 'Composants'],
+  ['applications', 'Applications'],
   ['ton', 'Ton'],
 ] as const;
 
@@ -64,6 +90,7 @@ export function DesignSystemPage() {
         <TypeSection />
         <GridSection />
         <ComponentsSection />
+        <AppsSection />
         <ToneSection />
       </Container>
     </Theme>
@@ -396,9 +423,245 @@ function ComponentsSection() {
   );
 }
 
+const visitColumns: DataTableColumn<Visit>[] = [
+  { key: 'cooperative', header: 'Coopérative', sortable: true },
+  { key: 'members', header: 'Membres', sortable: true, align: 'end', width: '120px' },
+  { key: 'agent', header: 'Agent' },
+  {
+    key: 'state',
+    header: 'Synchronisation',
+    cell: (visit) => <ConnectionStatus state={visit.state} />,
+  },
+];
+
+function AppsSection() {
+  return (
+    <SectionShell id="applications" index={6} label="Applications">
+      <ToastProvider>
+        <AppsShowcase />
+      </ToastProvider>
+      <p className="ref-note">
+        Composants des outils métier : saisie sur le terrain, réseau instable, synchronisation
+        différée. Mêmes tokens, même CSS (@nyema-r-d/css) en React et en Vue. Catalogue complet et
+        états détaillés dans Storybook.
+      </p>
+    </SectionShell>
+  );
+}
+
+function AppsShowcase() {
+  const toast = useToast();
+  const [commune, setCommune] = useState<string | null>('segou');
+  const [page, setPage] = useState(1);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  return (
+    <Theme theme="anthracite" className="ref-showcase">
+      <div>
+        <div className="ny-mono-label ref-showcase__label">Fil d’Ariane · étapes</div>
+        <div className="ref-stack">
+          <Breadcrumb
+            items={[
+              { label: 'Coopératives', href: '#applications' },
+              { label: 'Ségou', href: '#applications' },
+              { label: 'Nouvelle visite' },
+            ]}
+          />
+          <Stepper
+            current="membres"
+            steps={[
+              { id: 'cooperative', label: 'Coopérative' },
+              { id: 'membres', label: 'Membres' },
+              { id: 'parcelles', label: 'Parcelles' },
+              { id: 'envoi', label: 'Vérification et envoi' },
+            ]}
+          />
+        </div>
+      </div>
+
+      <div>
+        <div className="ny-mono-label ref-showcase__label">
+          Formulaire — recherche · date · interrupteur · fichiers
+        </div>
+        <Fieldset legend="Visite" description="Telle que constatée sur place.">
+          <FormRow columns={2}>
+            <Combobox
+              label="Commune"
+              options={communes}
+              value={commune}
+              onChange={setCommune}
+              placeholder="Rechercher une commune"
+              hint="Tapez quelques lettres pour filtrer."
+            />
+            <DateField label="Date de la visite" defaultValue="2026-11-04" />
+          </FormRow>
+          <TextField label="Observations" multiline rows={3} maxLength={280} showCount />
+          <Switch
+            label="Envoyer dès le retour du réseau"
+            defaultChecked
+            hint="Sinon, envoi manuel."
+          />
+          <FileUpload label="Justificatifs" hint="PDF ou photo, 5 Mo maximum." multiple />
+          <FormActions>
+            <Button variant="secondary">Enregistrer le brouillon</Button>
+            <Button trailing="→">Étape suivante</Button>
+          </FormActions>
+        </Fieldset>
+      </div>
+
+      <div>
+        <div className="ny-mono-label ref-showcase__label">
+          Messages · progression · état réseau
+        </div>
+        <div className="ref-stack">
+          <Alert
+            tone="warning"
+            title="Conflit de synchronisation"
+            action={
+              <Button size="sm" variant="secondary">
+                Comparer les versions
+              </Button>
+            }
+          >
+            La fiche de Ségou a été modifiée sur un autre appareil.
+          </Alert>
+          <Alert tone="error" title="Envoi impossible">
+            Vérifiez les 2 champs signalés.
+          </Alert>
+          <div className="ref-fields">
+            <Progress label="Synchronisation" value={64} hint="12 visites sur cet appareil." />
+            <Progress label="Préparation de l’envoi" />
+          </div>
+          <div className="ref-row">
+            <ConnectionStatus state="offline" pending={3} />
+            <ConnectionStatus state="syncing" />
+            <ConnectionStatus state="online" detail="09:42" />
+            <Spinner label="Chargement des visites" />
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={() =>
+                toast.show({ title: 'Visite enregistrée', description: 'Elle sera envoyée.' })
+              }
+            >
+              Afficher une notification
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div className="ny-mono-label ref-showcase__label">
+          Données — onglets · tableau · pagination · actions
+        </div>
+        <Tabs
+          label="Dossier de la coopérative"
+          items={[
+            {
+              id: 'visites',
+              label: 'Visites',
+              content: (
+                <div className="ref-stack">
+                  <DataTable
+                    caption="Visites de la semaine"
+                    columns={visitColumns}
+                    rows={visits}
+                    rowKey={(visit) => visit.id}
+                    defaultSort={{ key: 'members', direction: 'descending' }}
+                  />
+                  <div className="ref-row ref-row--between">
+                    <Pagination page={page} pageCount={4} onPageChange={setPage} />
+                    <div className="ref-row">
+                      <Tooltip content="Les visites hors ligne partent au retour du réseau.">
+                        <Button variant="link" size="sm">
+                          Envoi différé ?
+                        </Button>
+                      </Tooltip>
+                      <Menu
+                        label="Actions"
+                        align="end"
+                        items={[
+                          { id: 'exporter', label: 'Exporter en CSV' },
+                          { id: 'dupliquer', label: 'Dupliquer' },
+                          { id: 'supprimer', label: 'Supprimer', tone: 'danger' },
+                        ]}
+                        onSelect={(id) => id === 'supprimer' && setDialogOpen(true)}
+                      />
+                      <Button size="sm" onClick={() => setDrawerOpen(true)}>
+                        Ouvrir le détail
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ),
+            },
+            {
+              id: 'chargement',
+              label: 'Chargement',
+              content: <Skeleton lines={4} />,
+            },
+            {
+              id: 'aide',
+              label: 'Aide',
+              content: (
+                <Accordion
+                  exclusive
+                  defaultOpen={['hors-ligne']}
+                  items={[
+                    {
+                      id: 'hors-ligne',
+                      title: 'Que se passe-t-il sans connexion ?',
+                      content: 'Les visites restent sur l’appareil et partent au retour du réseau.',
+                    },
+                    {
+                      id: 'conflit',
+                      title: 'Comment résoudre un conflit ?',
+                      content: 'Comparez les deux versions puis choisissez celle à conserver.',
+                    },
+                  ]}
+                />
+              ),
+            },
+          ]}
+        />
+      </div>
+
+      <Dialog
+        open={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+        title="Supprimer la visite ?"
+        footer={
+          <>
+            <Button variant="secondary" size="sm" onClick={() => setDialogOpen(false)}>
+              Annuler
+            </Button>
+            <Button size="sm" onClick={() => setDialogOpen(false)}>
+              Supprimer
+            </Button>
+          </>
+        }
+      >
+        Cette action est définitive.
+      </Dialog>
+      <Drawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        title="Visite du 4 novembre"
+        footer={
+          <Button size="sm" onClick={() => setDrawerOpen(false)}>
+            Fermer
+          </Button>
+        }
+      >
+        Coopérative de Ségou — 142 membres. Agent : A. Traoré.
+      </Drawer>
+    </Theme>
+  );
+}
+
 function ToneSection() {
   return (
-    <SectionShell id="ton" index={6} label="Ton éditorial">
+    <SectionShell id="ton" index={7} label="Ton éditorial">
       <div className="ref-grid ref-grid--wide">
         <div className="ref-tone">
           <div className="ny-mono-label ref-tone__title">On écrit</div>
