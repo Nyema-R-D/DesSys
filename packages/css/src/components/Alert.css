@@ -1,0 +1,60 @@
+/* Message persistant : fond neutre, filet gauche et libellé mono portent le ton. */
+.ny-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--ny-alert-color);
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  font: var(--type-small);
+}
+.ny-alert--info {
+  --ny-alert-color: var(--text-secondary);
+}
+.ny-alert--success {
+  --ny-alert-color: var(--status-available);
+}
+.ny-alert--warning {
+  --ny-alert-color: var(--accent);
+}
+.ny-alert--error {
+  --ny-alert-color: var(--danger);
+}
+.ny-alert__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.ny-alert__tone {
+  margin: 0;
+  font: 500 11px/1.2 var(--font-mono);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.ny-alert__title {
+  margin: 0;
+  font-weight: 600;
+}
+.ny-alert__content > :first-child {
+  margin-top: 0;
+}
+.ny-alert__content > :last-child {
+  margin-bottom: 0;
+}
+.ny-alert__action {
+  margin-top: var(--space-1);
+}
+.ny-alert__close {
+  flex: none;
+  border: 0;
+  background: none;
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}

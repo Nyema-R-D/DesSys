@@ -23,7 +23,7 @@ Package `@nyema-r-d/react`.
 | `SignalGrid`                                   | Taamasiyɛn kare                                            |
 | `Icon`                                         | Ja fitinin (Lucide)                                        |
 | `ConnectionStatus`, `OfflineBanner`            | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli                            |
-| `Tabs`, `Dialog`, `Toast`                      | Onglets, modale, kunnafoni fitinin                         |
+| `Tabs`, `Dialog`, `Toast`, `Alert`             | Onglets, modale, kunnafoni fitinin                         |
 | `DataTable`, `Pagination`                      | Kunnafoniw tabulo, ɲɛw                                     |
 | `Breadcrumb`, `Menu`                           | Sira jira, baara sugandi                                   |
 | `Accordion`, `Tooltip`                         | Yɔrɔ dayɛlɛli, ɲɛfɔli fitinin                              |

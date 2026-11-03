@@ -2,7 +2,7 @@
 
 > Généré par `node scripts/i18n/bm-review.mjs` — ne pas modifier à la main. Issue #23 : la 1.0 attend cette relecture.
 
-**201 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
+**259 textes** à relire, rédigés sans locuteur natif. Pour chaque ligne : cocher si correct, sinon indiquer la correction (dans la colonne prévue, en commentaire de PR, ou directement dans le fichier cité). Le français fait foi pour le sens.
 
 Points d'attention signalés lors de la rédaction :
 
@@ -187,7 +187,71 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L23 — `SignalGrid` | Taamasiyɛn kare |
 - [ ] L24 — `Icon` | Ja fitinin (Lucide) |
 - [ ] L25 — `ConnectionStatus`, `OfflineBanner` | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli |
-- [ ] L26 — `Tabs`, `Dialog`, `Toast` | Onglets, modale, kunnafoni fitinin |
+- [ ] L26 — `Tabs`, `Dialog`, `Toast`, `Alert` | Onglets, modale, kunnafoni fitinin |
+- [ ] L27 — `DataTable`, `Pagination` | Kunnafoniw tabulo, ɲɛw |
+- [ ] L28 — `Breadcrumb`, `Menu` | Sira jira, baara sugandi |
+- [ ] L29 — `Accordion`, `Tooltip` | Yɔrɔ dayɛlɛli, ɲɛfɔli fitinin |
+- [ ] L30 — `Skeleton` | A bɛ ka don (chargement) |
+- [ ] L31 — `Container`, `Section` | Ɲɛ labɛncogo |
+- [ ] L32 — `SiteHeader`, `Hero`, `SiteFooter` | Site ka kɔrɔ, a daminɛ, a laban |
+- [ ] L33 — `LanguageSwitch` | Kan sugandi (FR / BM) |
+
+### `docs/wiki/bm/BM-Komponanw.md`
+
+- [ ] L1 — Komponanw
+- [ ] L3 — ⚠️ Bamanankan sɛbɛn — ka sɛgɛsɛgɛ. · [🇫🇷 Version française](Composants)
+- [ ] L5 — Package `@nyema-r-d/react`.
+- [ ] L7 — Komponan | A baara |
+- [ ] L9 — `Theme` | Thème sugandi (anthracite walima paper) |
+- [ ] L10 — `Mark`, `Logo` | NYEMA taamasiyɛn |
+- [ ] L11 — `Button` | Butɔn |
+- [ ] L12 — `StatusBadge` | Porogaramu cogoya (`locale="bm"` bɛ bamanankan tɔgɔw jira) |
+- [ ] L13 — `TextField` | Sɛbɛnni yɔrɔ |
+- [ ] L14 — `Select`, `Combobox`, `RadioGroup`, `Checkbox` | Sugandili (formulaire) |
+- [ ] L15 — `Switch` | A da wuli / a datugu |
+- [ ] L16 — `FileUpload`, `DateField` | Dosiye bila, don (date) |
+- [ ] L17 — `Fieldset`, `FormRow`, `FormActions` | Formulaire labɛncogo |
+- [ ] L18 — `Chip`, `ChipGroup` | Sugandili |
+- [ ] L19 — `SectionLabel` | Label |
+- [ ] L20 — `LabRow` | Laboratoire ka sira |
+- [ ] L21 — `PillarCard` | Kartu |
+- [ ] L22 — `ServiceCard`, `Tag` | Baara kartu, taamasiyɛn |
+- [ ] L23 — `SignalGrid` | Taamasiyɛn kare |
+- [ ] L24 — `Icon` | Ja fitinin (Lucide) |
+- [ ] L25 — `ConnectionStatus`, `OfflineBanner` | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli |
+- [ ] L26 — `Tabs`, `Dialog`, `Toast`, `Alert` | Onglets, modale, kunnafoni fitinin |
+- [ ] L27 — `DataTable`, `Pagination` | Kunnafoniw tabulo, ɲɛw |
+- [ ] L28 — `Breadcrumb`, `Menu` | Sira jira, baara sugandi |
+- [ ] L29 — `Accordion`, `Tooltip` | Yɔrɔ dayɛlɛli, ɲɛfɔli fitinin |
+- [ ] L30 — `Skeleton` | A bɛ ka don (chargement) |
+- [ ] L31 — `Container`, `Section` | Ɲɛ labɛncogo |
+- [ ] L32 — `SiteHeader`, `Hero`, `SiteFooter` | Site ka kɔrɔ, a daminɛ, a laban |
+- [ ] L33 — `LanguageSwitch` | Kan sugandi (FR / BM) |
+
+### `docs/wiki/bm/BM-Komponanw.md`
+
+- [ ] L1 — Komponanw
+- [ ] L3 — ⚠️ Bamanankan sɛbɛn — ka sɛgɛsɛgɛ. · [🇫🇷 Version française](Composants)
+- [ ] L5 — Package `@nyema-r-d/react`.
+- [ ] L7 — Komponan | A baara |
+- [ ] L9 — `Theme` | Thème sugandi (anthracite walima paper) |
+- [ ] L10 — `Mark`, `Logo` | NYEMA taamasiyɛn |
+- [ ] L11 — `Button` | Butɔn |
+- [ ] L12 — `StatusBadge` | Porogaramu cogoya (`locale="bm"` bɛ bamanankan tɔgɔw jira) |
+- [ ] L13 — `TextField` | Sɛbɛnni yɔrɔ |
+- [ ] L14 — `Select`, `Combobox`, `RadioGroup`, `Checkbox` | Sugandili (formulaire) |
+- [ ] L15 — `Switch` | A da wuli / a datugu |
+- [ ] L16 — `FileUpload`, `DateField` | Dosiye bila, don (date) |
+- [ ] L17 — `Fieldset`, `FormRow`, `FormActions` | Formulaire labɛncogo |
+- [ ] L18 — `Chip`, `ChipGroup` | Sugandili |
+- [ ] L19 — `SectionLabel` | Label |
+- [ ] L20 — `LabRow` | Laboratoire ka sira |
+- [ ] L21 — `PillarCard` | Kartu |
+- [ ] L22 — `ServiceCard`, `Tag` | Baara kartu, taamasiyɛn |
+- [ ] L23 — `SignalGrid` | Taamasiyɛn kare |
+- [ ] L24 — `Icon` | Ja fitinin (Lucide) |
+- [ ] L25 — `ConnectionStatus`, `OfflineBanner` | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli |
+- [ ] L26 — `Tabs`, `Dialog`, `Toast`, `Alert` | Onglets, modale, kunnafoni fitinin |
 - [ ] L27 — `DataTable`, `Pagination` | Kunnafoniw tabulo, ɲɛw |
 - [ ] L28 — `Breadcrumb`, `Menu` | Sira jira, baara sugandi |
 - [ ] L29 — `Accordion`, `Tooltip` | Yɔrɔ dayɛlɛli, ɲɛfɔli fitinin |

@@ -38,6 +38,7 @@ export {
   type AccordionProps,
 } from './components/Accordion/Accordion';
 export { Skeleton, type SkeletonProps } from './components/Skeleton/Skeleton';
+export { Alert, alertToneLabels, type AlertProps, type AlertTone } from './components/Alert/Alert';
 export { Tooltip, type TooltipProps } from './components/Tooltip/Tooltip';
 export { Menu, type MenuItem, type MenuProps } from './components/Menu/Menu';
 export { Chip, ChipGroup, type ChipProps } from './components/Chip/Chip';
