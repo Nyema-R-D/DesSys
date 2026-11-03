@@ -393,3 +393,11 @@ code {
   font-size: 16px;
   line-height: 1.5;
 }
+.ref-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.ref-row--between {
+  justify-content: space-between;
+}
