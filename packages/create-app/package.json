@@ -1,6 +1,6 @@
 {
   "name": "@nyema-r-d/create-app",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Kit de démarrage d'un outil NYEMA : pnpm create @nyema-r-d/app. Vite + React ou Vue, design system, CI et release prêts.",
   "type": "module",
   "license": "UNLICENSED",
