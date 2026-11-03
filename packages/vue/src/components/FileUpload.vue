@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import '@nyema-r-d/css/components/TextField.css';
 import '@nyema-r-d/css/components/FileUpload.css';
+import '@nyema-r-d/css/components/Progress.css';
 import { computed, ref, useAttrs, useId } from 'vue';
 import { formatFileSize } from '../utils';
 
@@ -15,8 +16,16 @@ const props = withDefaults(
     required?: boolean;
     id?: string;
     formatSize?: (bytes: number) => string;
+    /** Avancement de l'envoi d'un fichier, de 0 à 100 ; `undefined` : pas de barre. */
+    getProgress?: (file: File) => number | undefined;
+    progressLabel?: (file: File) => string;
   }>(),
-  { dropLabel: 'Glissez un fichier ici ou', browseLabel: 'parcourez', formatSize: formatFileSize },
+  {
+    dropLabel: 'Glissez un fichier ici ou',
+    browseLabel: 'parcourez',
+    formatSize: formatFileSize,
+    progressLabel: (file: File) => `Envoi de ${file.name}`,
+  },
 );
 /** Fichiers choisis ou déposés ; la validation revient au produit, via `error`. */
 const emit = defineEmits<{ filesChange: [files: File[]] }>();
@@ -76,6 +85,13 @@ const onChange = (event: Event) => {
       <li v-for="file in files" :key="`${file.name}-${file.size}`" class="ny-file__item">
         <span class="ny-file__name">{{ file.name }}</span
         ><span class="ny-file__size">{{ formatSize(file.size) }}</span>
+        <progress
+          v-if="getProgress?.(file) !== undefined"
+          class="ny-progress__bar ny-file__progress"
+          :aria-label="progressLabel(file)"
+          max="100"
+          :value="getProgress(file)"
+        />
       </li>
     </ul>
   </div>

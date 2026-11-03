@@ -599,6 +599,31 @@ const cases: Case[] = [
     V.Alert,
     { tone: 'success', toneLabel: 'Fait', title: 'Envoyé' },
   ],
+  [
+    'Progress',
+    r(R.Progress, { label: 'Synchronisation', value: 42, hint: 'Wi-Fi' }),
+    V.Progress,
+    { label: 'Synchronisation', value: 42, hint: 'Wi-Fi' },
+  ],
+  [
+    'Progress indéterminée',
+    r(R.Progress, { label: 'Préparation' }),
+    V.Progress,
+    { label: 'Préparation' },
+  ],
+  [
+    'Progress libellé de valeur',
+    r(R.Progress, { label: 'Envoi', value: 3, max: 5, valueLabel: '3 sur 5' }),
+    V.Progress,
+    { label: 'Envoi', value: 3, max: 5, valueLabel: '3 sur 5' },
+  ],
+  ['Spinner', r(R.Spinner), V.Spinner],
+  [
+    'Spinner petit, libellé',
+    r(R.Spinner, { size: 'sm', label: 'Envoi' }),
+    V.Spinner,
+    { size: 'sm', label: 'Envoi' },
+  ],
   ['Skeleton', r(R.Skeleton), V.Skeleton],
   [
     'Skeleton dimensionné',

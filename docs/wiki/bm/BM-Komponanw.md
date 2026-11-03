@@ -27,7 +27,7 @@ Package `@nyema-r-d/react`.
 | `DataTable`, `Pagination`                      | Kunnafoniw tabulo, ɲɛw                                     |
 | `Breadcrumb`, `Menu`                           | Sira jira, baara sugandi                                   |
 | `Accordion`, `Tooltip`                         | Yɔrɔ dayɛlɛli, ɲɛfɔli fitinin                              |
-| `Skeleton`                                     | A bɛ ka don (chargement)                                   |
+| `Skeleton`, `Progress`, `Spinner`              | A bɛ ka don (chargement)                                   |
 | `Container`, `Section`                         | Ɲɛ labɛncogo                                               |
 | `SiteHeader`, `Hero`, `SiteFooter`             | Site ka kɔrɔ, a daminɛ, a laban                            |
 | `LanguageSwitch`                               | Kan sugandi (FR / BM)                                      |

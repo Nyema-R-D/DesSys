@@ -21,6 +21,23 @@ describe('FileUpload', () => {
     expect(screen.getByRole('listitem')).toHaveTextContent('releve.pdf2 ko');
   });
 
+  it('affiche l’avancement de l’envoi par fichier', () => {
+    const pdf = new File(['x'], 'releve.pdf');
+    const photo = new File(['y'], 'photo.jpg');
+    render(
+      <FileUpload
+        label="Justificatif"
+        multiple
+        getProgress={(file) => (file.name === 'releve.pdf' ? 40 : undefined)}
+      />,
+    );
+    fireEvent.change(screen.getByLabelText('Justificatif'), { target: { files: [pdf, photo] } });
+    const bars = screen.getAllByRole('progressbar');
+    expect(bars).toHaveLength(1);
+    expect(bars[0]).toHaveAccessibleName('Envoi de releve.pdf');
+    expect(bars[0]).toHaveAttribute('value', '40');
+  });
+
   it('signale le survol pendant un glisser-déposer', () => {
     const { container } = render(<FileUpload label="Justificatif" />);
     const zone = container.querySelector('.ny-file__zone')!;
