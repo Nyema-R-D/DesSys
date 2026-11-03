@@ -41,7 +41,7 @@ import {
   useToast,
   type DataTableColumn,
 } from '@nyema-r-d/react';
-import { useState, type ReactNode } from 'react';
+import { useState, type CSSProperties, type ReactNode } from 'react';
 import { communes, neutrals, spaces, statuses, typeScale, visits, type Visit } from './data';
 
 const nav = [
@@ -276,7 +276,7 @@ function GridSection() {
           {spaces.map((s) => (
             <div key={s.token} className="ref-space">
               <code className="ref-muted">{s.token}</code>
-              <span className="ref-space__bar" style={{ width: s.width }} />
+              <span className="ref-space__bar" style={{ '--ref-space': s.px } as CSSProperties} />
               <code>{s.px}</code>
             </div>
           ))}
