@@ -109,8 +109,16 @@ code {
   aspect-ratio: 16 / 10;
   color: var(--ny-paper-100);
 }
+.ref-tile--hero .ny-logo {
+  gap: clamp(20px, 5vw, 44px);
+}
+/* Le logo du bandeau suit la largeur d'écran : 88 px de symbole et 64 px de logotype au maximum. */
+.ref-tile--hero .ny-logo svg {
+  width: clamp(48px, 14vw, 88px);
+  height: auto;
+}
 .ref-tile--hero .ny-logo__wordmark {
-  font-size: 64px;
+  font-size: clamp(32px, 10vw, 64px);
 }
 .ref-tile--construction {
   aspect-ratio: 16 / 10;
@@ -269,12 +277,14 @@ code {
 }
 .ref-type-row__sample {
   flex: 1 1 400px;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 .ref-type-display {
   /* Échantillon réduit dans la ligne de spécimen ; le token --type-display monte à 124 px. */
   font-weight: 600;
   font-stretch: var(--stretch-headline);
-  font-size: clamp(44px, 6vw, 96px);
+  font-size: clamp(36px, 6vw, 96px);
   line-height: 0.92;
   letter-spacing: var(--tracking-headline);
 }
@@ -303,6 +313,7 @@ code {
 }
 .ref-spaces {
   flex: 1 1 360px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -315,7 +326,10 @@ code {
 .ref-space > code:first-child {
   flex: 0 0 90px;
 }
+/* Barres à l'échelle 2:1, ramenées à 1:1 sur petit écran pour garder l'ordre des pas. */
 .ref-space__bar {
+  width: calc(var(--ref-space) * 2);
+  min-width: 0;
   height: 12px;
   background: var(--ny-ink-950);
 }
@@ -400,4 +414,16 @@ code {
 }
 .ref-row--between {
   justify-content: space-between;
+}
+@media (max-width: 600px) {
+  .ref-space__bar {
+    width: var(--ref-space);
+  }
+  .ref-space > code:first-child {
+    flex-basis: 80px;
+  }
+  /* La légende de construction ne doit pas recouvrir le symbole. */
+  .ref-tile--construction {
+    aspect-ratio: 4 / 5;
+  }
 }

@@ -20,7 +20,6 @@ export const neutrals = [
 export const spaces = Object.entries(tokens.space).map(([step, px]) => ({
   token: `--space-${step}`,
   px,
-  width: `${parseInt(px, 10) * 2}px`,
 }));
 
 export const statuses = [
