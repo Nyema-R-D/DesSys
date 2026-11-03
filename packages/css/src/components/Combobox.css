@@ -1,0 +1,77 @@
+/* Liste filtrable (motif ARIA combobox) : champ TextField + liste d'options sous le champ. */
+.ny-combobox__control {
+  position: relative;
+}
+.ny-combobox__input {
+  width: 100%;
+  padding-right: 40px;
+  /* Chevron dessiné en CSS, comme Select. */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-secondary) 50%),
+    linear-gradient(135deg, var(--text-secondary) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 50%,
+    calc(100% - 15px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+.ny-combobox__popup {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  right: 0;
+  left: 0;
+  z-index: 30;
+  border: 1px solid var(--line-control);
+  background: var(--surface-raised);
+}
+.ny-combobox__popup[hidden] {
+  display: none;
+}
+.ny-combobox__list {
+  max-height: 280px;
+  margin: 0;
+  padding: var(--space-1) 0;
+  overflow-y: auto;
+  list-style: none;
+}
+.ny-combobox__list[hidden] {
+  display: none;
+}
+.ny-combobox__option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  color: var(--text-primary);
+  font: var(--type-small);
+  font-size: 15px;
+  cursor: pointer;
+}
+.ny-combobox__option:hover,
+.ny-combobox__option--active {
+  background: var(--surface-disabled);
+}
+.ny-combobox__option--active {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: calc(-1 * var(--focus-ring-width));
+}
+/* Valeur retenue : carré-nœud latérite, comme la langue active. */
+.ny-combobox__option[aria-selected='true']::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+}
+.ny-combobox__option[aria-disabled='true'] {
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+  background: none;
+}
+.ny-combobox__empty {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  color: var(--text-secondary);
+  font: var(--type-small);
+  font-size: 15px;
+}
