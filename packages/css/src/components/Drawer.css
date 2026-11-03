@@ -1,0 +1,46 @@
+/* Panneau latéral : variante de .ny-dialog collée au bord, pleine hauteur. */
+.ny-dialog.ny-drawer {
+  width: min(480px, 100vw);
+  height: 100vh;
+  height: 100dvh;
+  max-width: 100vw;
+  max-height: none;
+  margin: 0;
+  border-width: 0;
+}
+.ny-dialog.ny-drawer[open] {
+  display: flex;
+  flex-direction: column;
+}
+.ny-drawer--end {
+  margin-left: auto;
+  border-left-width: 1px;
+}
+.ny-drawer--start {
+  margin-right: auto;
+  border-right-width: 1px;
+}
+.ny-drawer .ny-dialog__body {
+  flex: 1;
+  overflow-y: auto;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ny-drawer--end[open] {
+    animation: ny-drawer-in-end var(--dur-base) var(--ease-out);
+  }
+  .ny-drawer--start[open] {
+    animation: ny-drawer-in-start var(--dur-base) var(--ease-out);
+  }
+}
+@keyframes ny-drawer-in-end {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+}
+@keyframes ny-drawer-in-start {
+  from {
+    transform: translateX(-24px);
+    opacity: 0;
+  }
+}

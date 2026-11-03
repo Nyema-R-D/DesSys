@@ -178,7 +178,7 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L14 — `Select`, `Combobox`, `RadioGroup`, `Checkbox` | Sugandili (formulaire) |
 - [ ] L15 — `Switch` | A da wuli / a datugu |
 - [ ] L16 — `FileUpload`, `DateField` | Dosiye bila, don (date) |
-- [ ] L17 — `Fieldset`, `FormRow`, `FormActions` | Formulaire labɛncogo |
+- [ ] L17 — `Fieldset`, `FormRow`, `FormActions`, `Stepper` | Formulaire labɛncogo |
 - [ ] L18 — `Chip`, `ChipGroup` | Sugandili |
 - [ ] L19 — `SectionLabel` | Label |
 - [ ] L20 — `LabRow` | Laboratoire ka sira |
@@ -187,7 +187,7 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L23 — `SignalGrid` | Taamasiyɛn kare |
 - [ ] L24 — `Icon` | Ja fitinin (Lucide) |
 - [ ] L25 — `ConnectionStatus`, `OfflineBanner` | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli |
-- [ ] L26 — `Tabs`, `Dialog`, `Toast`, `Alert` | Onglets, modale, kunnafoni fitinin |
+- [ ] L26 — `Tabs`, `Dialog`, `Drawer`, `Toast`, `Alert` | Onglets, modale, kunnafoni fitinin |
 - [ ] L27 — `DataTable`, `Pagination` | Kunnafoniw tabulo, ɲɛw |
 - [ ] L28 — `Breadcrumb`, `Menu` | Sira jira, baara sugandi |
 - [ ] L29 — `Accordion`, `Tooltip` | Yɔrɔ dayɛlɛli, ɲɛfɔli fitinin |
