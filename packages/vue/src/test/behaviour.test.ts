@@ -18,6 +18,7 @@ import {
   Spinner,
   FormRow,
   Switch,
+  Stepper,
   Chip,
   ConnectionStatus,
   DataTable,
@@ -245,6 +246,13 @@ describe('Accessibilité Vue (axe-core)', () => {
     h(Progress, { label: 'Synchronisation', value: 64, hint: 'Wi-Fi' }),
     h(Progress, { label: 'Préparation' }),
     h(Spinner),
+    h(Stepper, {
+      steps: [
+        { id: 'a', label: 'Coopérative' },
+        { id: 'b', label: 'Membres' },
+      ],
+      current: 'b',
+    }),
     h(Combobox, {
       label: 'Commune',
       options: [{ value: 'bamako', label: 'Bamako' }],

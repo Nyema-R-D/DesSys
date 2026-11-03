@@ -74,6 +74,11 @@ const menuItems = [
   { id: 'exporter', label: 'Exporter', disabled: true },
   { id: 'supprimer', label: 'Supprimer', tone: 'danger' as const },
 ];
+const steps = [
+  { id: 'cooperative', label: 'Coopérative' },
+  { id: 'membres', label: 'Membres' },
+  { id: 'envoi', label: 'Envoi' },
+];
 const rowKey = (row: unknown) => (row as { id: string }).id;
 
 const options = [
@@ -367,6 +372,32 @@ const cases: Case[] = [
     { default: () => 'Corps', footer: () => 'Pied' },
   ],
   ['ToastProvider', r(R.ToastProvider, null, 'App'), V.ToastProvider, {}, 'App'],
+  [
+    'Drawer',
+    r(R.Drawer, { open: false, onClose: () => {}, title: 'Visite', footer: 'Pied' }, 'Corps'),
+    V.Drawer,
+    { open: false, title: 'Visite' },
+    { default: () => 'Corps', footer: () => 'Pied' },
+  ],
+  [
+    'Drawer à gauche, sans pied',
+    r(R.Drawer, { open: false, onClose: () => {}, title: 'Filtres', side: 'start' }, 'Corps'),
+    V.Drawer,
+    { open: false, title: 'Filtres', side: 'start' },
+    'Corps',
+  ],
+  [
+    'Stepper',
+    r(R.Stepper, { steps, current: 'membres' }),
+    V.Stepper,
+    { steps, current: 'membres' },
+  ],
+  [
+    'Stepper libellés',
+    r(R.Stepper, { steps, current: 'envoi', label: 'Inscription', doneLabel: 'faite' }),
+    V.Stepper,
+    { steps, current: 'envoi', label: 'Inscription', doneLabel: 'faite' },
+  ],
   [
     'DataTable',
     r(R.DataTable, { caption: 'Visites', columns: tableColumns, rows: tableRows, rowKey }),

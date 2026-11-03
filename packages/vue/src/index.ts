@@ -38,6 +38,8 @@ export { default as ServiceGrid } from './components/ServiceGrid.vue';
 export { default as RadioGroup } from './components/RadioGroup.vue';
 export { default as Tabs } from './components/Tabs.vue';
 export { default as Dialog } from './components/Dialog.vue';
+export { default as Drawer } from './components/Drawer.vue';
+export { default as Stepper, type StepperStep } from './components/Stepper.vue';
 export { default as ToastProvider } from './components/ToastProvider.vue';
 export { default as DataTable } from './components/DataTable.vue';
 export { default as Pagination } from './components/Pagination.vue';

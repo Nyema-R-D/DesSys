@@ -1,0 +1,57 @@
+/* Étapes : filet supérieur (fait : texte, courant : latérite, à venir : discret), index mono. */
+.ny-stepper__list {
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ny-stepper__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-3);
+  border-top: 2px solid var(--line-subtle);
+  color: var(--text-tertiary);
+  font: var(--type-small);
+}
+.ny-stepper__index {
+  font: var(--type-label);
+  letter-spacing: var(--tracking-label);
+}
+.ny-stepper__step--done {
+  border-top-color: var(--line-contrast);
+  color: var(--text-secondary);
+}
+.ny-stepper__step--current {
+  border-top-color: var(--accent);
+  color: var(--text-primary);
+}
+.ny-stepper__step--current .ny-stepper__index {
+  color: var(--accent-text);
+}
+.ny-stepper__step--current .ny-stepper__label {
+  font-weight: 600;
+}
+/* Mobile : une étape par ligne, filet à gauche. */
+@media (max-width: 640px) {
+  .ny-stepper__list {
+    grid-auto-flow: row;
+    gap: var(--space-2);
+  }
+  .ny-stepper__step {
+    flex-direction: row;
+    gap: var(--space-3);
+    padding: var(--space-1) 0 var(--space-1) var(--space-3);
+    border-top: 0;
+    border-left: 2px solid var(--line-subtle);
+  }
+  .ny-stepper__step--done {
+    border-left-color: var(--line-contrast);
+  }
+  .ny-stepper__step--current {
+    border-left-color: var(--accent);
+  }
+}

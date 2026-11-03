@@ -3,10 +3,12 @@ import { defineComponent, h, nextTick } from 'vue';
 import {
   DataTable,
   Dialog,
+  Drawer,
   LabRow,
   LanguageSwitch,
   Pagination,
   SiteHeader,
+  Stepper,
   Tabs,
   ToastProvider,
   useOnlineStatus,
@@ -48,6 +50,37 @@ describe('Comportements Vue — applications', () => {
     await wrapper.get('button[aria-label="Fermer"]').trigger('click');
     await wrapper.get('dialog').trigger('cancel');
     expect(wrapper.emitted('close')).toHaveLength(2);
+  });
+
+  it('Drawer : panneau au bord, fermeture relayée', async () => {
+    const wrapper = mount(Drawer, {
+      props: { open: false, title: 'Filtres', side: 'start' },
+      slots: { default: 'Corps', footer: 'Pied' },
+    });
+    const dialog = wrapper.get('dialog');
+    expect(dialog.classes()).toEqual(
+      expect.arrayContaining(['ny-dialog', 'ny-drawer', 'ny-drawer--start']),
+    );
+    await wrapper.setProps({ open: true });
+    expect((dialog.element as HTMLDialogElement).open).toBe(true);
+    expect(wrapper.get('.ny-dialog__footer').text()).toBe('Pied');
+    await wrapper.get('button[aria-label="Fermer"]').trigger('click');
+    expect(wrapper.emitted('close')).toHaveLength(1);
+  });
+
+  it('Stepper : étape courante et étapes faites', () => {
+    const wrapper = mount(Stepper, {
+      props: {
+        steps: [
+          { id: 'a', label: 'Coopérative' },
+          { id: 'b', label: 'Membres' },
+        ],
+        current: 'b',
+      },
+    });
+    const items = wrapper.findAll('li');
+    expect(items[1]!.attributes('aria-current')).toBe('step');
+    expect(items[0]!.text()).toBe('01Coopérative (terminée)');
   });
 
   it('Toast : show, durée, alerte pour une erreur', async () => {
