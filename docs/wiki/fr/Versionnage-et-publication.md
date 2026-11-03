@@ -47,3 +47,12 @@ Quand une release attend une validation humaine (relecture, décision des fondat
 2. Les PR de la version suivante ciblent `next`. Elles sont rattachées automatiquement au **deuxième** jalon ouvert (`v1.1.0`), celles de `main` au premier (`v1.0.0`).
 3. `main` ne reçoit que ce qui concerne la release gelée (corrections, relecture), puis le `Release-As`.
 4. Une fois la release publiée : PR `next` → `main`, fusionnée en **rebase** pour conserver chaque commit `feat`/`fix`. release-please ouvre alors la PR de la version suivante. Supprimer `next`.
+
+### Publier `next` avant la release gelée
+
+Si l'attente se prolonge, le travail de `next` peut sortir en version mineure 0.x sans débloquer la version gelée. Exemple : la 1.0 attendant toujours #23, les nouveautés prévues pour la v1.1.0 sont publiées en **0.5.0**.
+
+1. Rebaser `next` sur `main`, lancer `pnpm check`, ouvrir la PR `next` → `main` et la fusionner en **rebase**.
+2. Fusionner sur `main` un commit non vide portant `Release-As: 0.5.0`. Sans ce pied, `bump-patch-for-minor-pre-major` donnerait une version de correctif (0.4.x).
+3. La PR release-please passe en v0.5.0. La fusionner publie la version.
+4. Réaligner `next` sur `main` tant que la release gelée reste en attente.
