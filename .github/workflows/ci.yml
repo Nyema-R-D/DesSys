@@ -61,7 +61,6 @@ jobs:
     name: Revue des dépendances
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    continue-on-error: true # nécessite le graphe de dépendances (public ou GHAS)
     steps:
       - uses: actions/checkout@v7
       - uses: actions/dependency-review-action@v5
