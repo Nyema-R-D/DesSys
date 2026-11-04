@@ -21,6 +21,8 @@ export interface VideoFrameProps extends Omit<HTMLAttributes<HTMLElement>, 'onEr
   /** Format réservé pendant le chargement et en lecture (`16 / 9` par défaut). */
   aspectRatio?: string;
   poster?: string;
+  /** `metadata` par défaut ; `none` pour une liste d'extraits (rien n'est chargé avant lecture). */
+  preload?: 'none' | 'metadata' | 'auto';
   /** Action proposée quand la vidéo ne peut pas être lue (ex. un bouton de téléchargement). */
   action?: ReactNode;
   /** Appelé quand le navigateur ne sait pas décoder la vidéo (souvent le H.265 des caméras). */
@@ -45,6 +47,7 @@ export function VideoFrame({
   caption,
   aspectRatio,
   poster,
+  preload = 'metadata',
   action,
   onUnsupported,
   onError,
@@ -100,7 +103,7 @@ export function VideoFrame({
               src={src}
               poster={poster}
               controls
-              preload="metadata"
+              preload={preload}
               aria-label={label}
               onError={(event) => {
                 const code = event.currentTarget.error?.code;
