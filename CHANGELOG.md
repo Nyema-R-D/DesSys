@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.7.0](https://github.com/Nyema-R-D/DesSys/compare/v0.6.1...v0.7.0) (2026-11-04)
+
+
+### Nouveautés · Fɛn kuraw
+
+* ajoute le thème de connexion Keycloak NYEMA ([14c9a2a](https://github.com/Nyema-R-D/DesSys/commit/14c9a2a32961e0de92d6b49fda90e8fe4ab8f9f7)), closes [#90](https://github.com/Nyema-R-D/DesSys/issues/90)
+* ajoute LinkProvider pour faire passer les liens par le routeur ([48e6339](https://github.com/Nyema-R-D/DesSys/commit/48e633953f526d10ea7bf77e3a3917a0214f03d0)), closes [#87](https://github.com/Nyema-R-D/DesSys/issues/87)
+* ajoute PolygonEditor, zone dessinée sur une image ([ca70da8](https://github.com/Nyema-R-D/DesSys/commit/ca70da8c0510dbd8d382feedcd817ef46d63467a)), closes [#88](https://github.com/Nyema-R-D/DesSys/issues/88)
+* ajoute VideoFrame, cadre autour de la vidéo native ([962f985](https://github.com/Nyema-R-D/DesSys/commit/962f98510cbf480d49f8a1bd39e7b7617f0965f5)), closes [#89](https://github.com/Nyema-R-D/DesSys/issues/89)
+
+
+### Corrections · Latilenniw
+
+* **react:** capture stable de la story Lecture de VideoFrame ([d7f311a](https://github.com/Nyema-R-D/DesSys/commit/d7f311a04a17cacb527d1bc76a768278104b76c6))
+
+
+### Documentation · Sɛbɛnw
+
+* **wiki:** mentionne le JAR du thème Keycloak dans la publication ([ec33ea8](https://github.com/Nyema-R-D/DesSys/commit/ec33ea8eea462ceebbb386492a6418014109cf26))
+* **wiki:** mentionne preload de VideoFrame ([4d79220](https://github.com/Nyema-R-D/DesSys/commit/4d792208fdc93ce89d585d8d08173f5d70257c2c))
+
 ## [0.6.1](https://github.com/Nyema-R-D/DesSys/compare/v0.6.0...v0.6.1) (2026-11-03)
 
 
