@@ -21,8 +21,7 @@ for (const theme of ['anthracite', 'paper'] as const) {
       await page.goto(`/iframe.html?id=${story.id}&viewMode=story&globals=theme:${theme}`);
       await page.locator('#storybook-root > *').first().waitFor();
       await page.evaluate(() => document.fonts.ready);
-      // Images et vidéos chargées : sinon la capture dépend du réseau (image absente, indicateur
-      // de chargement animé du lecteur vidéo).
+      // Images et vidéos chargées : sinon la capture dépend du réseau.
       await page.evaluate(() =>
         Promise.all([
           ...[...document.images].map((image) => image.decode().catch(() => {})),
@@ -36,7 +35,11 @@ for (const theme of ['anthracite', 'paper'] as const) {
           ),
         ]),
       );
-      await expect(page).toHaveScreenshot(`${story.id}--${theme}.png`, { fullPage: true });
+      // Lecteur vidéo natif (indicateur de chargement animé, propre au navigateur) : masqué.
+      await expect(page).toHaveScreenshot(`${story.id}--${theme}.png`, {
+        fullPage: true,
+        mask: [page.locator('video')],
+      });
     });
   }
 }
