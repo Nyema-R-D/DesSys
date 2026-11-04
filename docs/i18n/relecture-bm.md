@@ -191,7 +191,7 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L27 — `DataTable`, `Pagination` | Kunnafoniw tabulo, ɲɛw |
 - [ ] L28 — `Breadcrumb`, `Menu`, `LinkProvider` | Sira jira, baara sugandi |
 - [ ] L29 — `Accordion`, `Tooltip` | Yɔrɔ dayɛlɛli, ɲɛfɔli fitinin |
-- [ ] L30 — `Skeleton`, `Progress`, `Spinner` | A bɛ ka don (chargement) |
+- [ ] L30 — `Skeleton`, `Progress`, `Spinner`, `VideoFrame` | A bɛ ka don (chargement) |
 - [ ] L31 — `Container`, `Section` | Ɲɛ labɛncogo |
 - [ ] L32 — `SiteHeader`, `Hero`, `SiteFooter` | Site ka kɔrɔ, a daminɛ, a laban |
 - [ ] L33 — `LanguageSwitch` | Kan sugandi (FR / BM) |

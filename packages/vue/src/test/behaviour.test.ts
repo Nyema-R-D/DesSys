@@ -39,6 +39,7 @@ import {
   Tabs,
   TextField,
   Theme,
+  VideoFrame,
 } from '../index';
 
 const flush = () => new Promise((resolve) => setTimeout(resolve));
@@ -167,6 +168,30 @@ describe('Comportements Vue', () => {
     expect(polygon.value).toHaveLength(3);
     expect(wrapper.get('[role="status"]').text()).toBe('');
     wrapper.unmount();
+  });
+
+  it('VideoFrame : format non lu puis nouvelle source', async () => {
+    const wrapper = mount(VideoFrame, {
+      props: { src: 'blob:h265', label: 'Extrait' },
+      slots: { action: () => h('button', { type: 'button' }, 'Télécharger') },
+    });
+    const video = wrapper.get('video');
+    Object.defineProperty(video.element, 'error', { value: { code: 4 } });
+    await video.trigger('error');
+    expect(wrapper.emitted('unsupported')).toHaveLength(1);
+    expect(wrapper.text()).toContain('Format non lu par ce navigateur');
+    expect(wrapper.find('button').text()).toBe('Télécharger');
+    await wrapper.setProps({ src: 'blob:h264' });
+    expect(wrapper.get('video').attributes('src')).toBe('blob:h264');
+  });
+
+  it('VideoFrame : autre erreur, code transmis', async () => {
+    const wrapper = mount(VideoFrame, { props: { src: 'blob:x', label: 'Extrait' } });
+    const video = wrapper.get('video');
+    Object.defineProperty(video.element, 'error', { value: { code: 2 } });
+    await video.trigger('error');
+    expect(wrapper.emitted('error')).toEqual([[2]]);
+    expect(wrapper.get('[role="alert"]').text()).toContain('Lecture impossible');
   });
 
   it('Switch, DateField : v-model', async () => {

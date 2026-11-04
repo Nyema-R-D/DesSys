@@ -53,6 +53,12 @@ export {
   type PolygonEditorProps,
   type PolygonPoint,
 } from './components/PolygonEditor/PolygonEditor';
+export {
+  VideoFrame,
+  MEDIA_ERR_SRC_NOT_SUPPORTED,
+  type VideoFrameProps,
+  type VideoFrameState,
+} from './components/VideoFrame/VideoFrame';
 export { Menu, type MenuItem, type MenuProps } from './components/Menu/Menu';
 export { Chip, ChipGroup, type ChipProps } from './components/Chip/Chip';
 export { Checkbox, type CheckboxProps } from './components/Checkbox/Checkbox';

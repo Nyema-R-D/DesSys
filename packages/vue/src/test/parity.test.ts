@@ -555,6 +555,47 @@ const cases: Case[] = [
     { label: 'Zone', polygon: polygonPoints, disabled: true },
   ],
   [
+    'VideoFrame chargement',
+    r(R.VideoFrame, { label: 'Extrait' }),
+    V.VideoFrame,
+    { label: 'Extrait' },
+  ],
+  [
+    'VideoFrame lecture',
+    r(R.VideoFrame, {
+      src: '/clip.webm',
+      label: 'Extrait',
+      caption: 'Consultation enregistrée.',
+      aspectRatio: '4 / 3',
+      poster: '/clip.png',
+    }),
+    V.VideoFrame,
+    {
+      src: '/clip.webm',
+      label: 'Extrait',
+      caption: 'Consultation enregistrée.',
+      aspectRatio: '4 / 3',
+      poster: '/clip.png',
+    },
+  ],
+  [
+    'VideoFrame format non lu',
+    r(R.VideoFrame, {
+      label: 'Extrait',
+      failure: 'unsupported',
+      action: r('button', { type: 'button' }, 'Télécharger'),
+    }),
+    V.VideoFrame,
+    { label: 'Extrait', failure: 'unsupported' },
+    { action: () => h('button', { type: 'button' }, 'Télécharger') },
+  ],
+  [
+    'VideoFrame erreur',
+    r(R.VideoFrame, { label: 'Extrait', failure: 'error' }),
+    V.VideoFrame,
+    { label: 'Extrait', failure: 'error' },
+  ],
+  [
     'Hero',
     r(R.Hero, {
       eyebrow: 'Logiciels',
