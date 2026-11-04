@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { cx } from '../../utils';
+import { Anchor } from '../Link/Link';
 import '@nyema-r-d/css/components/Breadcrumb.css';
 
 export interface BreadcrumbItem {
@@ -28,9 +29,9 @@ export function Breadcrumb({ items, label = 'Fil d’Ariane', className }: Bread
                 <span aria-current="page">{item.label}</span>
               ) : (
                 <>
-                  <a className="ny-breadcrumb__link" href={item.href}>
+                  <Anchor className="ny-breadcrumb__link" href={item.href}>
                     {item.label}
-                  </a>
+                  </Anchor>
                   <span className="ny-breadcrumb__separator" aria-hidden="true">
                     /
                   </span>

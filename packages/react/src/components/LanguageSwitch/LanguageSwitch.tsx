@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from 'react';
 import { cx } from '../../utils';
+import { Anchor } from '../Link/Link';
 import '@nyema-r-d/css/components/LanguageSwitch.css';
 
 export interface LanguageOption {
@@ -48,7 +49,7 @@ export function LanguageSwitch({
         );
         const classes = 'ny-language-switch__option ny-mono-label ny-focusable';
         return getHref ? (
-          <a
+          <Anchor
             key={option.value}
             href={getHref(option.value)}
             hrefLang={option.value}
@@ -57,7 +58,7 @@ export function LanguageSwitch({
             className={classes}
           >
             {content}
-          </a>
+          </Anchor>
         ) : (
           <button
             key={option.value}

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import axe from 'axe-core';
-import { h, ref } from 'vue';
+import { defineComponent, h, ref } from 'vue';
 import {
   Accordion,
   Alert,
@@ -25,6 +25,7 @@ import {
   Hero,
   LabRow,
   LanguageSwitch,
+  LinkProvider,
   Logo,
   OfflineBanner,
   Pagination,
@@ -95,6 +96,45 @@ describe('Comportements Vue', () => {
     wrapper.element.dispatchEvent(event);
     expect(event.defaultPrevented).toBe(true);
     expect(wrapper.attributes('href')).toBeUndefined();
+  });
+
+  it('LinkProvider : les liens de SiteHeader passent par le routeur et ferment le menu', async () => {
+    const visited: string[] = [];
+    const RouterLink = defineComponent({
+      props: { href: { type: String, required: true } },
+      setup(props, { slots }) {
+        return () =>
+          h(
+            'a',
+            {
+              href: props.href,
+              'data-router': '',
+              onClick: (event: MouseEvent) => {
+                event.preventDefault();
+                visited.push(props.href);
+              },
+            },
+            slots.default?.(),
+          );
+      },
+    });
+    const links = [{ href: '/cameras', label: 'Caméras' }];
+    const wrapper = mount(
+      { render: () => h(LinkProvider, { component: RouterLink }, () => h(SiteHeader, { links })) },
+      { attachTo: document.body },
+    );
+    const toggle = wrapper.get('button');
+    await toggle.trigger('click');
+    const panel = wrapper.get(`#${toggle.attributes('aria-controls')}`);
+    const link = panel.get('a');
+    expect(link.attributes()).toMatchObject({
+      'data-router': '',
+      class: expect.stringContaining('ny-site-header__link'),
+    });
+    await link.trigger('click');
+    expect(visited).toEqual(['/cameras']);
+    expect(toggle.attributes('aria-expanded')).toBe('false');
+    wrapper.unmount();
   });
 
   it('Switch, DateField : v-model', async () => {

@@ -1,5 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../utils';
+import { Anchor } from '../Link/Link';
 import { StatusBadge, type Locale, type ProductStatus } from '../StatusBadge/StatusBadge';
 import '@nyema-r-d/css/components/ServiceCard.css';
 
@@ -42,9 +43,9 @@ export function ServiceCard({
   );
   const classes = cx('ny-service-card', href && 'ny-focusable', className);
   return href ? (
-    <a href={href} className={classes} {...props}>
+    <Anchor href={href} className={classes} {...props}>
       {content}
-    </a>
+    </Anchor>
   ) : (
     <article className={classes} {...props}>
       {content}

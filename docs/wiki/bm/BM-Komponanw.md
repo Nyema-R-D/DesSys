@@ -25,7 +25,7 @@ Package `@nyema-r-d/react`.
 | `ConnectionStatus`, `OfflineBanner`             | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli                            |
 | `Tabs`, `Dialog`, `Drawer`, `Toast`, `Alert`    | Onglets, modale, kunnafoni fitinin                         |
 | `DataTable`, `Pagination`                       | Kunnafoniw tabulo, ɲɛw                                     |
-| `Breadcrumb`, `Menu`                            | Sira jira, baara sugandi                                   |
+| `Breadcrumb`, `Menu`, `LinkProvider`            | Sira jira, baara sugandi                                   |
 | `Accordion`, `Tooltip`                          | Yɔrɔ dayɛlɛli, ɲɛfɔli fitinin                              |
 | `Skeleton`, `Progress`, `Spinner`               | A bɛ ka don (chargement)                                   |
 | `Container`, `Section`                          | Ɲɛ labɛncogo                                               |

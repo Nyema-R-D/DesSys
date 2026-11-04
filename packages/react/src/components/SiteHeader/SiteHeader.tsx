@@ -1,6 +1,7 @@
 import { useEffect, useId, useState, type HTMLAttributes, type ReactNode } from 'react';
 import { cx } from '../../utils';
 import { Container } from '../Layout/Layout';
+import { Anchor } from '../Link/Link';
 import { Logo } from '../Logo/Logo';
 import '@nyema-r-d/css/components/SiteHeader.css';
 
@@ -47,7 +48,7 @@ export function SiteHeader({
 
   const renderLinks = (onNavigate?: () => void) =>
     links.map((link) => (
-      <a
+      <Anchor
         key={link.href}
         href={link.href}
         className="ny-site-header__link ny-focusable"
@@ -55,16 +56,16 @@ export function SiteHeader({
         onClick={onNavigate}
       >
         {link.label}
-      </a>
+      </Anchor>
     ));
 
   return (
     <header className={cx('ny-site-header', className)} {...props}>
       <Container>
         <div className="ny-site-header__bar">
-          <a href={brandHref} className="ny-site-header__brand ny-focusable">
+          <Anchor href={brandHref} className="ny-site-header__brand ny-focusable">
             {brand}
-          </a>
+          </Anchor>
           <nav aria-label={navLabel} className="ny-site-header__nav">
             {renderLinks()}
           </nav>

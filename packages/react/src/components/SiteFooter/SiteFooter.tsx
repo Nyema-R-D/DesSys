@@ -1,6 +1,7 @@
 import { useId, type HTMLAttributes, type ReactNode } from 'react';
 import { cx } from '../../utils';
 import { Container } from '../Layout/Layout';
+import { Anchor } from '../Link/Link';
 import { Logo } from '../Logo/Logo';
 import '@nyema-r-d/css/components/SiteFooter.css';
 
@@ -37,9 +38,9 @@ export function SiteFooter({
     <footer className={cx('ny-site-footer', className)} {...props}>
       <Container>
         <div className="ny-site-footer__top">
-          <a href={brandHref} className="ny-site-footer__brand ny-focusable">
+          <Anchor href={brandHref} className="ny-site-footer__brand ny-focusable">
             {brand}
-          </a>
+          </Anchor>
           <div className="ny-site-footer__columns">
             {columns.map((column, i) => (
               <nav key={i} aria-labelledby={`${idPrefix}-${i}`}>
@@ -49,9 +50,9 @@ export function SiteFooter({
                 <ul className="ny-site-footer__column">
                   {column.links.map((link) => (
                     <li key={link.href + String(link.label)}>
-                      <a href={link.href} className="ny-site-footer__link ny-focusable">
+                      <Anchor href={link.href} className="ny-site-footer__link ny-focusable">
                         {link.label}
-                      </a>
+                      </Anchor>
                     </li>
                   ))}
                 </ul>

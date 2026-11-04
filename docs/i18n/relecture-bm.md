@@ -189,7 +189,7 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L25 — `ConnectionStatus`, `OfflineBanner` | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli |
 - [ ] L26 — `Tabs`, `Dialog`, `Drawer`, `Toast`, `Alert` | Onglets, modale, kunnafoni fitinin |
 - [ ] L27 — `DataTable`, `Pagination` | Kunnafoniw tabulo, ɲɛw |
-- [ ] L28 — `Breadcrumb`, `Menu` | Sira jira, baara sugandi |
+- [ ] L28 — `Breadcrumb`, `Menu`, `LinkProvider` | Sira jira, baara sugandi |
 - [ ] L29 — `Accordion`, `Tooltip` | Yɔrɔ dayɛlɛli, ɲɛfɔli fitinin |
 - [ ] L30 — `Skeleton`, `Progress`, `Spinner` | A bɛ ka don (chargement) |
 - [ ] L31 — `Container`, `Section` | Ɲɛ labɛncogo |

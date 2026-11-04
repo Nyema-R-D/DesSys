@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import '@nyema-r-d/css/base.css';
 import '@nyema-r-d/css/components/LanguageSwitch.css';
+import Anchor from './Anchor.vue';
 
 export interface LanguageOption {
   value: string;
@@ -28,7 +29,7 @@ const model = defineModel<string>({ required: true });
 <template>
   <nav :aria-label="label" class="ny-language-switch">
     <template v-for="option in options" :key="option.value">
-      <a
+      <Anchor
         v-if="getHref"
         :href="getHref(option.value)"
         :hreflang="option.value"
@@ -36,7 +37,7 @@ const model = defineModel<string>({ required: true });
         :aria-current="option.value === model ? 'true' : undefined"
         class="ny-language-switch__option ny-mono-label ny-focusable"
         ><span aria-hidden="true">{{ option.label }}</span
-        ><span class="ny-visually-hidden">{{ option.name }}</span></a
+        ><span class="ny-visually-hidden">{{ option.name }}</span></Anchor
       >
       <button
         v-else

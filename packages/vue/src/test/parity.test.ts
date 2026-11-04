@@ -1,8 +1,8 @@
 // Parité : chaque composant Vue doit produire le même HTML (structure, classes, attributs ARIA)
 // que son jumeau @nyema-r-d/react. C'est ce qui permet de partager @nyema-r-d/css.
 import * as R from '@nyema-r-d/react';
-import { h, type Component } from 'vue';
-import { createElement, type SVGProps } from 'react';
+import { h, type Component, type Slots } from 'vue';
+import { createElement, type AnchorHTMLAttributes, type SVGProps } from 'react';
 import * as V from '../index';
 import { canonical, r, renderReact, renderVue, type VueSlots } from './render';
 
@@ -40,6 +40,16 @@ const VueGlyph = {
         },
         [h('path', { d: 'M2 12h20' })],
       );
+  },
+};
+
+// Lien de routeur factice : il marque les liens qu'il rend, pour vérifier qu'ils passent par lui.
+const ReactRouterLink = (props: AnchorHTMLAttributes<HTMLAnchorElement>) =>
+  createElement('a', { ...props, 'data-router': '' });
+const VueRouterLink = {
+  props: ['href'],
+  setup(props: { href: string }, { slots }: { slots: Slots }) {
+    return () => h('a', { href: props.href, 'data-router': '' }, slots.default?.());
   },
 };
 
@@ -488,6 +498,13 @@ const cases: Case[] = [
     r(R.SiteHeader, { links, brandHref: '/fr/' }),
     V.SiteHeader,
     { links, brandHref: '/fr/' },
+  ],
+  [
+    'LinkProvider',
+    r(R.LinkProvider, { component: ReactRouterLink }, r(R.SiteHeader, { links })),
+    V.LinkProvider,
+    { component: VueRouterLink },
+    { default: () => h(V.SiteHeader, { links }) },
   ],
   [
     'Hero',
