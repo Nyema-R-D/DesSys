@@ -32,6 +32,8 @@ export { filterOption, type ComboboxOption } from './components/Combobox.vue';
 export { default as PolygonEditor } from './components/PolygonEditor.vue';
 export type { PolygonEditorImage } from './components/PolygonEditor.vue';
 export type { PolygonPoint } from './polygon';
+export { default as VideoFrame } from './components/VideoFrame.vue';
+export { MEDIA_ERR_SRC_NOT_SUPPORTED, type VideoFrameState } from './components/VideoFrame.vue';
 export { resetDeprecationWarnings, warnDeprecated } from './deprecation';
 export { default as LinkProvider } from './components/LinkProvider.vue';
 export {
