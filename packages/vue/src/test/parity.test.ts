@@ -53,6 +53,12 @@ const VueRouterLink = {
   },
 };
 
+const polygonPoints: [number, number][] = [
+  [0.1234, 0.1],
+  [0.5, 0.1],
+  [0.3, 0.5],
+];
+
 const links = [
   { href: '#solutions', label: 'Solutions', current: true },
   { href: '#laboratoire', label: 'Laboratoire' },
@@ -505,6 +511,48 @@ const cases: Case[] = [
     V.LinkProvider,
     { component: VueRouterLink },
     { default: () => h(V.SiteHeader, { links }) },
+  ],
+  [
+    'PolygonEditor',
+    r(R.PolygonEditor, {
+      label: 'Zone Quai',
+      polygon: polygonPoints,
+      onChange: () => {},
+      image: { src: '/frame.jpg', width: 1280, height: 720 },
+      others: [{ id: 'entree', polygon: polygonPoints }],
+      caption: 'Capture du 4 novembre.',
+    }),
+    V.PolygonEditor,
+    {
+      label: 'Zone Quai',
+      polygon: polygonPoints,
+      image: { src: '/frame.jpg', width: 1280, height: 720 },
+      others: [{ id: 'entree', polygon: polygonPoints }],
+      caption: 'Capture du 4 novembre.',
+    },
+  ],
+  [
+    'PolygonEditor incomplet',
+    r(R.PolygonEditor, { label: 'Zone', polygon: polygonPoints.slice(0, 2), onChange: () => {} }),
+    V.PolygonEditor,
+    { label: 'Zone', polygon: polygonPoints.slice(0, 2) },
+  ],
+  [
+    'PolygonEditor vide',
+    r(R.PolygonEditor, { label: 'Zone', polygon: [], onChange: () => {} }),
+    V.PolygonEditor,
+    { label: 'Zone', polygon: [] },
+  ],
+  [
+    'PolygonEditor désactivé',
+    r(R.PolygonEditor, {
+      label: 'Zone',
+      polygon: polygonPoints,
+      onChange: () => {},
+      disabled: true,
+    }),
+    V.PolygonEditor,
+    { label: 'Zone', polygon: polygonPoints, disabled: true },
   ],
   [
     'Hero',

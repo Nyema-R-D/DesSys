@@ -21,7 +21,7 @@ Package `@nyema-r-d/react`.
 | `PillarCard`                                    | Kartu                                                      |
 | `ServiceCard`, `Tag`                            | Baara kartu, taamasiyɛn                                    |
 | `SignalGrid`                                    | Taamasiyɛn kare                                            |
-| `Icon`                                          | Ja fitinin (Lucide)                                        |
+| `Icon`, `PolygonEditor`                         | Ja fitinin (Lucide)                                        |
 | `ConnectionStatus`, `OfflineBanner`             | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli                            |
 | `Tabs`, `Dialog`, `Drawer`, `Toast`, `Alert`    | Onglets, modale, kunnafoni fitinin                         |
 | `DataTable`, `Pagination`                       | Kunnafoniw tabulo, ɲɛw                                     |

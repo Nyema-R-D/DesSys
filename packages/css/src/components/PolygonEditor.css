@@ -1,0 +1,89 @@
+/* Zone dessinée sur une image : polygone latérite, poignées carrées, autres zones en pointillés. */
+.ny-polygon-editor {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.ny-polygon-editor__surface {
+  position: relative;
+  aspect-ratio: var(--ny-polygon-ratio, 16 / 9);
+  border: 1px solid var(--line-hairline);
+  /* Sans image : grille de repère de 10 %. */
+  background-color: var(--surface-sunken);
+  background-image:
+    linear-gradient(var(--line-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-subtle) 1px, transparent 1px);
+  background-size: 10% 10%;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+}
+.ny-polygon-editor__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Les coordonnées sont relatives à l'image entière : pas de recadrage. */
+  object-fit: fill;
+  pointer-events: none;
+}
+.ny-polygon-editor__drawing {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.ny-polygon-editor__shape {
+  fill: var(--accent);
+  fill-opacity: 0.2;
+  stroke: var(--accent);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+polyline.ny-polygon-editor__shape {
+  fill: none;
+}
+.ny-polygon-editor__other {
+  fill: none;
+  stroke: var(--text-secondary);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  vector-effect: non-scaling-stroke;
+}
+.ny-polygon-editor__point {
+  position: absolute;
+  width: var(--space-4);
+  height: var(--space-4);
+  margin: 0;
+  padding: 0;
+  border: 2px solid var(--text-on-accent);
+  background: var(--accent);
+  translate: -50% -50%;
+  cursor: grab;
+}
+.ny-polygon-editor__point:active {
+  cursor: grabbing;
+}
+/* Région annoncée toujours présente (même vide) : pas d'espace tant qu'elle est vide. */
+.ny-polygon-editor__status,
+.ny-polygon-editor__caption {
+  margin: 0;
+  color: var(--text-secondary);
+  font: var(--type-small);
+}
+.ny-polygon-editor__status:not(:empty),
+.ny-polygon-editor__caption {
+  margin-top: var(--space-2);
+}
+.ny-polygon-editor--disabled .ny-polygon-editor__surface,
+.ny-polygon-editor--disabled .ny-polygon-editor__point {
+  cursor: not-allowed;
+}
+.ny-polygon-editor--disabled .ny-polygon-editor__shape {
+  fill: var(--text-tertiary);
+  stroke: var(--text-tertiary);
+}
+.ny-polygon-editor--disabled .ny-polygon-editor__point {
+  background: var(--text-tertiary);
+}

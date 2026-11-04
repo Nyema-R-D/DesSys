@@ -34,6 +34,8 @@ export function canonical(html: string): string {
   const found: Node[] = [];
   while (comments.nextNode()) found.push(comments.currentNode);
   found.forEach((comment) => comment.parentNode?.removeChild(comment));
+  // Indications de préchargement que React 19 ajoute pour les images : hors du HTML du composant.
+  template.content.querySelectorAll('link[rel="preload"]').forEach((link) => link.remove());
   template.content.normalize();
   const walk = (node: Node): string => {
     if (node.nodeType === Node.TEXT_NODE) {
