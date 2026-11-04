@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import '@nyema-r-d/css/components/Breadcrumb.css';
+import Anchor from './Anchor.vue';
 
 export interface BreadcrumbItem {
   label: string;
@@ -18,7 +19,7 @@ withDefaults(defineProps<{ items: BreadcrumbItem[]; label?: string }>(), {
       <li v-for="(item, index) in items" :key="index" class="ny-breadcrumb__item">
         <span v-if="index === items.length - 1" aria-current="page">{{ item.label }}</span>
         <template v-else>
-          <a class="ny-breadcrumb__link" :href="item.href">{{ item.label }}</a
+          <Anchor class="ny-breadcrumb__link" :href="item.href">{{ item.label }}</Anchor
           ><span class="ny-breadcrumb__separator" aria-hidden="true">/</span>
         </template>
       </li>

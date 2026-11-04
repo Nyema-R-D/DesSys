@@ -2,6 +2,7 @@
 import '@nyema-r-d/css/base.css';
 import '@nyema-r-d/css/components/SiteHeader.css';
 import { onBeforeUnmount, ref, useId, watch } from 'vue';
+import Anchor from './Anchor.vue';
 import Container from './Container.vue';
 import Logo from './Logo.vue';
 
@@ -38,17 +39,17 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey));
   <header class="ny-site-header">
     <Container>
       <div class="ny-site-header__bar">
-        <a :href="brandHref" class="ny-site-header__brand ny-focusable"
+        <Anchor :href="brandHref" class="ny-site-header__brand ny-focusable"
           ><slot name="brand"><Logo :size="26" /></slot
-        ></a>
+        ></Anchor>
         <nav :aria-label="navLabel" class="ny-site-header__nav">
-          <a
+          <Anchor
             v-for="link in links"
             :key="link.href"
             :href="link.href"
             class="ny-site-header__link ny-focusable"
             :aria-current="link.current ? 'page' : undefined"
-            >{{ link.label }}</a
+            >{{ link.label }}</Anchor
           >
         </nav>
         <div class="ny-site-header__end">
@@ -65,14 +66,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey));
         </div>
       </div>
       <nav :id="panelId" :aria-label="navLabel" class="ny-site-header__panel" :hidden="!open">
-        <a
+        <Anchor
           v-for="link in links"
           :key="link.href"
           :href="link.href"
           class="ny-site-header__link ny-focusable"
           :aria-current="link.current ? 'page' : undefined"
           @click="open = false"
-          >{{ link.label }}</a
+          >{{ link.label }}</Anchor
         >
         <div v-if="$slots.actions" class="ny-site-header__panel-actions">
           <slot name="actions" />

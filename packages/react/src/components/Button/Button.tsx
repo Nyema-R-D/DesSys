@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../utils';
+import { Anchor } from '../Link/Link';
 import '@nyema-r-d/css/components/Button.css';
 
 export type ButtonVariant = 'primary' | 'inverse' | 'secondary' | 'link';
@@ -50,7 +51,7 @@ export function Button({
   if (props.href !== undefined) {
     const { disabled, href, onClick, ...anchorProps } = props;
     return (
-      <a
+      <Anchor
         className={classes}
         href={disabled ? undefined : href}
         aria-disabled={disabled || undefined}
@@ -58,7 +59,7 @@ export function Button({
         {...anchorProps}
       >
         {content}
-      </a>
+      </Anchor>
     );
   }
 

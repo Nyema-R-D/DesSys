@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import '@nyema-r-d/css/components/PillarCard.css';
+import Anchor from './Anchor.vue';
 
 withDefaults(
   defineProps<{
@@ -15,7 +16,7 @@ withDefaults(
 
 <template>
   <component
-    :is="href ? 'a' : 'article'"
+    :is="href ? Anchor : 'article'"
     :href="href"
     :class="['ny-pillar-card', href && 'ny-focusable']"
   >

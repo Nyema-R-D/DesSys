@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import '@nyema-r-d/css/components/Button.css';
 import { computed } from 'vue';
+import Anchor from './Anchor.vue';
 
 export type ButtonVariant = 'primary' | 'inverse' | 'secondary' | 'link';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -30,7 +31,7 @@ const classes = computed(() => [
 </script>
 
 <template>
-  <a
+  <Anchor
     v-if="href !== undefined"
     :class="classes"
     :href="disabled ? undefined : href"
@@ -40,7 +41,7 @@ const classes = computed(() => [
     <slot /><span v-if="trailing != null || $slots.trailing" aria-hidden="true"
       ><slot name="trailing">{{ trailing }}</slot></span
     >
-  </a>
+  </Anchor>
   <button v-else :type="type" :class="classes" :disabled="disabled">
     <slot /><span v-if="trailing != null || $slots.trailing" aria-hidden="true"
       ><slot name="trailing">{{ trailing }}</slot></span

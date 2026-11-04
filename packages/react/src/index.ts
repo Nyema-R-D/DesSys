@@ -74,6 +74,12 @@ export {
 } from './components/SignalGrid/SignalGrid';
 export { Container, Section, type SectionProps } from './components/Layout/Layout';
 export { SiteHeader, type NavLink, type SiteHeaderProps } from './components/SiteHeader/SiteHeader';
+export {
+  LinkProvider,
+  type LinkComponent,
+  type LinkComponentProps,
+  type LinkProviderProps,
+} from './components/Link/Link';
 export { Hero, type HeroProps } from './components/Hero/Hero';
 export {
   SiteFooter,

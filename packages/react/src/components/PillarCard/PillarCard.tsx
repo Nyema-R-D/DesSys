@@ -1,5 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { cx } from '../../utils';
+import { Anchor } from '../Link/Link';
 import '@nyema-r-d/css/components/PillarCard.css';
 
 export interface PillarCardProps extends Omit<HTMLAttributes<HTMLElement>, 'title'> {
@@ -32,9 +33,9 @@ export function PillarCard({
   );
   const classes = cx('ny-pillar-card', href && 'ny-focusable', className);
   return href ? (
-    <a href={href} className={classes} {...props}>
+    <Anchor href={href} className={classes} {...props}>
       {content}
-    </a>
+    </Anchor>
   ) : (
     <article className={classes} {...props}>
       {content}

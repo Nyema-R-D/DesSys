@@ -30,6 +30,13 @@ export type { ButtonSize, ButtonVariant } from './components/Button.vue';
 export type { SelectOption } from './components/Select.vue';
 export { filterOption, type ComboboxOption } from './components/Combobox.vue';
 export { resetDeprecationWarnings, warnDeprecated } from './deprecation';
+export { default as LinkProvider } from './components/LinkProvider.vue';
+export {
+  linkComponentKey,
+  provideLinkComponent,
+  useLinkComponent,
+  type LinkComponent,
+} from './link';
 export { default as SignalGrid } from './components/SignalGrid.vue';
 export { default as LabRow } from './components/LabRow.vue';
 export { default as PillarCard } from './components/PillarCard.vue';

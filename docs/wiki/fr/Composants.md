@@ -48,6 +48,7 @@ Package `@nyema-r-d/react`. Catalogue interactif : Storybook (`pnpm storybook`, 
 | `SiteHeader`                  | En-tête de site        | collant, flou, `links` (`current` → `aria-current`), `actions`, menu replié sous 1040 px (Échap ferme)                                                                                                       |
 | `Hero`                        | Ouverture de page      | `eyebrow`, `aside`, `title` (h1 display), `lead`, `actions`, `media` + `mediaLegend`                                                                                                                         |
 | `SiteFooter`                  | Pied de page           | `columns` (navigations nommées), `legal`, `tagline`, `extra`                                                                                                                                                 |
+| `LinkProvider`                | Liens du routeur       | `component` : rend les liens de `SiteHeader`, `SiteFooter`, `Breadcrumb`, `Button href`, des cartes et de `LanguageSwitch` (navigation sans rechargement) ; `<a>` par défaut                                 |
 | `LanguageSwitch`              | Langue FR / BM         | mode bouton (`onChange`) ou lien (`getHref`, `hreflang`) ; langue active marquée du carré-nœud                                                                                                               |
 
 ## Exemple
@@ -59,6 +60,24 @@ Package `@nyema-r-d/react`. Catalogue interactif : Storybook (`pnpm storybook`, 
   </LabRow>
 </Section>
 ```
+
+## Avec un routeur
+
+Les composants rendent leurs liens en `<a href>` : dans une application à routeur (react-router), chaque clic recharge la page. `LinkProvider` leur fait utiliser le lien du routeur. L'adaptateur reçoit les props d'un `<a>` (`href`, `className`, `aria-current`, `onClick`) et doit toutes les transmettre : styles, page courante et fermeture du menu de `SiteHeader` restent gérés par les composants.
+
+```tsx
+import { Link } from 'react-router';
+import { LinkProvider, type LinkComponentProps } from '@nyema-r-d/react';
+
+// Déclaré hors de tout composant : un adaptateur recréé à chaque rendu remonte les liens.
+const RouterLink = ({ href, ...props }: LinkComponentProps) => <Link to={href} {...props} />;
+
+<LinkProvider component={RouterLink}>
+  <App />
+</LinkProvider>;
+```
+
+Un lien externe (`https://…`) passe aussi par l'adaptateur : `Link` de react-router le rend en lien ordinaire.
 
 ## Ajouter un composant
 

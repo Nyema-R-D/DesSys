@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import '@nyema-r-d/css/components/ServiceCard.css';
+import Anchor from './Anchor.vue';
 import type { Locale, ProductStatus } from '../utils';
 import StatusBadge from './StatusBadge.vue';
 
@@ -19,7 +20,7 @@ withDefaults(
 
 <template>
   <component
-    :is="href ? 'a' : 'article'"
+    :is="href ? Anchor : 'article'"
     :href="href"
     :class="['ny-service-card', href && 'ny-focusable']"
   >
