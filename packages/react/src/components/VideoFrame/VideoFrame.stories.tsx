@@ -21,8 +21,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// preload="none" : la capture montre l'affiche, sans attendre ni indicateur de chargement.
-export const Lecture: Story = { args: { src: sample, poster, preload: 'none' } };
+// preload="auto" : la capture visuelle attend que la vidéo soit prête (lecteur sans indicateur
+// de chargement), l'affiche reste visible tant qu'elle n'est pas lancée.
+export const Lecture: Story = { args: { src: sample, poster, preload: 'auto' } };
 export const Chargement: Story = { args: { src: undefined } };
 
 const download = (

@@ -21,6 +21,21 @@ for (const theme of ['anthracite', 'paper'] as const) {
       await page.goto(`/iframe.html?id=${story.id}&viewMode=story&globals=theme:${theme}`);
       await page.locator('#storybook-root > *').first().waitFor();
       await page.evaluate(() => document.fonts.ready);
+      // Images et vidéos chargées : sinon la capture dépend du réseau (image absente, indicateur
+      // de chargement animé du lecteur vidéo).
+      await page.evaluate(() =>
+        Promise.all([
+          ...[...document.images].map((image) => image.decode().catch(() => {})),
+          ...[...document.querySelectorAll('video')].map((video) =>
+            video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA
+              ? undefined
+              : new Promise((resolve) => {
+                  video.addEventListener('canplaythrough', resolve, { once: true });
+                  video.addEventListener('error', resolve, { once: true });
+                }),
+          ),
+        ]),
+      );
       await expect(page).toHaveScreenshot(`${story.id}--${theme}.png`, { fullPage: true });
     });
   }
