@@ -24,6 +24,7 @@ const props = withDefaults(
     caption?: string;
     aspectRatio?: string;
     poster?: string;
+    preload?: 'none' | 'metadata' | 'auto';
     /** Échec connu de l'application (téléchargement refusé…). */
     failure?: 'error' | 'unsupported';
     loadingLabel?: string;
@@ -33,6 +34,7 @@ const props = withDefaults(
     errorMessage?: string;
   }>(),
   {
+    preload: 'metadata',
     loadingLabel: 'Chargement de la vidéo',
     unsupportedTitle: 'Format non lu par ce navigateur',
     unsupportedMessage:
@@ -87,7 +89,7 @@ const onError = (event: Event) => {
         :src="src"
         :poster="poster"
         controls
-        preload="metadata"
+        :preload="preload"
         :aria-label="label"
         @error="onError"
       ></video>
