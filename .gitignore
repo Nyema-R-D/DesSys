@@ -9,4 +9,7 @@ coverage/
 !.env.example
 *.tsbuildinfo
 visual-report/
+# Thème Keycloak : archive et ressources de développement générées par Keycloakify.
+dist_keycloak/
+packages/keycloak-theme/public/keycloakify-dev-resources/
 test-results/

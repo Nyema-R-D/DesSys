@@ -5,6 +5,7 @@
 - [Tokens](Tokens)
 - [Composants](Composants)
 - [Vue](Vue)
+- [Thème Keycloak](Theme-Keycloak)
 - [Versionnage et publication](Versionnage-et-publication)
 - [Politique de dépréciation](Politique-de-depreciation)
 - [Automatisation CI/CD](Automatisation-CI-CD)

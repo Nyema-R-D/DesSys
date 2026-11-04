@@ -5,3 +5,6 @@ coverage
 CHANGELOG.md
 design/claude-design
 docs/i18n/relecture-bm.md
+dist_keycloak
+packages/keycloak-theme/public/keycloakify-dev-resources
+packages/keycloak-theme/src/kc.gen.tsx

@@ -12,6 +12,7 @@ Source unique de la marque NYEMA : tokens, composants React, configuration et au
 | connaître les couleurs, la typographie, l'espacement | [Tokens](Tokens)                                          |
 | choisir un composant                                 | [Composants](Composants)                                  |
 | utiliser Vue plutôt que React                        | [Vue](Vue)                                                |
+| habiller la page de connexion Keycloak               | [Thème Keycloak](Theme-Keycloak)                          |
 | utiliser le CSS seul (HTML, autre framework)         | [Démarrage](Demarrage), section 4                         |
 | comprendre versions, changelog et releases           | [Versionnage et publication](Versionnage-et-publication)  |
 | comprendre la CI/CD                                  | [Automatisation CI/CD](Automatisation-CI-CD)              |
