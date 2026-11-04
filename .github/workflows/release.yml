@@ -57,14 +57,22 @@ jobs:
       - name: Empaqueter les archives
         run: |
           mkdir -p tarballs
-          pnpm -r --filter "./packages/**" exec pnpm pack --pack-destination "$GITHUB_WORKSPACE/tarballs"
+          pnpm -r --filter "./packages/**" --filter "!@nyema-r-d/keycloak-theme" exec pnpm pack --pack-destination "$GITHUB_WORKSPACE/tarballs"
+      # Thème Keycloak : une archive JAR (Maven est fourni par l'image ubuntu-latest).
+      - name: Construire le thème Keycloak
+        run: |
+          pnpm --filter @nyema-r-d/keycloak-theme exec keycloakify build
+          cp packages/keycloak-theme/dist_keycloak/nyema-keycloak-theme.jar \
+            "tarballs/nyema-keycloak-theme-${{ needs.release-please.outputs.tag }}.jar"
       # Vérifiable avec : gh attestation verify <archive>.tgz --repo Nyema-R-D/DesSys
       - name: Attester la provenance des archives
         uses: actions/attest-build-provenance@v4
         with:
-          subject-path: tarballs/*.tgz
+          subject-path: |
+            tarballs/*.tgz
+            tarballs/*.jar
       - name: Joindre les archives à la release
-        run: gh release upload "${{ needs.release-please.outputs.tag }}" tarballs/*.tgz --clobber
+        run: gh release upload "${{ needs.release-please.outputs.tag }}" tarballs/*.tgz tarballs/*.jar --clobber
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

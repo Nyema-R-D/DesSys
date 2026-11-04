@@ -44,6 +44,44 @@ jobs:
       - run: pnpm build:packages
       - run: pnpm --filter @nyema-r-d/create-app test:e2e
 
+  keycloak:
+    name: Thème Keycloak (JAR chargé dans Keycloak 26)
+    runs-on: ubuntu-latest
+    env:
+      # Même version que le Keycloak d'Edge (deploy/compose.yml).
+      KEYCLOAK_IMAGE: quay.io/keycloak/keycloak:26.8.1
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: pnpm build:packages
+      # Maven est fourni par l'image ubuntu-latest.
+      - run: pnpm --filter @nyema-r-d/keycloak-theme exec keycloakify build
+      - name: Démarrer Keycloak avec le thème
+        run: |
+          docker run -d --name keycloak -p 8080:8080 \
+            -e KC_BOOTSTRAP_ADMIN_USERNAME=admin -e KC_BOOTSTRAP_ADMIN_PASSWORD=admin \
+            -v "$PWD/packages/keycloak-theme/dist_keycloak/nyema-keycloak-theme.jar:/opt/keycloak/providers/nyema.jar:ro" \
+            "$KEYCLOAK_IMAGE" start-dev
+          for i in $(seq 1 60); do
+            curl -sf http://localhost:8080/realms/master/.well-known/openid-configuration >/dev/null && exit 0
+            sleep 2
+          done
+          docker logs keycloak
+          exit 1
+      - name: La page de connexion utilise le thème NYEMA
+        run: |
+          token=$(curl -sf -d client_id=admin-cli -d username=admin -d password=admin -d grant_type=password \
+            http://localhost:8080/realms/master/protocol/openid-connect/token | jq -r .access_token)
+          curl -sf -X PUT -H "Authorization: Bearer $token" -H 'Content-Type: application/json' \
+            -d '{"loginTheme":"nyema"}' http://localhost:8080/admin/realms/master
+          # La console d'administration exige PKCE : un défi quelconque suffit pour afficher la page.
+          curl -sf -o login.html 'http://localhost:8080/realms/master/protocol/openid-connect/auth?client_id=security-admin-console&response_type=code&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fadmin%2Fmaster%2Fconsole%2F&code_challenge=abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG&code_challenge_method=S256'
+          grep -q '/login/nyema/' login.html || { echo "::error::La page de connexion n'utilise pas le thème nyema."; cat login.html; exit 1; }
+      - uses: actions/upload-artifact@v7
+        with:
+          name: nyema-keycloak-theme
+          path: packages/keycloak-theme/dist_keycloak/nyema-keycloak-theme.jar
+
   bamanankan:
     name: Inventaire bamanankan à jour
     runs-on: ubuntu-latest

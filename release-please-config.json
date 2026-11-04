@@ -101,6 +101,11 @@
         },
         {
           "type": "json",
+          "path": "packages/keycloak-theme/package.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
           "path": "apps/reference/package.json",
           "jsonpath": "$.version"
         }

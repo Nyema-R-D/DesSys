@@ -125,10 +125,10 @@ Affichés dans les produits : priorité de relecture.
 
 ### `docs/wiki/_Sidebar.md`
 
-- [ ] L17 — [Daminɛ](BM-Daminen)
-- [ ] L21 — [Version ni bɔli](BM-Version-ni-boli)
-- [ ] L24 — [Baarakɛminɛn kura](BM-Kit)
-- [ ] L25 — [Baara tɔw](BM-Baara-tow) · [Sira jiraminɛn](BM-Sira-jiraminen)
+- [ ] L18 — [Daminɛ](BM-Daminen)
+- [ ] L22 — [Version ni bɔli](BM-Version-ni-boli)
+- [ ] L25 — [Baarakɛminɛn kura](BM-Kit)
+- [ ] L26 — [Baara tɔw](BM-Baara-tow) · [Sira jiraminɛn](BM-Sira-jiraminen)
 
 ### `docs/wiki/bm/BM-Daminen.md`
 
