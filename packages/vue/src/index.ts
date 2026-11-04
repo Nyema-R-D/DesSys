@@ -29,6 +29,9 @@ export type { MarkTone } from './components/Mark.vue';
 export type { ButtonSize, ButtonVariant } from './components/Button.vue';
 export type { SelectOption } from './components/Select.vue';
 export { filterOption, type ComboboxOption } from './components/Combobox.vue';
+export { default as PolygonEditor } from './components/PolygonEditor.vue';
+export type { PolygonEditorImage } from './components/PolygonEditor.vue';
+export type { PolygonPoint } from './polygon';
 export { resetDeprecationWarnings, warnDeprecated } from './deprecation';
 export { default as LinkProvider } from './components/LinkProvider.vue';
 export {

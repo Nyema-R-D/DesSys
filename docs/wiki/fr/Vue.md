@@ -33,6 +33,7 @@ Tous les composants de `@nyema-r-d/react` existent en Vue, avec les adaptations 
 | React                                                                        | Vue                                                                                                                      |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `value` + `onChange`                                                         | `v-model` (`TextField`, `DateField`, `Select`, `Combobox`, `Checkbox`, `Switch`, `RadioGroup`, `Tabs`, `LanguageSwitch`) |
+| `polygon` + `onChange` (`PolygonEditor`)                                     | `v-model:polygon`                                                                                                        |
 | `page` + `onPageChange`                                                      | `v-model:page` (`Pagination`)                                                                                            |
 | `open` + `onOpenChange`                                                      | `v-model:open` (`LabRow`), `@close` (`Dialog`, `Drawer`)                                                                 |
 | `sort` + `onSortChange`                                                      | `v-model:sort` (`DataTable`)                                                                                             |
@@ -71,4 +72,4 @@ export const NyemaRouterLink = defineComponent({
 
 ## Garantie de parité
 
-`packages/vue/src/test/parity.test.ts` rend chaque composant Vue côté serveur et compare son HTML (classes, attributs ARIA, structure) à celui du composant React avec les mêmes props. Toute divergence fait échouer la CI. Un composant Vue exporté sans cas de parité fait aussi échouer le test. 94 cas couvrent les 51 composants, dans leurs principaux états (ouvert/fermé, trié, vide, chargement, erreur, lien/bouton).
+`packages/vue/src/test/parity.test.ts` rend chaque composant Vue côté serveur et compare son HTML (classes, attributs ARIA, structure) à celui du composant React avec les mêmes props. Toute divergence fait échouer la CI. Un composant Vue exporté sans cas de parité fait aussi échouer le test. 98 cas couvrent les 52 composants, dans leurs principaux états (ouvert/fermé, trié, vide, chargement, erreur, lien/bouton).

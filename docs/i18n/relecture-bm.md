@@ -185,7 +185,7 @@ Affichés dans les produits : priorité de relecture.
 - [ ] L21 — `PillarCard` | Kartu |
 - [ ] L22 — `ServiceCard`, `Tag` | Baara kartu, taamasiyɛn |
 - [ ] L23 — `SignalGrid` | Taamasiyɛn kare |
-- [ ] L24 — `Icon` | Ja fitinin (Lucide) |
+- [ ] L24 — `Icon`, `PolygonEditor` | Ja fitinin (Lucide) |
 - [ ] L25 — `ConnectionStatus`, `OfflineBanner` | Ɛntɛrinɛti cogoya, ɲɔgɔn sɔrɔli |
 - [ ] L26 — `Tabs`, `Dialog`, `Drawer`, `Toast`, `Alert` | Onglets, modale, kunnafoni fitinin |
 - [ ] L27 — `DataTable`, `Pagination` | Kunnafoniw tabulo, ɲɛw |

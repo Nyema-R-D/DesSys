@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import axe from 'axe-core';
-import { defineComponent, h, ref } from 'vue';
+import { defineComponent, h, nextTick, ref } from 'vue';
 import {
   Accordion,
   Alert,
@@ -29,6 +29,7 @@ import {
   Logo,
   OfflineBanner,
   Pagination,
+  PolygonEditor,
   RadioGroup,
   Select,
   ServiceCard,
@@ -134,6 +135,37 @@ describe('Comportements Vue', () => {
     await link.trigger('click');
     expect(visited).toEqual(['/cameras']);
     expect(toggle.attributes('aria-expanded')).toBe('false');
+    wrapper.unmount();
+  });
+
+  it('PolygonEditor : v-model:polygon, clavier et focus', async () => {
+    const polygon = ref<[number, number][]>([
+      [0.1, 0.1],
+      [0.5, 0.1],
+      [0.3, 0.5],
+    ]);
+    const wrapper = mount(
+      {
+        render: () =>
+          h(PolygonEditor, {
+            label: 'Zone Quai',
+            polygon: polygon.value,
+            'onUpdate:polygon': (value: [number, number][]) => (polygon.value = value),
+          }),
+      },
+      { attachTo: document.body },
+    );
+    const first = wrapper.get('[data-index="0"]');
+    await first.trigger('keydown', { key: 'ArrowRight' });
+    expect(polygon.value[0]).toEqual([0.105, 0.1]);
+    await first.trigger('keydown', { key: 'Enter' });
+    await nextTick();
+    expect(polygon.value).toHaveLength(4);
+    expect(document.activeElement).toBe(wrapper.get('[data-index="1"]').element);
+    await wrapper.get('[data-index="1"]').trigger('keydown', { key: 'Delete' });
+    await nextTick();
+    expect(polygon.value).toHaveLength(3);
+    expect(wrapper.get('[role="status"]').text()).toBe('');
     wrapper.unmount();
   });
 

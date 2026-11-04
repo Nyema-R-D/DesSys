@@ -47,6 +47,12 @@ export {
   type SpinnerProps,
 } from './components/Progress/Progress';
 export { Tooltip, type TooltipProps } from './components/Tooltip/Tooltip';
+export {
+  PolygonEditor,
+  type PolygonEditorImage,
+  type PolygonEditorProps,
+  type PolygonPoint,
+} from './components/PolygonEditor/PolygonEditor';
 export { Menu, type MenuItem, type MenuProps } from './components/Menu/Menu';
 export { Chip, ChipGroup, type ChipProps } from './components/Chip/Chip';
 export { Checkbox, type CheckboxProps } from './components/Checkbox/Checkbox';
