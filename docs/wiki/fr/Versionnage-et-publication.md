@@ -13,6 +13,7 @@ commit conventionnel → PR (squash) → main
 fusion de la PR de release
         ├─ tag vX.Y.Z + release GitHub (notes = CHANGELOG + en-tête FR/BM)
         ├─ publication des packages sur GitHub Packages + archives .tgz jointes et attestées
+        ├─ thème Keycloak : nyema-keycloak-theme-vX.Y.Z.jar joint et attesté
         ├─ documentation (référence + Storybook) jointe, déployée sur Pages si activé
         ├─ issues du jalon vX.Y.Z commentées « Livré dans… », jalon fermé
         └─ wiki, backlog, feuille de route et tableau de bord régénérés
@@ -63,6 +64,7 @@ Si l'attente se prolonge, le travail de `next` peut sortir en version mineure 0.
 Chaque archive `.tgz` jointe à une release porte une attestation de build GitHub (GitHub Packages ne gère pas la provenance npm), à partir des releases suivant la v0.6.0 :
 
 ```bash
-gh release download vX.Y.Z --repo Nyema-R-D/DesSys --pattern '*.tgz'
+gh release download vX.Y.Z --repo Nyema-R-D/DesSys --pattern '*.tgz' --pattern '*.jar'
 gh attestation verify nyema-r-d-react-X.Y.Z.tgz --repo Nyema-R-D/DesSys
+gh attestation verify nyema-keycloak-theme-vX.Y.Z.jar --repo Nyema-R-D/DesSys
 ```
