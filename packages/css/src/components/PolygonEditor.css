@@ -65,16 +65,17 @@ polyline.ny-polygon-editor__shape {
 .ny-polygon-editor__point:active {
   cursor: grabbing;
 }
-/* Région annoncée toujours présente (même vide) : pas d'espace tant qu'elle est vide. */
 .ny-polygon-editor__status,
 .ny-polygon-editor__caption {
-  margin: 0;
+  margin: var(--space-2) 0 0;
   color: var(--text-secondary);
   font: var(--type-small);
 }
-.ny-polygon-editor__status:not(:empty),
-.ny-polygon-editor__caption {
-  margin-top: var(--space-2);
+/* Ligne d'état réservée, même vide : la légende et ce qui suit ne bougent pas quand le message
+   apparaît ou disparaît pendant le dessin (3e point placé, maximum atteint). */
+.ny-polygon-editor__status {
+  min-height: 1.5em; /* navigateurs sans unité lh */
+  min-height: 1lh;
 }
 .ny-polygon-editor--disabled .ny-polygon-editor__surface,
 .ny-polygon-editor--disabled .ny-polygon-editor__point {
