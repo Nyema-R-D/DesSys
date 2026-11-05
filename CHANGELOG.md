@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/Nyema-R-D/DesSys/compare/v0.7.0...v0.7.1) (2026-11-05)
+
+
+### Corrections · Latilenniw
+
+* **css:** largeur de VideoFrame et ligne d'état de PolygonEditor ([#99](https://github.com/Nyema-R-D/DesSys/issues/99)) ([a0f89a2](https://github.com/Nyema-R-D/DesSys/commit/a0f89a2880a81c82ffc797303a9cee3503cf30d5))
+
 ## [0.7.0](https://github.com/Nyema-R-D/DesSys/compare/v0.6.1...v0.7.0) (2026-11-04)
 
 
